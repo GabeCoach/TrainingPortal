@@ -10,24 +10,26 @@ using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
 using MGCTrainingPortalAPI.Models;
+using MGCTrainingPortalAPI.Repository;
 
 namespace MGCTrainingPortalAPI.Controllers
 {
     public class QuizQuestionAnswerOptionsController : ApiController
     {
         private DB_A35BD0_trainingportaldbEntities db = new DB_A35BD0_trainingportaldbEntities();
+        private QuizQuestionAnswerOptionsRepository oQuizAnswerOptionsRepo = new QuizQuestionAnswerOptionsRepository();
 
         // GET: api/QuizQuestionAnswerOptions
-        public IQueryable<QuizQuestionAnswerOption> GetQuizQuestionAnswerOptions()
+        public IHttpActionResult GetQuizQuestionAnswerOptions()
         {
-            return db.QuizQuestionAnswerOptions;
+            return Json(oQuizAnswerOptionsRepo.SelectAllFromDB());
         }
 
         // GET: api/QuizQuestionAnswerOptions/5
         [ResponseType(typeof(QuizQuestionAnswerOption))]
         public async Task<IHttpActionResult> GetQuizQuestionAnswerOption(int id)
         {
-            QuizQuestionAnswerOption quizQuestionAnswerOption = await db.QuizQuestionAnswerOptions.FindAsync(id);
+            QuizQuestionAnswerOption quizQuestionAnswerOption = await oQuizAnswerOptionsRepo.SelectById(id);
             if (quizQuestionAnswerOption == null)
             {
                 return NotFound();
@@ -50,23 +52,7 @@ namespace MGCTrainingPortalAPI.Controllers
                 return BadRequest();
             }
 
-            db.Entry(quizQuestionAnswerOption).State = EntityState.Modified;
-
-            try
-            {
-                await db.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!QuizQuestionAnswerOptionExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
+            await oQuizAnswerOptionsRepo.UpdateToDB(quizQuestionAnswerOption, id);
 
             return StatusCode(HttpStatusCode.NoContent);
         }
@@ -80,24 +66,22 @@ namespace MGCTrainingPortalAPI.Controllers
                 return BadRequest(ModelState);
             }
 
-            db.QuizQuestionAnswerOptions.Add(quizQuestionAnswerOption);
-            await db.SaveChangesAsync();
+            await oQuizAnswerOptionsRepo.SaveToDB(quizQuestionAnswerOption);
 
-            return CreatedAtRoute("DefaultApi", new { id = quizQuestionAnswerOption.Id }, quizQuestionAnswerOption);
+            return Ok();
         }
 
         // DELETE: api/QuizQuestionAnswerOptions/5
         [ResponseType(typeof(QuizQuestionAnswerOption))]
         public async Task<IHttpActionResult> DeleteQuizQuestionAnswerOption(int id)
         {
-            QuizQuestionAnswerOption quizQuestionAnswerOption = await db.QuizQuestionAnswerOptions.FindAsync(id);
+            QuizQuestionAnswerOption quizQuestionAnswerOption = await oQuizAnswerOptionsRepo.SelectById(id);
             if (quizQuestionAnswerOption == null)
             {
                 return NotFound();
             }
 
-            db.QuizQuestionAnswerOptions.Remove(quizQuestionAnswerOption);
-            await db.SaveChangesAsync();
+            await oQuizAnswerOptionsRepo.DeleteFromDB(id);
 
             return Ok(quizQuestionAnswerOption);
         }

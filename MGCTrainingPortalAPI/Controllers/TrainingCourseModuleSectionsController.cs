@@ -10,24 +10,26 @@ using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
 using MGCTrainingPortalAPI.Models;
+using MGCTrainingPortalAPI.Repository;
 
 namespace MGCTrainingPortalAPI.Controllers
 {
     public class TrainingCourseModuleSectionsController : ApiController
     {
         private DB_A35BD0_trainingportaldbEntities db = new DB_A35BD0_trainingportaldbEntities();
+        private TrainingCourseModuleSectionsRepository oTrainingCourseModuleSectionsRepo = new TrainingCourseModuleSectionsRepository();
 
         // GET: api/TrainingCourseModuleSections
-        public IQueryable<TrainingCourseModuleSection> GetTrainingCourseModuleSections()
+        public IHttpActionResult GetTrainingCourseModuleSections()
         {
-            return db.TrainingCourseModuleSections;
+            return Json(oTrainingCourseModuleSectionsRepo.SelectAllFromDB());
         }
 
         // GET: api/TrainingCourseModuleSections/5
         [ResponseType(typeof(TrainingCourseModuleSection))]
         public async Task<IHttpActionResult> GetTrainingCourseModuleSection(int id)
         {
-            TrainingCourseModuleSection trainingCourseModuleSection = await db.TrainingCourseModuleSections.FindAsync(id);
+            TrainingCourseModuleSection trainingCourseModuleSection = await oTrainingCourseModuleSectionsRepo.SelectById(id);
             if (trainingCourseModuleSection == null)
             {
                 return NotFound();
@@ -50,23 +52,7 @@ namespace MGCTrainingPortalAPI.Controllers
                 return BadRequest();
             }
 
-            db.Entry(trainingCourseModuleSection).State = EntityState.Modified;
-
-            try
-            {
-                await db.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!TrainingCourseModuleSectionExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
+            await oTrainingCourseModuleSectionsRepo.UpdateToDB(trainingCourseModuleSection, id);
 
             return StatusCode(HttpStatusCode.NoContent);
         }
@@ -80,23 +66,7 @@ namespace MGCTrainingPortalAPI.Controllers
                 return BadRequest(ModelState);
             }
 
-            db.TrainingCourseModuleSections.Add(trainingCourseModuleSection);
-
-            try
-            {
-                await db.SaveChangesAsync();
-            }
-            catch (DbUpdateException)
-            {
-                if (TrainingCourseModuleSectionExists(trainingCourseModuleSection.Id))
-                {
-                    return Conflict();
-                }
-                else
-                {
-                    throw;
-                }
-            }
+            await oTrainingCourseModuleSectionsRepo.SaveToDB(trainingCourseModuleSection);
 
             return CreatedAtRoute("DefaultApi", new { id = trainingCourseModuleSection.Id }, trainingCourseModuleSection);
         }
@@ -105,16 +75,8 @@ namespace MGCTrainingPortalAPI.Controllers
         [ResponseType(typeof(TrainingCourseModuleSection))]
         public async Task<IHttpActionResult> DeleteTrainingCourseModuleSection(int id)
         {
-            TrainingCourseModuleSection trainingCourseModuleSection = await db.TrainingCourseModuleSections.FindAsync(id);
-            if (trainingCourseModuleSection == null)
-            {
-                return NotFound();
-            }
-
-            db.TrainingCourseModuleSections.Remove(trainingCourseModuleSection);
-            await db.SaveChangesAsync();
-
-            return Ok(trainingCourseModuleSection);
+            await oTrainingCourseModuleSectionsRepo.DeleteFromDB(id);
+            return Ok();
         }
 
         protected override void Dispose(bool disposing)

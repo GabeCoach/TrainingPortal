@@ -10,111 +10,115 @@ using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
 using MGCTrainingPortalAPI.Models;
+using MGCTrainingPortalAPI.Repository;
 
 namespace MGCTrainingPortalAPI.Controllers
 {
     public class QuizQuestionCorrectAnswersController : ApiController
     {
         private DB_A35BD0_trainingportaldbEntities db = new DB_A35BD0_trainingportaldbEntities();
+        private QuizQuestionCorrectAnswerRepository oQuizQuestionCorrectAnswerRepo = new QuizQuestionCorrectAnswerRepository();
 
         // GET: api/QuizQuestionCorrectAnswers
-        public IQueryable<QuizQuestionCorrectAnswer> GetQuizQuestionCorrectAnswers()
+        public IHttpActionResult GetQuizQuestionCorrectAnswers()
         {
-            return db.QuizQuestionCorrectAnswers;
+            try
+            {
+                return Json(oQuizQuestionCorrectAnswerRepo.SelectAllFromDB());
+            }
+            catch(Exception ex)
+            {
+                return InternalServerError();
+            }
         }
 
         // GET: api/QuizQuestionCorrectAnswers/5
         [ResponseType(typeof(QuizQuestionCorrectAnswer))]
         public async Task<IHttpActionResult> GetQuizQuestionCorrectAnswer(int id)
         {
-            QuizQuestionCorrectAnswer quizQuestionCorrectAnswer = await db.QuizQuestionCorrectAnswers.FindAsync(id);
-            if (quizQuestionCorrectAnswer == null)
-            {
-                return NotFound();
-            }
 
-            return Ok(quizQuestionCorrectAnswer);
+            try
+            {
+                QuizQuestionCorrectAnswer quizQuestionCorrectAnswer = await oQuizQuestionCorrectAnswerRepo.SelectById(id);
+                if (quizQuestionCorrectAnswer == null)
+                {
+                    return NotFound();
+                }
+
+                return Ok(quizQuestionCorrectAnswer);
+            }
+            catch(Exception ex)
+            {
+                return InternalServerError();
+            }
+            
         }
 
         // PUT: api/QuizQuestionCorrectAnswers/5
         [ResponseType(typeof(void))]
         public async Task<IHttpActionResult> PutQuizQuestionCorrectAnswer(int id, QuizQuestionCorrectAnswer quizQuestionCorrectAnswer)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-
-            if (id != quizQuestionCorrectAnswer.Id)
-            {
-                return BadRequest();
-            }
-
-            db.Entry(quizQuestionCorrectAnswer).State = EntityState.Modified;
-
             try
             {
-                await db.SaveChangesAsync();
+                if (!ModelState.IsValid)
+                {
+                    return BadRequest(ModelState);
+                }
+
+                if (id != quizQuestionCorrectAnswer.Id)
+                {
+                    return BadRequest();
+                }
+
+                await oQuizQuestionCorrectAnswerRepo.UpdateToDB(quizQuestionCorrectAnswer, id);
+
+                return StatusCode(HttpStatusCode.NoContent);
             }
-            catch (DbUpdateConcurrencyException)
+            catch(Exception ex)
             {
-                if (!QuizQuestionCorrectAnswerExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
+                return InternalServerError();
             }
 
-            return StatusCode(HttpStatusCode.NoContent);
+           
         }
 
         // POST: api/QuizQuestionCorrectAnswers
         [ResponseType(typeof(QuizQuestionCorrectAnswer))]
         public async Task<IHttpActionResult> PostQuizQuestionCorrectAnswer(QuizQuestionCorrectAnswer quizQuestionCorrectAnswer)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-
-            db.QuizQuestionCorrectAnswers.Add(quizQuestionCorrectAnswer);
-
             try
             {
-                await db.SaveChangesAsync();
+                if (!ModelState.IsValid)
+                {
+                    return BadRequest(ModelState);
+                }
+
+                await oQuizQuestionCorrectAnswerRepo.SaveToDB(quizQuestionCorrectAnswer);
+
+                return CreatedAtRoute("DefaultApi", new { id = quizQuestionCorrectAnswer.Id }, quizQuestionCorrectAnswer);
             }
-            catch (DbUpdateException)
+            catch(Exception ex)
             {
-                if (QuizQuestionCorrectAnswerExists(quizQuestionCorrectAnswer.Id))
-                {
-                    return Conflict();
-                }
-                else
-                {
-                    throw;
-                }
+                return InternalServerError();
             }
 
-            return CreatedAtRoute("DefaultApi", new { id = quizQuestionCorrectAnswer.Id }, quizQuestionCorrectAnswer);
+            
         }
 
         // DELETE: api/QuizQuestionCorrectAnswers/5
         [ResponseType(typeof(QuizQuestionCorrectAnswer))]
         public async Task<IHttpActionResult> DeleteQuizQuestionCorrectAnswer(int id)
         {
-            QuizQuestionCorrectAnswer quizQuestionCorrectAnswer = await db.QuizQuestionCorrectAnswers.FindAsync(id);
-            if (quizQuestionCorrectAnswer == null)
+            try
             {
-                return NotFound();
+                await oQuizQuestionCorrectAnswerRepo.DeleteFromDB(id);
+                return Ok();
             }
-
-            db.QuizQuestionCorrectAnswers.Remove(quizQuestionCorrectAnswer);
-            await db.SaveChangesAsync();
-
-            return Ok(quizQuestionCorrectAnswer);
+            catch(Exception ex)
+            {
+                return InternalServerError();
+            }
+            
         }
 
         protected override void Dispose(bool disposing)

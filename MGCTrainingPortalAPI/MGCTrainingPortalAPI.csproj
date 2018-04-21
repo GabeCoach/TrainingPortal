@@ -187,6 +187,8 @@
       <DependentUpon>MGCTrainingPortalDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\QuizQuestionAnswerOptionsRepository.cs" />
+    <Compile Include="Repository\QuizQuestionCorrectAnswerRepository.cs" />
     <Compile Include="Repository\QuizQuestionsAnswerOptions.cs" />
     <Compile Include="Repository\QuizQuestionsRepository.cs" />
     <Compile Include="Repository\TrainingCourseModuleQuizsRepository.cs" />

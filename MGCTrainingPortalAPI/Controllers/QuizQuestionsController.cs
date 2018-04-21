@@ -10,24 +10,26 @@ using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
 using MGCTrainingPortalAPI.Models;
+using MGCTrainingPortalAPI.Repository;
 
 namespace MGCTrainingPortalAPI.Controllers
 {
     public class QuizQuestionsController : ApiController
     {
         private DB_A35BD0_trainingportaldbEntities db = new DB_A35BD0_trainingportaldbEntities();
+        private QuizQuestionsRepository oQuizQuestionRepo = new QuizQuestionsRepository();
 
         // GET: api/QuizQuestions
-        public IQueryable<QuizQuestion> GetQuizQuestions()
+        public IHttpActionResult GetQuizQuestions()
         {
-            return db.QuizQuestions;
+            return Json(oQuizQuestionRepo.SelectAllFromDB());
         }
 
         // GET: api/QuizQuestions/5
         [ResponseType(typeof(QuizQuestion))]
         public async Task<IHttpActionResult> GetQuizQuestion(int id)
         {
-            QuizQuestion quizQuestion = await db.QuizQuestions.FindAsync(id);
+            QuizQuestion quizQuestion = await oQuizQuestionRepo.SelectById(id);
             if (quizQuestion == null)
             {
                 return NotFound();
@@ -50,23 +52,7 @@ namespace MGCTrainingPortalAPI.Controllers
                 return BadRequest();
             }
 
-            db.Entry(quizQuestion).State = EntityState.Modified;
-
-            try
-            {
-                await db.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!QuizQuestionExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
+            await oQuizQuestionRepo.UpdateToDB(quizQuestion, id);
 
             return StatusCode(HttpStatusCode.NoContent);
         }
@@ -80,8 +66,7 @@ namespace MGCTrainingPortalAPI.Controllers
                 return BadRequest(ModelState);
             }
 
-            db.QuizQuestions.Add(quizQuestion);
-            await db.SaveChangesAsync();
+            await oQuizQuestionRepo.SaveToDB(quizQuestion);
 
             return CreatedAtRoute("DefaultApi", new { id = quizQuestion.Id }, quizQuestion);
         }
@@ -96,8 +81,7 @@ namespace MGCTrainingPortalAPI.Controllers
                 return NotFound();
             }
 
-            db.QuizQuestions.Remove(quizQuestion);
-            await db.SaveChangesAsync();
+            await oQuizQuestionRepo.DeleteFromDB(id);
 
             return Ok(quizQuestion);
         }

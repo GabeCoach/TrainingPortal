@@ -10,24 +10,26 @@ using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
 using MGCTrainingPortalAPI.Models;
+using MGCTrainingPortalAPI.Repository;
 
 namespace MGCTrainingPortalAPI.Controllers
 {
     public class TrainingCourseModuleQuizsController : ApiController
     {
-        private DB_A35BD0_trainingportaldbEntities db = new DB_A35BD0_trainingportaldbEntities();
+        DB_A35BD0_trainingportaldbEntities db = new DB_A35BD0_trainingportaldbEntities();
+        private TrainingCourseModuleQuizsRepository oTrainingCourseModuleQuizRepo = new TrainingCourseModuleQuizsRepository();
 
         // GET: api/TrainingCourseModuleQuizs
-        public IQueryable<TrainingCourseModuleQuiz> GetTrainingCourseModuleQuizs()
+        public IHttpActionResult GetTrainingCourseModuleQuizs()
         {
-            return db.TrainingCourseModuleQuizs;
+            return Json(oTrainingCourseModuleQuizRepo.SelectAllFromDB());
         }
 
         // GET: api/TrainingCourseModuleQuizs/5
         [ResponseType(typeof(TrainingCourseModuleQuiz))]
         public async Task<IHttpActionResult> GetTrainingCourseModuleQuiz(int id)
         {
-            TrainingCourseModuleQuiz trainingCourseModuleQuiz = await db.TrainingCourseModuleQuizs.FindAsync(id);
+            TrainingCourseModuleQuiz trainingCourseModuleQuiz = await oTrainingCourseModuleQuizRepo.SelectById(id);
             if (trainingCourseModuleQuiz == null)
             {
                 return NotFound();
@@ -50,23 +52,7 @@ namespace MGCTrainingPortalAPI.Controllers
                 return BadRequest();
             }
 
-            db.Entry(trainingCourseModuleQuiz).State = EntityState.Modified;
-
-            try
-            {
-                await db.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!TrainingCourseModuleQuizExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
+            await oTrainingCourseModuleQuizRepo.UpdateToDB(trainingCourseModuleQuiz, id);
 
             return StatusCode(HttpStatusCode.NoContent);
         }
@@ -80,8 +66,7 @@ namespace MGCTrainingPortalAPI.Controllers
                 return BadRequest(ModelState);
             }
 
-            db.TrainingCourseModuleQuizs.Add(trainingCourseModuleQuiz);
-            await db.SaveChangesAsync();
+            await oTrainingCourseModuleQuizRepo.SaveToDB(trainingCourseModuleQuiz);
 
             return CreatedAtRoute("DefaultApi", new { id = trainingCourseModuleQuiz.Id }, trainingCourseModuleQuiz);
         }
@@ -90,14 +75,11 @@ namespace MGCTrainingPortalAPI.Controllers
         [ResponseType(typeof(TrainingCourseModuleQuiz))]
         public async Task<IHttpActionResult> DeleteTrainingCourseModuleQuiz(int id)
         {
-            TrainingCourseModuleQuiz trainingCourseModuleQuiz = await db.TrainingCourseModuleQuizs.FindAsync(id);
+            TrainingCourseModuleQuiz trainingCourseModuleQuiz = await oTrainingCourseModuleQuizRepo.DeleteFromDB(id);
             if (trainingCourseModuleQuiz == null)
             {
                 return NotFound();
             }
-
-            db.TrainingCourseModuleQuizs.Remove(trainingCourseModuleQuiz);
-            await db.SaveChangesAsync();
 
             return Ok(trainingCourseModuleQuiz);
         }
