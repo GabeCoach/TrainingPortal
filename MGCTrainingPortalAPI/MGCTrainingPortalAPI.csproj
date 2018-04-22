@@ -122,20 +122,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Models\MGCTrainingPortalDB.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>MGCTrainingPortalDB.edmx</DependentUpon>
-      <LastGenOutput>MGCTrainingPortalDB.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Models\MGCTrainingPortalDB.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>MGCTrainingPortalDB.edmx</DependentUpon>
-      <LastGenOutput>MGCTrainingPortalDB.cs</LastGenOutput>
-    </Content>
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\CourseBuilderController.cs" />
     <Compile Include="Controllers\QuizQuestionAnswerOptionsController.cs" />
     <Compile Include="Controllers\QuizQuestionCorrectAnswersController.cs" />
     <Compile Include="Controllers\QuizQuestionsController.cs" />
@@ -143,68 +134,10 @@
     <Compile Include="Controllers\TrainingCourseModulesController.cs" />
     <Compile Include="Controllers\TrainingCourseModuleSectionsController.cs" />
     <Compile Include="Controllers\TrainingCoursesController.cs" />
-    <Compile Include="Interfaces\IRepository.cs" />
-    <Compile Include="Models\MGCTrainingPortalDB.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>MGCTrainingPortalDB.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\MGCTrainingPortalDB.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>MGCTrainingPortalDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\MGCTrainingPortalDB.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>MGCTrainingPortalDB.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Models\QuizQuestion.cs">
-      <DependentUpon>MGCTrainingPortalDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\QuizQuestionAnswerOption.cs">
-      <DependentUpon>MGCTrainingPortalDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\QuizQuestionCorrectAnswer.cs">
-      <DependentUpon>MGCTrainingPortalDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\TrainingCourse.cs">
-      <DependentUpon>MGCTrainingPortalDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\TrainingCourseModule.cs">
-      <DependentUpon>MGCTrainingPortalDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\TrainingCourseModuleQuiz.cs">
-      <DependentUpon>MGCTrainingPortalDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\TrainingCourseModuleSection.cs">
-      <DependentUpon>MGCTrainingPortalDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\TrainingCourseModuleSubSection.cs">
-      <DependentUpon>MGCTrainingPortalDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\TrainingCourseQuizScore.cs">
-      <DependentUpon>MGCTrainingPortalDB.tt</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repository\QuizQuestionAnswerOptionsRepository.cs" />
-    <Compile Include="Repository\QuizQuestionCorrectAnswerRepository.cs" />
-    <Compile Include="Repository\QuizQuestionsAnswerOptions.cs" />
-    <Compile Include="Repository\QuizQuestionsRepository.cs" />
-    <Compile Include="Repository\TrainingCourseModuleQuizsRepository.cs" />
-    <Compile Include="Repository\TrainingCourseModuleRepository.cs" />
-    <Compile Include="Repository\TrainingCourseModuleSectionsRepository.cs" />
-    <Compile Include="Repository\TrainingCoursesRepository.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EntityDeploy Include="Models\MGCTrainingPortalDB.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>MGCTrainingPortalDB.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\MGCTrainingPortalDB.edmx.diagram">
-      <DependentUpon>MGCTrainingPortalDB.edmx</DependentUpon>
-    </Content>
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -218,6 +151,16 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MGCTrainingPortalAPI.CourseBuilder\MGCTrainingPortalAPI.CourseBuilder.csproj">
+      <Project>{cb6a91bc-b73d-4d7c-aff3-b22ea3f02c3a}</Project>
+      <Name>MGCTrainingPortalAPI.CourseBuilder</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MGCTrainingPortalAPI.Repository\MGCTrainingPortalAPI.Repository.csproj">
+      <Project>{ccad43eb-d086-459a-b12f-e2b3e8ac7484}</Project>
+      <Name>MGCTrainingPortalAPI.Repository</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -1,0 +1,80 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Models\MGCTrainingPortalDB.Context.tt" />
+    <None Remove="Models\MGCTrainingPortalDB.edmx.diagram" />
+    <None Remove="Models\MGCTrainingPortalDB.tt" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Models\MGCTrainingPortalDB.Context.tt">
+      <DependentUpon>MGCTrainingPortalDB.edmx</DependentUpon>
+      <Generator>TextTemplatingFileGenerator</Generator>
+    </Content>
+    <Content Include="Models\MGCTrainingPortalDB.edmx.diagram">
+      <DependentUpon>MGCTrainingPortalDB.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\MGCTrainingPortalDB.tt">
+      <DependentUpon>MGCTrainingPortalDB.edmx</DependentUpon>
+      <Generator>TextTemplatingFileGenerator</Generator>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="EntityFramework" Version="6.2.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MGCTrainingPortalAPI.Interfaces\MGCTrainingPortalAPI.Interfaces.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Models\MGCTrainingPortalDB.Context.cs">
+      <DependentUpon>MGCTrainingPortalDB.Context.tt</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Update="Models\MGCTrainingPortalDB.cs">
+      <DependentUpon>MGCTrainingPortalDB.tt</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Update="Models\MGCTrainingPortalDB.Designer.cs">
+      <DependentUpon>MGCTrainingPortalDB.edmx</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Update="Models\QuizQuestion.cs">
+      <DependentUpon>MGCTrainingPortalDB.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Models\QuizQuestionAnswerOption.cs">
+      <DependentUpon>MGCTrainingPortalDB.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Models\QuizQuestionCorrectAnswer.cs">
+      <DependentUpon>MGCTrainingPortalDB.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Models\TrainingCourse.cs">
+      <DependentUpon>MGCTrainingPortalDB.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Models\TrainingCourseModule.cs">
+      <DependentUpon>MGCTrainingPortalDB.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Models\TrainingCourseModuleQuiz.cs">
+      <DependentUpon>MGCTrainingPortalDB.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Models\TrainingCourseModuleSection.cs">
+      <DependentUpon>MGCTrainingPortalDB.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Models\TrainingCourseModuleSubSection.cs">
+      <DependentUpon>MGCTrainingPortalDB.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Models\TrainingCourseQuizScore.cs">
+      <DependentUpon>MGCTrainingPortalDB.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+</Project>
