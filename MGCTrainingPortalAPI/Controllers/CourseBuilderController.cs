@@ -10,6 +10,9 @@ namespace MGCTrainingPortalAPI.Controllers
 {
     public class CourseBuilderController : ApiController
     {
-         
+       public IHttpActionResult GetFullCourseMaterial(int iTrainingCourseId)
+       {
+             
+       }
     }
 }

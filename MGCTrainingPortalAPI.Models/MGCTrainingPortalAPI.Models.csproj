@@ -1,0 +1,72 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="MGCTrainingPortalDB.Context.tt" />
+    <None Remove="MGCTrainingPortalDB.edmx.diagram" />
+    <None Remove="MGCTrainingPortalDB.tt" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="MGCTrainingPortalDB.Context.tt">
+      <DependentUpon>MGCTrainingPortalDB.edmx</DependentUpon>
+      <Generator>TextTemplatingFileGenerator</Generator>
+    </Content>
+    <Content Include="MGCTrainingPortalDB.edmx.diagram">
+      <DependentUpon>MGCTrainingPortalDB.edmx</DependentUpon>
+    </Content>
+    <Content Include="MGCTrainingPortalDB.tt">
+      <DependentUpon>MGCTrainingPortalDB.edmx</DependentUpon>
+      <Generator>TextTemplatingFileGenerator</Generator>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="EntityFramework" Version="6.2.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="MGCTrainingPortalDB.Context.cs">
+      <DependentUpon>MGCTrainingPortalDB.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Update="MGCTrainingPortalDB.cs">
+      <DependentUpon>MGCTrainingPortalDB.tt</DependentUpon>
+    </Compile>
+    <Compile Update="MGCTrainingPortalDB.Designer.cs">
+      <DependentUpon>MGCTrainingPortalDB.edmx</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Update="QuizQuestion.cs">
+      <DependentUpon>MGCTrainingPortalDB.tt</DependentUpon>
+    </Compile>
+    <Compile Update="QuizQuestionAnswerOption.cs">
+      <DependentUpon>MGCTrainingPortalDB.tt</DependentUpon>
+    </Compile>
+    <Compile Update="QuizQuestionCorrectAnswer.cs">
+      <DependentUpon>MGCTrainingPortalDB.tt</DependentUpon>
+    </Compile>
+    <Compile Update="TrainingCourse.cs">
+      <DependentUpon>MGCTrainingPortalDB.tt</DependentUpon>
+    </Compile>
+    <Compile Update="TrainingCourseModule.cs">
+      <DependentUpon>MGCTrainingPortalDB.tt</DependentUpon>
+    </Compile>
+    <Compile Update="TrainingCourseModuleQuiz.cs">
+      <DependentUpon>MGCTrainingPortalDB.tt</DependentUpon>
+    </Compile>
+    <Compile Update="TrainingCourseModuleSection.cs">
+      <DependentUpon>MGCTrainingPortalDB.tt</DependentUpon>
+    </Compile>
+    <Compile Update="TrainingCourseModuleSubSection.cs">
+      <DependentUpon>MGCTrainingPortalDB.tt</DependentUpon>
+    </Compile>
+    <Compile Update="TrainingCourseQuizScore.cs">
+      <DependentUpon>MGCTrainingPortalDB.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+</Project>

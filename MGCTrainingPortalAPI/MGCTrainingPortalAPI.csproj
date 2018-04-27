@@ -148,6 +148,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
@@ -156,6 +157,10 @@
     <ProjectReference Include="..\MGCTrainingPortalAPI.CourseBuilder\MGCTrainingPortalAPI.CourseBuilder.csproj">
       <Project>{cb6a91bc-b73d-4d7c-aff3-b22ea3f02c3a}</Project>
       <Name>MGCTrainingPortalAPI.CourseBuilder</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MGCTrainingPortalAPI.Models\MGCTrainingPortalAPI.Models.csproj">
+      <Project>{b147e588-fb63-42e3-8ee0-f7e0e413f092}</Project>
+      <Name>MGCTrainingPortalAPI.Models</Name>
     </ProjectReference>
     <ProjectReference Include="..\MGCTrainingPortalAPI.Repository\MGCTrainingPortalAPI.Repository.csproj">
       <Project>{ccad43eb-d086-459a-b12f-e2b3e8ac7484}</Project>
