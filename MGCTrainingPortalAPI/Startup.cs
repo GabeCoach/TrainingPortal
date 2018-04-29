@@ -39,6 +39,8 @@ namespace MGCTrainingPortalAPI
                     }
                 }
             });
+
+            WebApiConfig.Configure(app);
         }
     }
 }
