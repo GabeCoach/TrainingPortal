@@ -10,7 +10,7 @@ using MGCTrainingPortalAPI.Models;
 
 namespace MGCTrainingPortalAPI.Repository
 {
-    public class TrainingCourseModuleRepository
+    public class TrainingCourseModuleRepository: IRepository<TrainingCourseModule>
     {
         private DB_A35BD0_trainingportaldbEntities db = new DB_A35BD0_trainingportaldbEntities();
 

@@ -5,7 +5,7 @@ using MGCTrainingPortalAPI.Models;
 
 namespace MGCTrainingPortalAPI.CourseBuilder
 {
-    class FullTrainingCourse
+    public class FullTrainingCourse
     {
         public TrainingCourse training_course_information { get; set; }
         public Dictionary<int, TrainingCourseModule> training_course_modules { get; set; }

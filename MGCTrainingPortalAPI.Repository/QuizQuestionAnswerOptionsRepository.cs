@@ -118,6 +118,22 @@ namespace MGCTrainingPortalAPI.Repository
 
         }
 
+        public async Task<List<QuizQuestionAnswerOption>> SelectByQuizQuestion(int iQuizQuestionId)
+        {
+            try
+            {
+                var query = from qao in db.QuizQuestionAnswerOptions
+                            where qao.quiz_question_id == iQuizQuestionId
+                            select qao;
+
+                return await query.ToListAsync();
+            }
+            catch(Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
         private bool QuizQuestionAnswerOptionExists(int id)
         {
             return db.QuizQuestions.Count(e => e.Id == id) > 0;
