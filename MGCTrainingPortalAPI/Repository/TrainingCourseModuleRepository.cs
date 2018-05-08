@@ -128,9 +128,9 @@ namespace MGCTrainingPortalAPI.Repository
                             where t.training_course_id == iTrainingCourseId
                             select t;
 
-                foreach (IQueryable<TrainingCourseModule> result in query)
+                foreach (TrainingCourseModule result in query)
                 {
-                    dctTrainingCourseModule.Add(iTrainingCourseId, await result.FirstAsync());
+                    dctTrainingCourseModule.Add(iTrainingCourseId, result);
                 }
 
                 return dctTrainingCourseModule;

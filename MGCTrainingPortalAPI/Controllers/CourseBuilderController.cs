@@ -9,23 +9,51 @@ using MGCTrainingPortalAPI.CourseBuilder;
 
 namespace MGCTrainingPortalAPI.Controllers
 {
-    [RoutePrefix("api/CourseBuilder")]
     public class CourseBuilderController : ApiController
     {
-       private CourseMaterialBuilder oCourseBuilder = new CourseMaterialBuilder(); 
 
-       [Route("FullCourseMaterial/{TrainingCourseId}")] 
-       public async Task<IHttpActionResult> GetFullCourseMaterial(int iTrainingCourseId)
-       {
+        private CourseMaterialBuilder oCourseMaterialBuilder = new CourseMaterialBuilder();
+
+        // GET: api/CourseBuilder
+        public IEnumerable<string> Get()
+        {
+            return new string[] { "value1", "value2" };
+        }
+
+        // GET: api/CourseBuilder/5
+        public string Get(int id)
+        {
+            return "value";
+        }
+
+        // POST: api/CourseBuilder
+        public void Post([FromBody]string value)
+        {
+        }
+
+        // PUT: api/CourseBuilder/5
+        public void Put(int id, [FromBody]string value)
+        {
+        }
+
+        // DELETE: api/CourseBuilder/5
+        public void Delete(int id)
+        {
+        }
+
+
+        [Route("api/CourseBuilder/FullCourseMaterial/{iTrainingCourseId}")]
+        public async Task<IHttpActionResult> GetFullCourseMaterial(int iTrainingCourseId)
+        {
             try
             {
-               FullTrainingCourse oFullTrainingCourse = await oCourseBuilder.GetFullTrainingCourse(iTrainingCourseId);
-               return Json(oFullTrainingCourse);
+                FullTrainingCourse fullTrainingCourse = await oCourseMaterialBuilder.GetFullTrainingCourse(iTrainingCourseId);
+                return Json(fullTrainingCourse);
             }
             catch(Exception ex)
             {
-                return InternalServerError();
+                return Json(ex);
             }
-       }
+        }
     }
 }

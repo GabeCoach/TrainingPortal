@@ -1,0 +1,21 @@
+<div *ngIf="oktaAuth.isAuthenticated()">
+  <app-header></app-header>
+</div>
+
+
+<section id="main" data-layout="layout-1">
+  <div *ngIf="oktaAuth.isAuthenticated()">
+    <app-navigation></app-navigation>
+  </div>
+
+  <div *ngIf="oktaAuth.isAuthenticated()">
+    <app-chat-sidebar></app-chat-sidebar>
+  </div>
+
+  <section id="content">
+    <div class="container">
+      <router-outlet></router-outlet>
+    </div>
+  </section>
+
+</section>

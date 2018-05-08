@@ -29,7 +29,7 @@ namespace MGCTrainingPortalAPI.CourseBuilder
             //Add Training Course Module Ids from dctTrainingCourseModules to a List of integers
             List<int> lstTrainingCourseModuleIds = new List<int>();
 
-            foreach(KeyValuePair<int, TrainingCourseModule> module in dctTrainingCourseModules)
+            foreach (KeyValuePair<int, TrainingCourseModule> module in dctTrainingCourseModules)
             {
                 lstTrainingCourseModuleIds.Add(module.Value.Id);
             }
@@ -46,18 +46,18 @@ namespace MGCTrainingPortalAPI.CourseBuilder
 
             List<int> lstTrainingCourseModuleQuizIds = new List<int>();
 
-            foreach(KeyValuePair<int, TrainingCourseModuleQuiz> quiz in dctTrainingCourseModuleQuizs)
+            foreach (KeyValuePair<int, TrainingCourseModuleQuiz> quiz in dctTrainingCourseModuleQuizs)
             {
                 lstTrainingCourseModuleQuizIds.Add(quiz.Value.Id);
             }
 
             Dictionary<int, QuizQuestion> dctQuizQuestions = new Dictionary<int, QuizQuestion>();
 
-            foreach(int iQuizId in lstTrainingCourseModuleQuizIds)
+            foreach (int iQuizId in lstTrainingCourseModuleQuizIds)
             {
                 List<QuizQuestion> lstQuizQuestions = await oQuizQuestionRepo.SelectByCourseModuleQuiz(iQuizId);
 
-                foreach(var QuizQuestion in lstQuizQuestions)
+                foreach (var QuizQuestion in lstQuizQuestions)
                 {
                     dctQuizQuestions.Add(iQuizId, QuizQuestion);
                 }
@@ -67,18 +67,18 @@ namespace MGCTrainingPortalAPI.CourseBuilder
 
             List<int> lstQuizQuestionIds = new List<int>();
 
-            foreach(KeyValuePair<int, QuizQuestion> quizQuestions in dctQuizQuestions)
+            foreach (KeyValuePair<int, QuizQuestion> quizQuestions in dctQuizQuestions)
             {
                 lstQuizQuestionIds.Add(quizQuestions.Value.Id);
             }
 
             Dictionary<int, QuizQuestionAnswerOption> dctQuizQuestionAnswerOptions = new Dictionary<int, QuizQuestionAnswerOption>();
 
-            foreach(int iQuizQuestionId in lstQuizQuestionIds)
+            foreach (int iQuizQuestionId in lstQuizQuestionIds)
             {
                 List<QuizQuestionAnswerOption> lstQuizQuestionAnswerOption = await oQuizQuestionAnswerOptionRepo.SelectByQuizQuestion(iQuizQuestionId);
-                
-                foreach(QuizQuestionAnswerOption oQuizQuestionAnswerOption in lstQuizQuestionAnswerOption)
+
+                foreach (QuizQuestionAnswerOption oQuizQuestionAnswerOption in lstQuizQuestionAnswerOption)
                 {
                     dctQuizQuestionAnswerOptions.Add(iQuizQuestionId, oQuizQuestionAnswerOption);
                 }
@@ -91,7 +91,7 @@ namespace MGCTrainingPortalAPI.CourseBuilder
 
 
         #region Helper Methods
-        
+
         #endregion
     }
 }

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using MGCTrainingPortalAPI;
+using MGCTrainingPortalAPI.Models;
 
 namespace MGCTrainingPortalAPI.CourseBuilder
 {
