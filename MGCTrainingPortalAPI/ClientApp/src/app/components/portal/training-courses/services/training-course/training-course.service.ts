@@ -6,6 +6,8 @@ import { TrainingCourse } from '../../models/training-course';
 @Injectable()
 export class TrainingCourseService {
 
+  public trainingCourseId: number;
+
   constructor(private http: HttpClient, private baseService: BaseService) { }
 
   public getTrainingCourses(): Promise<any> {

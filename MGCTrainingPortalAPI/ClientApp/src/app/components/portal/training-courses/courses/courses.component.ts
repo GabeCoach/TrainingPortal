@@ -16,7 +16,10 @@ export class CoursesComponent implements OnInit {
   ngOnInit() {
     this.trainingCourseService.getTrainingCourses()
     .then(resp => {
-      this.trainingCourses = resp.json();
+      this.trainingCourses = resp;
+      this.trainingCourseService.trainingCourseId = this.trainingCourses[0].Id;
+    }).catch(err => {
+      alert(err);
     });
   }
 
