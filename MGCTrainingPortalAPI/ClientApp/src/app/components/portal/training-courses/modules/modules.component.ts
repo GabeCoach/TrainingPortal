@@ -34,11 +34,20 @@ export class ModulesComponent implements OnInit {
       this.fullTrainingCourse = resp;
       this.trainingCourseInformation = this.fullTrainingCourse.training_course_information;
       this.trainingCourseModule = this.fullTrainingCourse.training_course_modules;
+      this.extractTrainingCourseModules(this.trainingCourseModule);
 
     }).catch(err => {
       alert(err);
     });
+  }
 
+  private extractTrainingCourseModules(aTrainingCourseModules: Array<TrainingCourseModule>): Array<TrainingCourseModule> {
+
+    // tslint:disable-next-line:prefer-const
+    for (let module of aTrainingCourseModules) {
+      const obj = module;
+    }
+    return null;
   }
 
 }

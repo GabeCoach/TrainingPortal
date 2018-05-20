@@ -14,6 +14,7 @@ using MGCTrainingPortalAPI.Repository;
 
 namespace MGCTrainingPortalAPI.Controllers
 {
+    [Authorize]
     public class TrainingCourseModulesController : ApiController
     {
         private DB_A35BD0_trainingportaldbEntities db = new DB_A35BD0_trainingportaldbEntities();
@@ -36,6 +37,20 @@ namespace MGCTrainingPortalAPI.Controllers
             }
 
             return Ok(trainingCourseModule);
+        }
+
+        [HttpGet]
+        [Route("api/TrainingCourseModules/{iTrainingCourseId}/Modules")]
+        public async Task<IHttpActionResult> GetModulesByTrainingCourse(int iTrainingCourseId)
+        {
+            try
+            {
+                return Json(await oTrainingCourseModuleRepo.SelectByTrainingCourse(iTrainingCourseId));
+            }
+            catch(Exception ex)
+            {
+                return InternalServerError();
+            }
         }
 
         // PUT: api/TrainingCourseModules/5
