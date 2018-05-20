@@ -19,7 +19,7 @@ import { ChatSidebarComponent } from './shared/chat-sidebar/chat-sidebar.compone
     HomeComponent,
     HeaderComponent,
     NavigationComponent,
-    ChatSidebarComponent
+    ChatSidebarComponent,
   ]
 })
 export class PortalModule { }

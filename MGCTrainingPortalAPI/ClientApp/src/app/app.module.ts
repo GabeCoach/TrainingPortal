@@ -5,6 +5,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { OktaAuthModule, OktaCallbackComponent } from '@okta/okta-angular';
 import { PortalModule } from './components/portal/portal.module';
+import { HttpClientModule } from '@angular/common/http';
 
 // Components
 import { AppComponent } from './app.component';
@@ -20,6 +21,10 @@ import { BaseService } from './services/base-service.service';
 
 // Enums
 import { AuthConfig } from './enums/auth-config.enum';
+
+// HTTP
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthInterceptor } from './services/auth-interceptor.service';
 
 
 // Auth Configuration for Okta Sign-in Widget
@@ -40,13 +45,19 @@ const config = {
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
     PortalModule,
     OktaAuthModule.initAuth(config)
   ],
   providers: [
     AuthService,
-    BaseService
+    BaseService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    }
   ],
   bootstrap: [AppComponent]
 })
