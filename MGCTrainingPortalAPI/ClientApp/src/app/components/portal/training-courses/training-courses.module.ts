@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
 
 import { TrainingCoursesRoutingModule } from './training-courses-routing.module';
 import { ModulesComponent } from './modules/modules.component';
@@ -10,12 +9,12 @@ import { CoursesComponent } from './courses/courses.component';
 // Services
 import { CourseBuilderService } from './services/course-builder/course-builder.service';
 import { TrainingCourseService } from './services/training-course/training-course.service';
+import { TrainingCourseModuleService } from './services/training-course-module/training-course-module.service';
 
 @NgModule({
   imports: [
     CommonModule,
-    TrainingCoursesRoutingModule,
-    HttpClientModule
+    TrainingCoursesRoutingModule
   ],
   declarations: [
     TrainingCoursesComponent,
@@ -24,7 +23,8 @@ import { TrainingCourseService } from './services/training-course/training-cours
   ],
   providers: [
     CourseBuilderService,
-    TrainingCourseService
+    TrainingCourseService,
+    TrainingCourseModuleService
   ]
 
 })

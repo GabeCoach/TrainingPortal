@@ -17,6 +17,9 @@ export class TrainingCourseModuleService {
     return this.http.get(this.baseService.BaseUrl + 'TrainingCourseModules/' + Id).toPromise();
   }
 
+  public getByTrainingCourseId(Id: number): Promise<any> {
+    return this.http.get(this.baseService.BaseUrl + 'TrainingCourseModules/' + Id + '/Modules').toPromise();
+  }
 
   public postTrainingCourseModule(trainingCourseModule: TrainingCourseModule): Promise<any> {
     return this.http.post(this.baseService.BaseUrl + 'TrainingCourseModules', TrainingCourseModule).toPromise();

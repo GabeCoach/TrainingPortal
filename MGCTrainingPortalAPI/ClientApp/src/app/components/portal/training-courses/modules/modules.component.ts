@@ -5,10 +5,14 @@ import { ParamMap, Router, ActivatedRoute } from '@angular/router';
 
 // Services
 import { TrainingCourseService } from '../services/training-course/training-course.service';
+import { TrainingCourseModuleService } from '../services/training-course-module/training-course-module.service';
 
 // Models
 import { TrainingCourse } from '../models/training-course';
 import { TrainingCourseModule } from '../models/training-course-module';
+
+// Components
+import { PageLoaderComponent } from '../../shared/page-loader/page-loader.component';
 
 
 
@@ -22,19 +26,27 @@ export class ModulesComponent implements OnInit {
   fullTrainingCourse: any;
   trainingCourseId: any;
   trainingCourseInformation: TrainingCourse;
-  trainingCourseModule: Array<TrainingCourseModule>;
+  trainingCourseModule: TrainingCourseModule[];
 
-  constructor(private courseBuilderService: CourseBuilderService, private route: ActivatedRoute) {
+  constructor(
+    private route: ActivatedRoute,
+    private moduleService: TrainingCourseModuleService,
+    private trainingCourseService: TrainingCourseService
+    ) {
     this.trainingCourseId = this.route.snapshot.paramMap.get('id');
   }
 
   ngOnInit() {
-    this.courseBuilderService.getFullTrainingCourse(this.trainingCourseId)
+    this.moduleService.getByTrainingCourseId(this.trainingCourseId)
     .then(resp => {
-      this.fullTrainingCourse = resp;
-      this.trainingCourseInformation = this.fullTrainingCourse.training_course_information;
-      this.trainingCourseModule = this.fullTrainingCourse.training_course_modules;
+      this.trainingCourseModule = resp;
+    }).catch(err => {
+      alert(err);
+    });
 
+    this.trainingCourseService.getTrainingCourseById(this.trainingCourseId)
+    .then(resp => {
+      this.trainingCourseInformation = resp;
     }).catch(err => {
       alert(err);
     });
