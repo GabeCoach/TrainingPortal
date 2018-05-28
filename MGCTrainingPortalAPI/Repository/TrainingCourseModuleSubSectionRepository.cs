@@ -118,22 +118,16 @@ namespace MGCTrainingPortalAPI.Repository
 
         }
 
-        public async Task<Dictionary<int, TrainingCourseModuleSubSection>> SelectByTrainingCourse(int iTrainingCourseId)
+        public async Task<List<TrainingCourseModuleSubSection>> SelectByTrainingCourseModuleSection(int iTrainingCourseModuleSectionId)
         {
             try
             {
-                Dictionary<int, TrainingCourseModuleSubSection> dctTrainingCourseModuleSubSection = new Dictionary<int, TrainingCourseModuleSubSection>();
+                List<TrainingCourseModuleSubSection> lstTrainingCourseModuleSubSections = await
+                            (from tcmss in db.TrainingCourseModuleSubSections
+                             where tcmss.module_section_id == iTrainingCourseModuleSectionId
+                             select tcmss).ToListAsync();
 
-                var query = from t in db.TrainingCourseModuleSubSections
-                            where t.module_section_id == iTrainingCourseId
-                            select t;
-
-                foreach (IQueryable<TrainingCourseModuleSubSection> result in query)
-                {
-                    dctTrainingCourseModuleSubSection.Add(iTrainingCourseId, await result.FirstAsync());
-                }
-
-                return dctTrainingCourseModuleSubSection;
+                return lstTrainingCourseModuleSubSections;
             }
             catch (Exception ex)
             {

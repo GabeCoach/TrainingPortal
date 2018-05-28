@@ -39,6 +39,20 @@ namespace MGCTrainingPortalAPI.Controllers
             return Ok(trainingCourseModuleSection);
         }
 
+        [HttpGet]
+        [Route("api/TrainingCourseModuleSections/{iTrainingCourseModuleId}/TrainingCourseModule")]
+        public async Task<IHttpActionResult> GetSectionByModule(int iTrainingCourseModuleId)
+        {
+            try
+            {
+                return Json(await oTrainingCourseModuleSectionsRepo.SelectByTrainingCourseModule(iTrainingCourseModuleId));
+            }
+            catch(Exception ex)
+            {
+                return InternalServerError();
+            }
+        }
+
         // PUT: api/TrainingCourseModuleSections/5
         [ResponseType(typeof(void))]
         public async Task<IHttpActionResult> PutTrainingCourseModuleSection(int id, TrainingCourseModuleSection trainingCourseModuleSection)

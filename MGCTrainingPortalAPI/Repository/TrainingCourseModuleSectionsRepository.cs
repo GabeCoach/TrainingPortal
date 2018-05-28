@@ -42,6 +42,23 @@ namespace MGCTrainingPortalAPI.Repository
             }
         }
 
+        public async Task<List<TrainingCourseModuleSection>> SelectByTrainingCourseModule(int iTrainingCourseModuleId)
+        {
+            try
+            {
+                List<TrainingCourseModuleSection> lstTrainingCourseModuleSections = await (from tcms in db.TrainingCourseModuleSections
+                                                                                           where tcms.training_course_module_id == iTrainingCourseModuleId
+                                                                                           select tcms).ToListAsync();
+
+                return lstTrainingCourseModuleSections;
+            }
+            catch(Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            
+        }
+
         public async Task<List<TrainingCourseModuleSection>> SaveToDB(List<TrainingCourseModuleSection> lstTrainingCourseModuleSections)
         {
             throw new NotImplementedException();
@@ -116,29 +133,6 @@ namespace MGCTrainingPortalAPI.Repository
                 throw new Exception(ex.Message);
             }
 
-        }
-
-        public async Task<Dictionary<int, TrainingCourseModuleSection>> SelectByTrainingCourseModule(int iTrainingCourseModuleId)
-        {
-            try
-            {
-                Dictionary<int, TrainingCourseModuleSection> dctTrainingCourseModuleSection = new Dictionary<int, TrainingCourseModuleSection>();
-
-                var query = from tm in db.TrainingCourseModuleSections
-                            where tm.training_course_module_id == iTrainingCourseModuleId
-                            select tm;
-
-                foreach (IQueryable<TrainingCourseModuleSection> result in query)
-                {
-                    dctTrainingCourseModuleSection.Add(iTrainingCourseModuleId, await result.FirstAsync());
-                }
-
-                return dctTrainingCourseModuleSection;
-            }
-            catch(Exception ex)
-            {
-                throw new Exception(ex.Message);
-            }
         }
 
         private bool SectionExists(int id)
