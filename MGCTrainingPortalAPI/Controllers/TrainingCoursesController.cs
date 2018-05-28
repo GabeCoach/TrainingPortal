@@ -13,7 +13,9 @@ using MGCTrainingPortalAPI.Models;
 using MGCTrainingPortalAPI.Repository;
 
 namespace MGCTrainingPortalAPI.Controllers
-{
+{ 
+
+    [Authorize]
     public class TrainingCoursesController : ApiController
     {
         private DB_A35BD0_trainingportaldbEntities db = new DB_A35BD0_trainingportaldbEntities();

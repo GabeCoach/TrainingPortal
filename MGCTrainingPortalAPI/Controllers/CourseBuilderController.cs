@@ -9,6 +9,7 @@ using MGCTrainingPortalAPI.CourseBuilder;
 
 namespace MGCTrainingPortalAPI.Controllers
 {
+    [Authorize]
     public class CourseBuilderController : ApiController
     {
 
@@ -42,18 +43,18 @@ namespace MGCTrainingPortalAPI.Controllers
         }
 
 
-        [Route("api/CourseBuilder/FullCourseMaterial/{iTrainingCourseId}")]
-        public async Task<IHttpActionResult> GetFullCourseMaterial(int iTrainingCourseId)
-        {
-            try
-            {
-                FullTrainingCourse fullTrainingCourse = await oCourseMaterialBuilder.GetFullTrainingCourse(iTrainingCourseId);
-                return Json(fullTrainingCourse);
-            }
-            catch(Exception ex)
-            {
-                return Json(ex);
-            }
-        }
+        //[Route("api/CourseBuilder/FullCourseMaterial/{iTrainingCourseId}")]
+        //public async Task<IHttpActionResult> GetFullCourseMaterial(int iTrainingCourseId)
+        //{
+        //    try
+        //    {
+        //        FullTrainingCourse fullTrainingCourse = await oCourseMaterialBuilder.GetFullTrainingCourse(iTrainingCourseId);
+        //        return Json(fullTrainingCourse);
+        //    }
+        //    catch(Exception ex)
+        //    {
+        //        return Json(ex);
+        //    }
+        //}
     }
 }

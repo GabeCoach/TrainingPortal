@@ -30,7 +30,7 @@ namespace MGCTrainingPortalAPI
                 AuthenticationMode = AuthenticationMode.Active,
                 TokenValidationParameters = new TokenValidationParameters
                 {
-                    ValidAudience = "api://default",
+                    ValidAudience = "0oaehwxf90v8H5BaX0h7",
                     ValidIssuer = authority,
                     IssuerSigningKeyResolver = (token, securityToken, identifier, parameters) =>
                     {
