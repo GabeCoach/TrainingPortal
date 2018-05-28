@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="card">
+    <div class="card-header bgm-bluegray">
+      {{quizQuestion.question}}
+    </div>
+    <div class="card-body">
+      <ul>
+        <li *ngFor="let option of AnswerOptions">{{option.answer_option}}</li>
+      </ul>
+    </div>
+    <div class="card-footer">
+      <div>
+          <button class="btn bgm-bluegray" type="button">Next</button>
+      </div>
+    </div>
+  </div>
+</div>

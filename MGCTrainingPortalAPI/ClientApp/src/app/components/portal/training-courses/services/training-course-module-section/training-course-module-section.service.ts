@@ -7,6 +7,8 @@ import { TrainingCourseModuleSection } from '../../models/training-course-module
 @Injectable()
 export class TrainingCourseModuleSectionService {
 
+  trainingCourseModuleId: number;
+
   constructor(private http: HttpClient, private baseService: BaseService) { }
 
   public getTrainingCourseModuleSections(): Promise<any> {
@@ -17,6 +19,9 @@ export class TrainingCourseModuleSectionService {
     return this.http.get(this.baseService.BaseUrl + 'TrainingCourseModuleSections/' + Id).toPromise();
   }
 
+  public getTrainingCourseModuleSectionByModule(iModuleId: number): Promise<any> {
+    return this.http.get(this.baseService.BaseUrl + `TrainingCourseModuleSections/${iModuleId}/TrainingCOurseModule`).toPromise();
+  }
 
   public postTrainingCourseModuleSection(trainingCourseModuleSection: TrainingCourseModuleSection): Promise<any> {
     return this.http.post(this.baseService.BaseUrl + 'TrainingCourseModuleSections', trainingCourseModuleSection).toPromise();

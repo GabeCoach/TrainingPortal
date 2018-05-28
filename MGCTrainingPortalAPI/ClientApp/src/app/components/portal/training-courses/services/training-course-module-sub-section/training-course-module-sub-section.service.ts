@@ -6,6 +6,8 @@ import { TrainingCourseModuleSubSection } from '../../models/training-course-mod
 @Injectable()
 export class TrainingCourseModuleSubSectionService {
 
+  public iSubSectionId: number;
+
   constructor(private http: HttpClient, private baseService: BaseService) { }
 
   public getTrainingCourseModuleSubSections(): Promise<any> {
@@ -16,6 +18,10 @@ export class TrainingCourseModuleSubSectionService {
     return this.http.get(this.baseService.BaseUrl + 'TrainingCourseModuleSubSections/' + Id).toPromise();
   }
 
+  public getModuleSubSectionByModuleSection(iModuleSectionId: number): Promise<any> {
+    // tslint:disable-next-line:max-line-length
+    return this.http.get(this.baseService.BaseUrl + `TrainingCourseModuleSubSections/${iModuleSectionId}/TrainingCourseModuleSection`).toPromise();
+  }
 
   public postTrainingCourseModuleSubSection(trainingCourseModuleSubSection: TrainingCourseModuleSubSection): Promise<any> {
     return this.http.post(this.baseService.BaseUrl + 'TrainingCourseModuleSubSections', trainingCourseModuleSubSection).toPromise();

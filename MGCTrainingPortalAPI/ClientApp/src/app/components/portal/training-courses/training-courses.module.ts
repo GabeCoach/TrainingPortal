@@ -10,6 +10,9 @@ import { CoursesComponent } from './courses/courses.component';
 import { CourseBuilderService } from './services/course-builder/course-builder.service';
 import { TrainingCourseService } from './services/training-course/training-course.service';
 import { TrainingCourseModuleService } from './services/training-course-module/training-course-module.service';
+import { QuizsComponent } from './quizs/quizs.component';
+
+
 
 @NgModule({
   imports: [
@@ -19,12 +22,14 @@ import { TrainingCourseModuleService } from './services/training-course-module/t
   declarations: [
     TrainingCoursesComponent,
     ModulesComponent,
-    CoursesComponent
+    CoursesComponent,
+    QuizsComponent,
   ],
   providers: [
     CourseBuilderService,
     TrainingCourseService,
-    TrainingCourseModuleService
+    TrainingCourseModuleService,
+
   ]
 
 })
