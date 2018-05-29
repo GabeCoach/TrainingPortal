@@ -8,12 +8,14 @@ using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
+using System.Web.Http.Cors;
 using System.Web.Http.Description;
 using MGCTrainingPortalAPI.Models;
 using MGCTrainingPortalAPI.Repository;
 
 namespace MGCTrainingPortalAPI.Controllers
 {
+    [EnableCors(origins: "https://www.mgctrainingportal.com, http://localhost:4200", headers: "*", methods: "*")]
     [Authorize]
     public class TrainingCourseModuleQuizsController : ApiController
     {
@@ -37,6 +39,20 @@ namespace MGCTrainingPortalAPI.Controllers
             }
 
             return Ok(trainingCourseModuleQuiz);
+        }
+
+        [HttpGet]
+        [Route("api/TrainingCourseModuleQuizs/{iTrainingCourseModuleId}/TrainingCourseModule")]
+        public async Task<IHttpActionResult> GetModuleQuizByModule(int iTrainingCourseModuleId)
+        {
+            try
+            {
+                return Json(await oTrainingCourseModuleQuizRepo.SelectByCourseModule(iTrainingCourseModuleId));
+            }
+            catch(Exception ex)
+            {
+                return InternalServerError();
+            } 
         }
 
         // PUT: api/TrainingCourseModuleQuizs/5

@@ -8,12 +8,14 @@ using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
+using System.Web.Http.Cors;
 using System.Web.Http.Description;
 using MGCTrainingPortalAPI.Models;
 using MGCTrainingPortalAPI.Repository;
 
 namespace MGCTrainingPortalAPI.Controllers
 {
+    [EnableCors(origins: "https://www.mgctrainingportal.com, http://localhost:4200", headers: "*", methods: "*")]
     [Authorize]
     public class QuizQuestionCorrectAnswersController : ApiController
     {
