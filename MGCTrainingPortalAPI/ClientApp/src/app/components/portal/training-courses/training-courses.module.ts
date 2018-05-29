@@ -1,16 +1,19 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { QuizsModule } from './quizs/quizs.module';
+
 
 import { TrainingCoursesRoutingModule } from './training-courses-routing.module';
 import { ModulesComponent } from './modules/modules.component';
 import { TrainingCoursesComponent } from './training-courses.component';
 import { CoursesComponent } from './courses/courses.component';
 
+
 // Services
 import { CourseBuilderService } from './services/course-builder/course-builder.service';
 import { TrainingCourseService } from './services/training-course/training-course.service';
 import { TrainingCourseModuleService } from './services/training-course-module/training-course-module.service';
-import { QuizsComponent } from './quizs/quizs.component';
+
 
 
 
@@ -23,7 +26,6 @@ import { QuizsComponent } from './quizs/quizs.component';
     TrainingCoursesComponent,
     ModulesComponent,
     CoursesComponent,
-    QuizsComponent,
   ],
   providers: [
     CourseBuilderService,
