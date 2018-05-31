@@ -1,6 +1,7 @@
+import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { HttpRequest, HttpHandler, HttpEvent, HttpInterceptor} from '@angular/common/http';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs/observable';
+import 'rxjs/add/operator/map';
 import { OktaAuthService } from '@okta/okta-angular';
 
 @Injectable()
@@ -17,6 +18,22 @@ export class AuthInterceptor implements HttpInterceptor {
         Authorization: `Bearer ${sToken}`
       }
     });
+
+    /*
+    if (request.responseType === 'json') {
+      request = request.clone({ responseType: 'text' });
+
+      return next.handle(request).map(response => {
+        if (response instanceof HttpResponse) {
+          response = response.clone<any>({ body: JSON.stringify(response.body) });
+          console.log(JSON.stringify(response));
+        }
+
+        return response;
+      });
+    }
+    */
+
     return next.handle(request);
   }
 }

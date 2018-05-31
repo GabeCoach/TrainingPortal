@@ -11,7 +11,7 @@ export class TrainingCourseService {
   constructor(private http: HttpClient, private baseService: BaseService) { }
 
   public getTrainingCourses(): Promise<any> {
-    return this.http.get(this.baseService.BaseUrl + 'TrainingCourses').toPromise();
+    return this.http.get(this.baseService.BaseUrl + 'TrainingCourses', {responseType: 'json'}).toPromise();
   }
 
   public getTrainingCourseById(Id: number): Promise<any> {
