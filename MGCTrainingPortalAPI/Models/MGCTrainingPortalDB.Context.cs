@@ -34,5 +34,10 @@ namespace MGCTrainingPortalAPI.Models
         public virtual DbSet<TrainingCourseModuleSection> TrainingCourseModuleSections { get; set; }
         public virtual DbSet<TrainingCourseModuleSubSection> TrainingCourseModuleSubSections { get; set; }
         public virtual DbSet<TrainingCourseQuizScore> TrainingCourseQuizScores { get; set; }
+        public virtual DbSet<Organization> Organizations { get; set; }
+        public virtual DbSet<OrganizationTrainingCours> OrganizationTrainingCourses { get; set; }
+        public virtual DbSet<QuizSheet> QuizSheets { get; set; }
+        public virtual DbSet<QuizUserSelectedAnswer> QuizUserSelectedAnswers { get; set; }
+        public virtual DbSet<User> Users { get; set; }
     }
 }

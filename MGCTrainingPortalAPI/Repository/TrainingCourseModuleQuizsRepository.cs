@@ -118,22 +118,15 @@ namespace MGCTrainingPortalAPI.Repository
 
         }
 
-        public async Task<Dictionary<int, TrainingCourseModuleQuiz>> SelectByCourseModule(int iCourseModuleId)
+        public async Task<TrainingCourseModuleQuiz> SelectByCourseModule(int iCourseModuleId)
         {
             try
             {
-                Dictionary<int, TrainingCourseModuleQuiz> dctTrainingCourseModuleQuizs = new Dictionary<int, TrainingCourseModuleQuiz>();
+                TrainingCourseModuleQuiz quiz = await (from q in db.TrainingCourseModuleQuizs
+                                                where q.training_course_module_id == iCourseModuleId
+                                                select q).FirstOrDefaultAsync();
 
-                var query = from tmq in db.TrainingCourseModuleQuizs
-                            where tmq.training_course_module_id == iCourseModuleId
-                            select tmq;
-
-                foreach(IQueryable<TrainingCourseModuleQuiz> result in query)
-                {
-                    dctTrainingCourseModuleQuizs.Add(iCourseModuleId, await result.FirstAsync());
-                }
-
-                return dctTrainingCourseModuleQuizs;
+                return quiz;
             }
             catch(Exception ex)
             {

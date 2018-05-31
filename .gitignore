@@ -259,6 +259,7 @@ paket-files/
 # Python Tools for Visual Studio (PTVS)
 __pycache__/
 *.pyc
+<<<<<<< HEAD
 MGCTrainingPortalAPI/ClientApp/dist/assets/vendors/bower_components/simpleWeather/package.json
 MGCTrainingPortalAPI/ClientApp/src/app/app.module.ts
 MGCTrainingPortalAPI/ClientApp/src/app/components/portal/training-courses/modals/sections-display-modal/sections-display-modal.component.html
@@ -5259,3 +5260,6 @@ MGCTrainingPortalAPI/ClientApp/dist/assets/vendors/bower_components/summernote/d
 MGCTrainingPortalAPI/ClientApp/dist/assets/vendors/bower_components/summernote/dist/lang/summernote-bg-BG.min.js
 MGCTrainingPortalAPI/ClientApp/dist/assets/vendors/bower_components/summernote/dist/lang/summernote-ca-ES.js
 MGCTrainingPortalAPI/ClientApp/dist/assets/vendors/bower_components/summernote/dist/lang/summernote-ca-ES.min.js
+=======
+/MGCTrainingPortalAPI/ClientApp/dist
+>>>>>>> b8978bd1a39ee24af5d323b4ea1529ae835f3432
