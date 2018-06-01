@@ -11,7 +11,7 @@ export class CoursesComponent implements OnInit {
 
   constructor(private trainingCourseService: TrainingCourseService) { }
 
-  public trainingCourses: TrainingCourse;
+  public trainingCourses: TrainingCourse[];
 
   ngOnInit() {
     this.trainingCourseService.getTrainingCourses()
@@ -19,7 +19,7 @@ export class CoursesComponent implements OnInit {
       this.trainingCourses = resp;
       this.trainingCourseService.trainingCourseId = this.trainingCourses[0].Id;
     }).catch(err => {
-      alert( err);
+      console.log(JSON.stringify(err.message));
     });
   }
 
