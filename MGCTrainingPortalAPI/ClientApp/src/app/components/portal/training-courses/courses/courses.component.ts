@@ -19,7 +19,7 @@ export class CoursesComponent implements OnInit {
       this.trainingCourses = resp;
       this.trainingCourseService.trainingCourseId = this.trainingCourses[0].Id;
     }).catch(err => {
-      alert(err);
+      alert( err);
     });
   }
 
