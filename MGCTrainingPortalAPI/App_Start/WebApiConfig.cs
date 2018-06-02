@@ -1,7 +1,11 @@
-﻿using Owin;
+﻿using Microsoft.Owin.Cors;
+using Owin;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
+using System.Threading.Tasks;
+using System.Web.Cors;
 using System.Web.Http;
 using System.Web.Http.Cors;
 
@@ -14,7 +18,7 @@ namespace MGCTrainingPortalAPI
             HttpConfiguration config = new HttpConfiguration();
             // Web API routes
             config.MapHttpAttributeRoutes();
-            config.EnableCors(new EnableCorsAttribute("https://www.mgctrainingportal.com, http://localhost:4200", "*", "*"));
+            config.EnableCors(new EnableCorsAttribute("*", "*", "*"));
             //config.MessageHandlers.Add(new PreflightRequestHandler());
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",

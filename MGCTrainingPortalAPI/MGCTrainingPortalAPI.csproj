@@ -69,6 +69,9 @@
     <Reference Include="Microsoft.Owin, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Owin.4.0.0\lib\net451\Microsoft.Owin.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Owin.Cors, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Cors.4.0.0\lib\net451\Microsoft.Owin.Cors.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Owin.Host.HttpListener, Version=2.0.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Owin.Host.HttpListener.2.0.2\lib\net45\Microsoft.Owin.Host.HttpListener.dll</HintPath>
     </Reference>
@@ -4953,10 +4956,41 @@
     <Content Include="ClientApp\src\app\components\portal\training-courses\courses\courses.component.html" />
     <Content Include="ClientApp\src\app\components\portal\training-courses\courses\courses.component.spec.ts" />
     <Content Include="ClientApp\src\app\components\portal\training-courses\courses\courses.component.ts" />
+    <Content Include="ClientApp\src\app\components\portal\training-courses\modals\sections-display-modal\sections-display-modal.component.html" />
+    <Content Include="ClientApp\src\app\components\portal\training-courses\modals\sections-display-modal\sections-display-modal.component.ts" />
+    <Content Include="ClientApp\src\app\components\portal\training-courses\modals\sub-section-display-modal\sub-section-display-modal.component.html" />
+    <Content Include="ClientApp\src\app\components\portal\training-courses\modals\sub-section-display-modal\sub-section-display-modal.component.ts" />
+    <Content Include="ClientApp\src\app\components\portal\training-courses\models\quiz-question-answer-options.ts" />
+    <Content Include="ClientApp\src\app\components\portal\training-courses\models\quiz-question-correct-answer.ts" />
+    <Content Include="ClientApp\src\app\components\portal\training-courses\models\quiz-questions.ts" />
+    <Content Include="ClientApp\src\app\components\portal\training-courses\models\training-course-module-quiz.ts" />
+    <Content Include="ClientApp\src\app\components\portal\training-courses\models\training-course-module-section.ts" />
+    <Content Include="ClientApp\src\app\components\portal\training-courses\models\training-course-module-sub-section.ts" />
+    <Content Include="ClientApp\src\app\components\portal\training-courses\models\training-course-module.ts" />
+    <Content Include="ClientApp\src\app\components\portal\training-courses\models\training-course-quiz-scores.ts" />
+    <Content Include="ClientApp\src\app\components\portal\training-courses\models\training-course.ts" />
     <Content Include="ClientApp\src\app\components\portal\training-courses\modules\modules.component.css" />
     <Content Include="ClientApp\src\app\components\portal\training-courses\modules\modules.component.html" />
     <Content Include="ClientApp\src\app\components\portal\training-courses\modules\modules.component.spec.ts" />
     <Content Include="ClientApp\src\app\components\portal\training-courses\modules\modules.component.ts" />
+    <Content Include="ClientApp\src\app\components\portal\training-courses\quizs\questions-view\questions-view.component.css" />
+    <Content Include="ClientApp\src\app\components\portal\training-courses\quizs\questions-view\questions-view.component.html" />
+    <Content Include="ClientApp\src\app\components\portal\training-courses\quizs\questions-view\questions-view.component.spec.ts" />
+    <Content Include="ClientApp\src\app\components\portal\training-courses\quizs\questions-view\questions-view.component.ts" />
+    <Content Include="ClientApp\src\app\components\portal\training-courses\quizs\quizs-routing.module.ts" />
+    <Content Include="ClientApp\src\app\components\portal\training-courses\quizs\quizs.component.css" />
+    <Content Include="ClientApp\src\app\components\portal\training-courses\quizs\quizs.component.html" />
+    <Content Include="ClientApp\src\app\components\portal\training-courses\quizs\quizs.component.spec.ts" />
+    <Content Include="ClientApp\src\app\components\portal\training-courses\quizs\quizs.component.ts" />
+    <Content Include="ClientApp\src\app\components\portal\training-courses\quizs\quizs.module.ts" />
+    <Content Include="ClientApp\src\app\components\portal\training-courses\quizs\results-view\results-view.component.css" />
+    <Content Include="ClientApp\src\app\components\portal\training-courses\quizs\results-view\results-view.component.html" />
+    <Content Include="ClientApp\src\app\components\portal\training-courses\quizs\results-view\results-view.component.spec.ts" />
+    <Content Include="ClientApp\src\app\components\portal\training-courses\quizs\results-view\results-view.component.ts" />
+    <Content Include="ClientApp\src\app\components\portal\training-courses\quizs\start-view\start-view.component.css" />
+    <Content Include="ClientApp\src\app\components\portal\training-courses\quizs\start-view\start-view.component.html" />
+    <Content Include="ClientApp\src\app\components\portal\training-courses\quizs\start-view\start-view.component.spec.ts" />
+    <Content Include="ClientApp\src\app\components\portal\training-courses\quizs\start-view\start-view.component.ts" />
     <Content Include="ClientApp\src\app\components\portal\training-courses\services\course-builder.service.spec.ts" />
     <Content Include="ClientApp\src\app\components\portal\training-courses\services\course-builder.service.ts" />
     <Content Include="ClientApp\src\app\components\portal\training-courses\training-courses-routing.module.ts" />
@@ -4966,6 +5000,7 @@
     <Content Include="ClientApp\src\app\components\portal\training-courses\training-courses.component.ts" />
     <Content Include="ClientApp\src\app\components\portal\training-courses\training-courses.module.ts" />
     <Content Include="ClientApp\src\app\enums\auth-config.enum.ts" />
+    <Content Include="ClientApp\src\app\services\auth-interceptor.service.ts" />
     <Content Include="ClientApp\src\app\services\auth.service.ts" />
     <Content Include="ClientApp\src\app\services\base-service.service.spec.ts" />
     <Content Include="ClientApp\src\app\services\base-service.service.ts" />
