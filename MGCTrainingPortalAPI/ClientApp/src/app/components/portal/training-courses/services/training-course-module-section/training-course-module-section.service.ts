@@ -20,7 +20,7 @@ export class TrainingCourseModuleSectionService {
   }
 
   public getTrainingCourseModuleSectionByModule(iModuleId: number): Promise<any> {
-    return this.http.get(this.baseService.BaseUrl + `TrainingCourseModuleSections/${iModuleId}/TrainingCOurseModule`).toPromise();
+    return this.http.get(this.baseService.BaseUrl + `TrainingCourseModuleSections/${iModuleId}/TrainingCourseModule`).toPromise();
   }
 
   public postTrainingCourseModuleSection(trainingCourseModuleSection: TrainingCourseModuleSection): Promise<any> {

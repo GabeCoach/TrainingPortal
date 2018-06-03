@@ -7,10 +7,9 @@ import { componentFactoryName } from '@angular/compiler';
 
 const routes: Routes = [
   { path: '', component: PortalComponent, children: [
-     { path: 'home', component: HomeComponent, canActivate: [ OktaAuthGuard ], data: { onAuthRequired } },
-     { path: 'training-courses', loadChildren: '../portal/training-courses/training-courses.module#TrainingCoursesModule',
-      canActivate: [ OktaAuthGuard ], data: { preload: true, onAuthRequired }
-     },
+      { path: 'home', component: HomeComponent, canActivate: [ OktaAuthGuard ], data: { onAuthRequired } },
+      { path: 'training-courses', loadChildren: './training-courses/training-courses.module#TrainingCoursesModule',
+      canActivate: [ OktaAuthGuard ], data: { preload: true, onAuthRequired } }
     ]
   }
 ];

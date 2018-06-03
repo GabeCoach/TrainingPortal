@@ -1,16 +1,19 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { TrainingCoursesComponent } from './training-courses.component';
-import { ModulesComponent } from './modules/modules.component';
 import { CoursesComponent } from './courses/courses.component';
-import { OktaCallbackComponent, OktaAuthGuard } from '@okta/okta-angular';
+import { OktaAuthGuard } from '@okta/okta-angular';
+import { ModulesComponent } from './modules/modules.component';
+import { QuizStartComponent } from './quiz-start/quiz-start.component';
+
 
 const routes: Routes = [
-  {
-    path: '', component: TrainingCoursesComponent, children: [
-      { path: 'modules/:id', component: ModulesComponent, canActivate: [ OktaAuthGuard ], data: { onAuthRequired } },
+    { path: '', component: TrainingCoursesComponent, children: [
       { path: 'courses', component: CoursesComponent, canActivate: [ OktaAuthGuard ], data: { onAuthRequired } },
-      { path: '', redirectTo: '/training-courses/courses', pathMatch: 'full'}
+      { path: 'modules/:id', component: ModulesComponent, canActivate: [ OktaAuthGuard ], data: { onAuthRequired } },
+      // tslint:disable-next-line:max-line-length
+      { path: 'quiz-start/:id', component: QuizStartComponent, canActivate: [ OktaAuthGuard ], data: { preload: true, onAuthRequired } },
+      { path: '', redirectTo: '/training-courses/courses', pathMatch: 'full' }
     ]
   }
 ];

@@ -9,6 +9,7 @@ import { HeaderComponent } from './shared/header/header.component';
 import { NavigationComponent } from './shared/navigation/navigation.component';
 import { ChatSidebarComponent } from './shared/chat-sidebar/chat-sidebar.component';
 
+
 @NgModule({
   imports: [
     CommonModule,
