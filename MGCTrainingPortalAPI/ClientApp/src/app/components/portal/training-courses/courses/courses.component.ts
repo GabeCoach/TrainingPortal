@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { TrainingCourseService } from '../services/training-course/training-course.service';
 import { TrainingCourse } from '../models/training-course';
+import { ToastrService } from 'ngx-toastr';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-courses',
@@ -9,20 +11,17 @@ import { TrainingCourse } from '../models/training-course';
 })
 export class CoursesComponent implements OnInit {
 
-  constructor(private trainingCourseService: TrainingCourseService) { }
-
   public trainingCourses: TrainingCourse[];
+
+  constructor(private trainingCourseService: TrainingCourseService, private toastrService: ToastrService) { }
 
   ngOnInit() {
     this.trainingCourseService.getTrainingCourses()
     .then(resp => {
       this.trainingCourses = resp;
-      this.trainingCourseService.trainingCourseId = this.trainingCourses[0].Id;
-    }).catch(err => {
-      console.log(JSON.stringify(err.message));
+    }).catch((err: HttpErrorResponse) => {
+      this.toastrService.error(err.message, 'Error!');
     });
   }
-
-
 
 }

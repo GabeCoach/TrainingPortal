@@ -100,7 +100,8 @@
               "src/assets/css/app_1.min.css",
               "src/assets/css/app_2.min.css",
               "node_modules/@okta/okta-signin-widget/dist/css/okta-sign-in.min.css",
-              "node_modules/@okta/okta-signin-widget/dist/css/okta-theme.css"
+              "node_modules/@okta/okta-signin-widget/dist/css/okta-theme.css",
+              "node_modules/ngx-toastr/toastr.css"
             ],
             "assets": [
               "src/assets",

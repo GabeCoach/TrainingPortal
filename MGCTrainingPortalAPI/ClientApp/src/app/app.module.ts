@@ -11,6 +11,7 @@ import { FormsModule } from '@angular/forms';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { AccordionModule } from 'ngx-bootstrap/accordion';
 import { PaginationModule } from 'ngx-bootstrap/pagination';
+import { ToastrModule } from 'ngx-toastr';
 
 // Components
 import { AppComponent } from './app.component';
@@ -19,10 +20,9 @@ import { LandingPageComponent } from './components/landing-page/landing-page.com
 import { FooterComponent } from './components/portal/shared/footer/footer.component';
 import { PageLoaderComponent } from './components/portal/shared/page-loader/page-loader.component';
 // tslint:disable-next-line:max-line-length
-import { SectionsDisplayModalComponent } from './components/portal/training-courses/modals//sections-display-modal/sections-display-modal.component';
+import { SectionsDisplayModalComponent } from './components/portal/training-courses/modals/sections-display-modal/sections-display-modal.component';
 // tslint:disable-next-line:max-line-length
 import { SubSectionDisplayModalComponent } from './components/portal/training-courses/modals/sub-section-display-modal/sub-section-display-modal.component';
-
 // Services
 import { AuthService } from './services/auth.service';
 import { BaseService } from './services/base-service.service';
@@ -67,6 +67,7 @@ const config = {
     ModalModule.forRoot(),
     AccordionModule.forRoot(),
     PaginationModule.forRoot(),
+    ToastrModule.forRoot(),
     PortalModule,
     OktaAuthModule.initAuth(config),
     FormsModule
