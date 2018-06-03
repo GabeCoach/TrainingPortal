@@ -3,7 +3,6 @@ import { Routes, RouterModule } from '@angular/router';
 import { TrainingCoursesComponent } from './training-courses.component';
 import { ModulesComponent } from './modules/modules.component';
 import { CoursesComponent } from './courses/courses.component';
-import { QuizsComponent } from './quizs/quizs.component';
 import { OktaCallbackComponent, OktaAuthGuard } from '@okta/okta-angular';
 
 const routes: Routes = [
@@ -11,9 +10,6 @@ const routes: Routes = [
     path: '', component: TrainingCoursesComponent, children: [
       { path: 'modules/:id', component: ModulesComponent, canActivate: [ OktaAuthGuard ], data: { onAuthRequired } },
       { path: 'courses', component: CoursesComponent, canActivate: [ OktaAuthGuard ], data: { onAuthRequired } },
-      { path: 'quiz/:id', loadChildren: './quizs/quizs.module#QuizsModule',
-      canActivate: [ OktaAuthGuard ], data: { preload: true, onAuthRequired }
-      },
       { path: '', redirectTo: '/training-courses/courses', pathMatch: 'full'}
     ]
   }
