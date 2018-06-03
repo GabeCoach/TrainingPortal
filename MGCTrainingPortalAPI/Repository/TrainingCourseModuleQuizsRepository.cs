@@ -19,7 +19,7 @@ namespace MGCTrainingPortalAPI.Repository
             try
             {
                 IQueryable<TrainingCourseModuleQuiz> oTrainingCourseModuleQuiz = from a in db.TrainingCourseModuleQuizs
-                                                                                       select a;
+                                                                                 select a;
 
                 return oTrainingCourseModuleQuiz;
             }
@@ -37,6 +37,23 @@ namespace MGCTrainingPortalAPI.Repository
                 return oTrainingCourseModuleQuiz;
             }
             catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
+        public async Task<TrainingCourseModuleQuiz> SelectByTrainingCourseModule(int iTrainingCourseModuleId)
+        {
+            try
+            {
+               TrainingCourseModuleQuiz oTrainingCourseModuleQuizs =
+                    await (from tcmq in db.TrainingCourseModuleQuizs
+                     where tcmq.training_course_module_id == iTrainingCourseModuleId
+                     select tcmq).FirstAsync();
+
+                return oTrainingCourseModuleQuizs;
+            }
+            catch(Exception ex)
             {
                 throw new Exception(ex.Message);
             }

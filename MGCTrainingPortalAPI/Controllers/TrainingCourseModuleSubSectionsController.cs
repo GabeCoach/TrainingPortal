@@ -15,7 +15,7 @@ using MGCTrainingPortalAPI.Repository;
 
 namespace MGCTrainingPortalAPI.Controllers
 {
-    [EnableCors(origins: "http://www.mgctrainingportal.com,http://localhost:4200", headers: "*", methods: "*")]
+    [EnableCors(origins: "http://www.mgctrainingportal.com,http://localhost:4200,https://www.mgctrainingportal.com", headers: "*", methods: "*")]
     [Authorize]
     public class TrainingCourseModuleSubSectionsController : ApiController
     {

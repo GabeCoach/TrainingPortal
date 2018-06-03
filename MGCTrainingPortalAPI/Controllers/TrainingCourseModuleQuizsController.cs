@@ -15,7 +15,7 @@ using MGCTrainingPortalAPI.Repository;
 
 namespace MGCTrainingPortalAPI.Controllers
 {
-    [EnableCors(origins: "https://www.mgctrainingportal.com,http://localhost:4200", headers: "*", methods: "*")]
+    [EnableCors(origins: "https://www.mgctrainingportal.com,http://localhost:4200,https://www.mgctrainingportal.com", headers: "*", methods: "*")]
     [Authorize]
     public class TrainingCourseModuleQuizsController : ApiController
     {
@@ -39,6 +39,20 @@ namespace MGCTrainingPortalAPI.Controllers
             }
 
             return Ok(trainingCourseModuleQuiz);
+        }
+
+        [HttpGet]
+        [Route("api/TrainingCourseModuleQuizs/{iTrainingCourseModuleId}/TrainingCourseModule")]
+        public async Task<IHttpActionResult> GetQuizByTrainingCourseModule(int iTrainingCourseModuleId)
+        {
+            try
+            {
+                return Json(await oTrainingCourseModuleQuizRepo.SelectByTrainingCourseModule(iTrainingCourseModuleId));
+            }
+            catch(Exception ex)
+            {
+                return InternalServerError();
+            }
         }
 
         [HttpGet]
