@@ -24,6 +24,7 @@
     "@angular/router": "6.0.3",
     "@okta/okta-angular": "0.0.13",
     "@okta/okta-signin-widget": "^2.7.0",
+    "angular2-toaster": "^6.0.0",
     "auth0-js": "^9.3.0",
     "core-js": "^2.4.1",
     "ngx-bootstrap": "^3.0.0",

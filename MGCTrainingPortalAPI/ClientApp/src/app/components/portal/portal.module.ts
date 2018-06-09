@@ -8,12 +8,14 @@ import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './shared/header/header.component';
 import { NavigationComponent } from './shared/navigation/navigation.component';
 import { ChatSidebarComponent } from './shared/chat-sidebar/chat-sidebar.component';
+import {ToasterModule, ToasterService} from 'angular2-toaster';
 
 
 @NgModule({
   imports: [
     CommonModule,
-    PortalRoutingModule
+    PortalRoutingModule,
+    ToasterModule.forChild()
   ],
   declarations: [
     PortalComponent,
@@ -21,6 +23,9 @@ import { ChatSidebarComponent } from './shared/chat-sidebar/chat-sidebar.compone
     HeaderComponent,
     NavigationComponent,
     ChatSidebarComponent,
+  ],
+  providers: [
+    ToasterService
   ]
 })
 export class PortalModule { }

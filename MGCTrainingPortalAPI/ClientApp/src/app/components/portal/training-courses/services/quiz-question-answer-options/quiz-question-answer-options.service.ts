@@ -17,6 +17,9 @@ export class QuizQuestionAnswerOptionsService {
     return this.http.get(this.baseService.BaseUrl + 'QuizQuestionAnswerOptions/' + Id).toPromise();
   }
 
+  public getQuizQuestionAnswerOptionByQuestion(iQuizQuestionId: number): Promise<any> {
+    return this.http.get(`${this.baseService.BaseUrl}/QuizQuestionAnswerOptions/${iQuizQuestionId}/QuizQuestion`).toPromise();
+  }
 
   public postQuizQuestionAnswerOption(quizQuestionAnswerOption: QuizQuestionAnswerOptions): Promise<any> {
     return this.http.post(this.baseService.BaseUrl + 'QuizQuestionAnswerOptions', quizQuestionAnswerOption).toPromise();

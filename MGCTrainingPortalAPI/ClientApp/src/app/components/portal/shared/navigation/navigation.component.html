@@ -10,16 +10,7 @@
 
           <ul>  
               <li>
-                  <a href="profile-about.html">View Profile</a>
-              </li>
-              <li>
-                  <a href="">Privacy Settings</a>
-              </li>
-              <li>
-                  <a href="">Settings</a>
-              </li>
-              <li>
-                  <a href="">Logout</a>
+                  <a href="javascript:void(0)" (click)="authService.logout()">Logout</a>
               </li>
           </ul>
       </li>
@@ -30,6 +21,6 @@
       <li>
           <a routerLink="/portal/training-courses" data-ma-action="submenu-toggle"><i class="zmdi zmdi-view-compact"></i> My Trainings</a>
       </li>
-      <li><a href=""><i class="zmdi zmdi-format-underlined"></i> Test Results &amp; Scores</a></li>
+      <!--<li><a href=""><i class="zmdi zmdi-format-underlined"></i> Test Results &amp; Scores</a></li>-->
   </ul>
 </aside>

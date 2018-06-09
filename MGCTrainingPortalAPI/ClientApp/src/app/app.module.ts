@@ -5,13 +5,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { OktaAuthModule, OktaCallbackComponent } from '@okta/okta-angular';
 import { PortalModule } from './components/portal/portal.module';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 // ngx-bootstrap modules
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { AccordionModule } from 'ngx-bootstrap/accordion';
 import { PaginationModule } from 'ngx-bootstrap/pagination';
-import { ToastrModule } from 'ngx-toastr';
+
 
 // Components
 import { AppComponent } from './app.component';
@@ -26,6 +27,8 @@ import { SubSectionDisplayModalComponent } from './components/portal/training-co
 // Services
 import { AuthService } from './services/auth.service';
 import { BaseService } from './services/base-service.service';
+// tslint:disable-next-line:max-line-length
+import { TrainingCourseModuleService } from './components/portal/training-courses/services/training-course-module/training-course-module.service';
 // tslint:disable-next-line:max-line-length
 import { TrainingCourseModuleSectionService } from './components/portal/training-courses/services/training-course-module-section/training-course-module-section.service';
 // tslint:disable-next-line:max-line-length
@@ -67,16 +70,16 @@ const config = {
     ModalModule.forRoot(),
     AccordionModule.forRoot(),
     PaginationModule.forRoot(),
-    ToastrModule.forRoot(),
     PortalModule,
     OktaAuthModule.initAuth(config),
-    FormsModule
+    BrowserAnimationsModule
   ],
   providers: [
     AuthService,
     BaseService,
     TrainingCourseModuleSectionService,
     TrainingCourseModuleSubSectionService,
+    TrainingCourseModuleService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,

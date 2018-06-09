@@ -2,18 +2,24 @@
   <div class="col-md-2"></div>
   <div class="col-md-8">
     <div class="card">
-      <div class="card-header">
+      <div class="card-header bgm-bluegray">
         <h2>
           {{trainingCourseModuleQuiz.training_course_module_quiz_name}}
           <small>Click the start button to begin the quiz</small>
         </h2>
       </div>
       <div class="card-body">
-        {{trainingCourseModuleQuiz.training_course_module_quiz_description}}
+        <div class="row">
+          <div class="col-md-12">
+            <p>{{trainingCourseModuleQuiz.training_course_module_quiz_description}}</p>
+          </div>
+        </div>
       </div>
-      <div class="btn-group">
+      <div class="card-footer">
         <div class="pull-right">
-          <button type="button" class="btn btn-lg bgm-bluegray">Start</button>
+          <div class="btn-group">
+            <button type="button" (click)="startQuiz(trainingCourseModuleQuiz.Id)" class="btn btn-lg bgm-bluegray">Start</button>
+          </div>
         </div>
       </div>
     </div>

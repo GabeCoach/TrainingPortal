@@ -1,0 +1,40 @@
+
+<div class="row">
+  <div class="col-md-2"></div>
+  <div class="col-md-8">
+    <div class="card">
+      <div class="card-header bgm-bluegray">
+        <h2>
+          {{activeQuizQuestion.question}}
+          <small>Choose the correct answer</small>
+        </h2>
+      </div>
+      <form role="form" (ngSubmit)="nextQuestion()" #answerOptionsForm="ngForm" novalidate>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-12">
+              <ul>
+                <li *ngFor="let option of quizQuestionAnswerOptions">
+                  <div class="btn-group btn-group-toggle" data-toggle="radio">
+                    <label class="btn btn-secondary">
+                      <input type="radio" name="answerOptions" value="{{option.Id}}" name="selectedAnswer" #selectedAnswer="ngModel" required (ngModel)="answerOptionsForm.selectedAnswer" id="{{'answerOption' + option.Id}}'"
+                        autocomplete="off">{{option.answer_option}}
+                    </label>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="card-footer">
+          <div class="pull-right">
+            <div class="btn-group">
+              <button type="submit" class="btn btn-lg bgm-bluegray">Next</button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="col-md-2"></div>
+</div>
