@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { TrainingCourseModuleQuizService } from '../services/training-course-module-quiz/training-course-module-quiz.service';
 import { TrainingCourseModuleQuiz } from '../models/training-course-module-quiz';
-import { ToastrService } from 'ngx-toastr';
+import { ToasterService } from 'angular2-toaster';
 import { ParamMap, Router, ActivatedRoute } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
+import { QuizSheetService } from '../services/quiz-sheet/quiz-sheet.service';
+import { QuizSheet } from '../models/quiz-sheet';
 
 @Component({
   selector: 'app-quiz-start',
@@ -12,13 +14,16 @@ import { HttpErrorResponse } from '@angular/common/http';
 })
 export class QuizStartComponent implements OnInit {
 
-  public trainingCourseModuleId: any;
+  private trainingCourseModuleId: any;
   public trainingCourseModuleQuiz: TrainingCourseModuleQuiz;
+  private quizSheet: QuizSheet;
 
   constructor(
     private trainingCourseModuleQuizService: TrainingCourseModuleQuizService,
-    private toastrService: ToastrService,
-    private route: ActivatedRoute
+    private toasterService: ToasterService,
+    private route: ActivatedRoute,
+    private router: Router,
+    private quizSheetService: QuizSheetService
     ) {
       this.trainingCourseModuleId = this.route.snapshot.paramMap.get('id');
     }
@@ -28,7 +33,19 @@ export class QuizStartComponent implements OnInit {
     .then(resp => {
       this.trainingCourseModuleQuiz = resp;
     }).catch( (err: HttpErrorResponse) => {
-      this.toastrService.error(err.message, 'Error!');
+      this.toasterService.popAsync('error', 'Error!', err.message);
+    });
+  }
+
+  public startQuiz(QuizId: number): void {
+    this.quizSheet = new QuizSheet;
+    this.quizSheet.quiz_id = QuizId;
+
+    this.quizSheetService.submitQuizSheet(this.quizSheet)
+    .then(resp => {
+      this.router.navigate([`/training-courses/quiz-in-progress/${QuizId}`]);
+    }).catch((err: HttpErrorResponse) => {
+      alert(err.message);
     });
   }
 

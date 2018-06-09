@@ -9,6 +9,8 @@ import { TrainingCourseModuleService } from '../services/training-course-module/
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
 import { TrainingCourseModuleSectionService } from '../services/training-course-module-section/training-course-module-section.service';
+// tslint:disable-next-line:max-line-length
+import { TrainingCourseModuleSubSectionService } from '../services/training-course-module-sub-section/training-course-module-sub-section.service';
 
 // Models
 import { TrainingCourse } from '../models/training-course';
@@ -31,7 +33,7 @@ export class ModulesComponent implements OnInit {
   fullTrainingCourse: any;
   trainingCourseId: any;
   trainingCourseInformation: TrainingCourse;
-  trainingCourseModule: TrainingCourseModule[];
+  trainingCourseModule: TrainingCourseModule[] = [];
   bsModalRef: BsModalRef;
   courseModuleId: number;
   totalItems: number;

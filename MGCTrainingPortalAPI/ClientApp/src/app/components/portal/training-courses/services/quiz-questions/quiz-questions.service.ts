@@ -16,6 +16,9 @@ export class QuizQuestionsService {
     return this.http.get(this.baseService.BaseUrl + 'QuizQuestions/' + Id).toPromise();
   }
 
+  public getQuizQuestionsByModuleQuiz(iQuizId: number): Promise<any> {
+    return this.http.get(`${this.baseService.BaseUrl}/QuizQuestions/${iQuizId}/TrainingCourseModuleQuiz`).toPromise();
+  }
 
   public postQuizQuestion(quizQuestion: QuizQuestions): Promise<any> {
     return this.http.post(this.baseService.BaseUrl + 'QuizQuestions', quizQuestion).toPromise();

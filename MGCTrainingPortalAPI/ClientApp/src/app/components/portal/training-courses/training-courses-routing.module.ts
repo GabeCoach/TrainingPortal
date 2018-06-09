@@ -5,6 +5,8 @@ import { CoursesComponent } from './courses/courses.component';
 import { OktaAuthGuard } from '@okta/okta-angular';
 import { ModulesComponent } from './modules/modules.component';
 import { QuizStartComponent } from './quiz-start/quiz-start.component';
+import { QuizInProgrssComponent } from './quiz-in-progrss/quiz-in-progrss.component';
+import { SubmitQuizComponent } from './submit-quiz/submit-quiz.component';
 
 
 const routes: Routes = [
@@ -13,6 +15,9 @@ const routes: Routes = [
       { path: 'modules/:id', component: ModulesComponent, canActivate: [ OktaAuthGuard ], data: { onAuthRequired } },
       // tslint:disable-next-line:max-line-length
       { path: 'quiz-start/:id', component: QuizStartComponent, canActivate: [ OktaAuthGuard ], data: { preload: true, onAuthRequired } },
+      // tslint:disable-next-line:max-line-length
+      { path: 'quiz-in-progress/:id', component: QuizInProgrssComponent, canActivate: [ OktaAuthGuard ], data: { preload: true, onAuthRequired } },
+      { path: 'submit-quiz/:id', component: SubmitQuizComponent, canActivate: [ OktaAuthGuard ], data: { preload: true, onAuthRequired } },
       { path: '', redirectTo: '/training-courses/courses', pathMatch: 'full' }
     ]
   }
