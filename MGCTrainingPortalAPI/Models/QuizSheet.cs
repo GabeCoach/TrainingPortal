@@ -19,5 +19,6 @@ namespace MGCTrainingPortalAPI.Models
         public Nullable<int> quiz_id { get; set; }
         public Nullable<System.DateTime> submit_date { get; set; }
         public Nullable<System.TimeSpan> submit_time { get; set; }
+        public Nullable<System.DateTime> start_date { get; set; }
     }
 }

@@ -32,13 +32,35 @@ namespace MGCTrainingPortalAPI.Controllers
         [ResponseType(typeof(QuizQuestion))]
         public async Task<IHttpActionResult> GetQuizQuestion(int id)
         {
-            QuizQuestion quizQuestion = await oQuizQuestionRepo.SelectById(id);
-            if (quizQuestion == null)
+            try
             {
-                return NotFound();
-            }
+                QuizQuestion quizQuestion = await oQuizQuestionRepo.SelectById(id);
+                if (quizQuestion == null)
+                {
+                    return NotFound();
+                }
 
-            return Ok(quizQuestion);
+                return Ok(quizQuestion);
+            }
+            catch(Exception ex)
+            {
+                return InternalServerError();
+            }
+           
+        }
+
+        [HttpGet]
+        [Route("api/QuizQuestions/{iModuleQuizId}/TrainingCourseModuleQuiz")]
+        public async Task<IHttpActionResult> GetQuizQuestionsByQuizId(int iModuleQuizId)
+        {
+            try
+            {
+                return Json(await oQuizQuestionRepo.SelectByCourseModuleQuiz(iModuleQuizId));
+            }
+            catch(Exception ex)
+            {
+                return InternalServerError();
+            }
         }
 
         // PUT: api/QuizQuestions/5

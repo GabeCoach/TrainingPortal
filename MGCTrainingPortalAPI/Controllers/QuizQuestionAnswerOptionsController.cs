@@ -60,6 +60,20 @@ namespace MGCTrainingPortalAPI.Controllers
             return StatusCode(HttpStatusCode.NoContent);
         }
 
+        [HttpGet]
+        [Route("api/QuizQuestionAnswerOptions/{iQuizQuestionId}/QuizQuestion")]
+        public async Task<IHttpActionResult> GetQuizQuestionAnswerOptionByQuestion(int iQuizQuestionId)
+        {
+            try
+            {
+                return Json(await oQuizAnswerOptionsRepo.SelectByQuizQuestion(iQuizQuestionId));
+            }
+            catch(Exception ex)
+            {
+                return InternalServerError();
+            }
+        }
+
         // POST: api/QuizQuestionAnswerOptions
         [ResponseType(typeof(QuizQuestionAnswerOption))]
         public async Task<IHttpActionResult> PostQuizQuestionAnswerOption(QuizQuestionAnswerOption quizQuestionAnswerOption)
