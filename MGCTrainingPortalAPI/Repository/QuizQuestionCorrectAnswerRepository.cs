@@ -42,6 +42,22 @@ namespace MGCTrainingPortalAPI.Repository
             }
         }
 
+        public async Task<QuizQuestionCorrectAnswer> SelectByQuizQuestion(int iQuizQuestionId)
+        {
+            try
+            {
+                QuizQuestionCorrectAnswer oQuizQuestionCorrectAnswer = await (from qqca in db.QuizQuestionCorrectAnswers
+                                                                       where qqca.quiz_question_id == iQuizQuestionId
+                                                                       select qqca).FirstAsync();
+
+                return oQuizQuestionCorrectAnswer;
+            }
+            catch(Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
         public async Task<List<QuizQuestionCorrectAnswer>> SaveToDB(List<QuizQuestionCorrectAnswer> lstQuizQuestionCorrectAnswer)
         {
             throw new NotImplementedException();
