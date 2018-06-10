@@ -11,7 +11,9 @@ using System.Web.Http;
 using System.Web.Http.Cors;
 using System.Web.Http.Description;
 using MGCTrainingPortalAPI.Models;
+using MGCTrainingPortalAPI.QuizGrader.Models;
 using MGCTrainingPortalAPI.Repository;
+using MGCTrainingPortalAPI.QuizGrader;
 
 namespace MGCTrainingPortalAPI.Controllers
 {
@@ -21,6 +23,9 @@ namespace MGCTrainingPortalAPI.Controllers
     {
         private DB_A35BD0_trainingportaldbEntities db = new DB_A35BD0_trainingportaldbEntities();
         private TrainingCourseQuizScoreQuizScoresRepository oTrainingCourseQuizScoresRepo = new TrainingCourseQuizScoreQuizScoresRepository();
+        private QuizGrader.QuizGrader oQuizGrader = new QuizGrader.QuizGrader();
+
+       
 
         // GET: api/TrainingCourseQuizScores
         public IHttpActionResult GetTrainingCourseQuizScores()
@@ -74,6 +79,21 @@ namespace MGCTrainingPortalAPI.Controllers
             {
                 return InternalServerError();
             }
+        }
+
+        [HttpPost]
+        [Route("api/TrainingCourseQuizScores/QuizGrade")]
+        public async Task<IHttpActionResult> GradeTrainingCourseQuiz(Quiz oQuiz)
+        {
+            try
+            {
+                return Json(await oQuizGrader.GradeQuiz(oQuiz));
+            }
+            catch(Exception ex)
+            {
+                return InternalServerError();
+            }
+            
         }
 
         // POST: api/TrainingCourseQuizScores
