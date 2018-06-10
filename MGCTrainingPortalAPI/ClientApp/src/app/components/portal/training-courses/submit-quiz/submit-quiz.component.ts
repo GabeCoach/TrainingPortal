@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { QuizGrader } from '../models/quiz-grader';
+import { SubmitQuizService } from '../services/submit-quiz/submit-quiz.service';
 
 @Component({
   selector: 'app-submit-quiz',
@@ -8,9 +9,15 @@ import { QuizGrader } from '../models/quiz-grader';
 })
 export class SubmitQuizComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private submitQuizService: SubmitQuizService
+  ) { }
 
   ngOnInit() {
+  }
+
+  public submitQuiz(): void {
+    this.submitQuizService.submitQuizToServer(this.submitQuizService.quiz);
   }
 
 }
