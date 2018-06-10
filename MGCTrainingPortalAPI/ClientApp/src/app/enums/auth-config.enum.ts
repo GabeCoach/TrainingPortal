@@ -3,4 +3,5 @@ export enum AuthConfig {
     DEV_REDIRECT_URI = 'http://localhost:4200/implicit/callback',
     CLIENT_ID = '0oaehwxf90v8H5BaX0h7',
     PROD_REDIRECT_URI = 'http://www.mgctrainingportal.com/implicit/callback',
+    PROD_REDIRECT_URI_HTTPS = 'https://www.mgctrainingportal.com/implicit/callback',
 }

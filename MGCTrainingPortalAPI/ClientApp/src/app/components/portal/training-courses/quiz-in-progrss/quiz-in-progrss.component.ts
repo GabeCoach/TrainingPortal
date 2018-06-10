@@ -8,6 +8,7 @@ import { QuizQuestions } from '../models/quiz-questions';
 import { QuizQuestionAnswerOptions } from '../models/quiz-question-answer-options';
 import { QuizUserSelectedAnswers } from '../models/quiz-user-selected-answers';
 import { NgForm } from '@angular/forms';
+import { SubmitQuizService } from '../services/submit-quiz/submit-quiz.service';
 
 @Component({
   selector: 'app-quiz-in-progrss',
@@ -29,7 +30,8 @@ export class QuizInProgrssComponent implements OnInit {
     private quizQuestionAnswerOptionsService: QuizQuestionAnswerOptionsService,
     private route: ActivatedRoute,
     private router: Router,
-    private toasterService: ToasterService
+    private toasterService: ToasterService,
+    private submitQuizService: SubmitQuizService
   ) {
     this.trainingCourseModuleQuizId = this.route.snapshot.paramMap.get('id');
   }
@@ -63,15 +65,16 @@ export class QuizInProgrssComponent implements OnInit {
     } else {
 
       if (this.quizQuestions.length === this.questionCount) {
+        this.submitQuizService.addSelectedAnswers(this.selectedAnswers);
         this.router.navigate([`/training-courses/submit-quiz/${this.trainingCourseModuleQuizId}`]);
       } else if (this.quizQuestions.length > this.questionCount) {
-        let answer: QuizUserSelectedAnswers;
+        // tslint:disable-next-line:prefer-const
+        let answer: QuizUserSelectedAnswers = new QuizUserSelectedAnswers;
 
         answer.quiz_answer_option_id = this.form.value;
         answer.quiz_question_id = this.activeQuizQuestion.Id;
-        
 
-        this.selectedAnswers.push(this.form.value);
+        this.selectedAnswers.push(answer);
         this.iterateQuizQuestion(this.quizQuestions);
       }
 

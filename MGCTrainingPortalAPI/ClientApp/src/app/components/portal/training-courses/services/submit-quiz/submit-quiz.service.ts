@@ -10,13 +10,15 @@ import { QuizGrader } from '../../models/quiz-grader';
 })
 export class SubmitQuizService {
 
-  public quiz: QuizGrader;
+  public quiz: QuizGrader = new QuizGrader;
 
   constructor() { }
 
-  public addquizSheet(selectedAnswers: QuizUserSelectedAnswers[], quizSheet: QuizSheet): void {
+  public addQuizSheet( quizSheet: QuizSheet): void {
     this.quiz.quiz_sheet = quizSheet;
-    this.quiz.selected_answers = selectedAnswers;
   }
 
+  public addSelectedAnswers(selectedAnswers: QuizUserSelectedAnswers[]): void {
+    this.quiz.selected_answers = selectedAnswers;
+  }
 }
