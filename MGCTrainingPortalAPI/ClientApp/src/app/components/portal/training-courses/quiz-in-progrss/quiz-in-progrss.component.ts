@@ -71,7 +71,7 @@ export class QuizInProgrssComponent implements OnInit {
         // tslint:disable-next-line:prefer-const
         let answer: QuizUserSelectedAnswers = new QuizUserSelectedAnswers;
 
-        answer.quiz_answer_option_id = this.form.value;
+        answer.quiz_answer_option_id = this.form.value.selectedAnswer;
         answer.quiz_question_id = this.activeQuizQuestion.Id;
 
         this.selectedAnswers.push(answer);
