@@ -5,6 +5,6 @@ export class BaseService {
 
   constructor() { }
 
-  BaseUrl = 'http://www.api.mgctrainingportal.com/api/';
+  BaseUrl = 'https://www.api.mgctrainingportal.com/api/';
 
 }
