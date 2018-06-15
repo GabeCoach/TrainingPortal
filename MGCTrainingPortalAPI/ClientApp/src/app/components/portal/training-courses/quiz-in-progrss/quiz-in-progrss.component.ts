@@ -9,6 +9,7 @@ import { QuizQuestionAnswerOptions } from '../models/quiz-question-answer-option
 import { QuizUserSelectedAnswers } from '../models/quiz-user-selected-answers';
 import { NgForm } from '@angular/forms';
 import { SubmitQuizService } from '../services/submit-quiz/submit-quiz.service';
+import { QuizSheetService } from '../services/quiz-sheet/quiz-sheet.service';
 
 @Component({
   selector: 'app-quiz-in-progrss',
@@ -31,7 +32,8 @@ export class QuizInProgrssComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private toasterService: ToasterService,
-    private submitQuizService: SubmitQuizService
+    private submitQuizService: SubmitQuizService,
+    private quizSheetService: QuizSheetService
   ) {
     this.trainingCourseModuleQuizId = this.route.snapshot.paramMap.get('id');
   }
@@ -72,7 +74,7 @@ export class QuizInProgrssComponent implements OnInit {
         let answer: QuizUserSelectedAnswers = new QuizUserSelectedAnswers;
 
         answer.quiz_answer_option_id = this.form.value.selectedAnswer;
-        answer.quiz_question_id = this.activeQuizQuestion.Id;
+        answer.quiz_sheet_id = this.quizSheetService.currentQuizSheetId;
 
         this.selectedAnswers.push(answer);
         this.iterateQuizQuestion(this.quizQuestions);
