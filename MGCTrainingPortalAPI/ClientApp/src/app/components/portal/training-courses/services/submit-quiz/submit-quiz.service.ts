@@ -13,7 +13,8 @@ import { HttpClient } from '@angular/common/http';
 })
 export class SubmitQuizService {
 
-  public quiz: QuizGrader = new QuizGrader;
+  public selectedAnswers: QuizUserSelectedAnswers[];
+  public quizSheet: QuizSheet;
 
   constructor(
     private http: HttpClient,
@@ -21,14 +22,14 @@ export class SubmitQuizService {
   ) { }
 
   public addQuizSheet( quizSheet: QuizSheet): void {
-    this.quiz.quiz_sheet = quizSheet;
+    this.quizSheet = quizSheet;
   }
 
   public addSelectedAnswers(selectedAnswers: QuizUserSelectedAnswers[]): void {
-    this.quiz.selected_answers = selectedAnswers;
+    this.selectedAnswers = selectedAnswers;
   }
 
-  public submitQuizToServer(quizGrader: QuizGrader): Promise<any> {
-    return this.http.post(`${this.baseService.BaseUrl}/TrainingCourseQuizScores/QuizGrade`, quizGrader).toPromise();
+  public submitQuizToServer(quizObject: QuizUserSelectedAnswers[]): Promise<any> {
+    return this.http.post(`${this.baseService.BaseUrl}TrainingCourseQuizScores/QuizGrade`, quizObject).toPromise();
   }
 }

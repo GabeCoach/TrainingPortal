@@ -46,6 +46,7 @@ export class QuizStartComponent implements OnInit {
 
     this.quizSheetService.submitQuizSheet(this.quizSheet)
     .then(resp => {
+      this.quizSheetService.currentQuizSheetId = resp.Id;
       this.router.navigate([`/training-courses/quiz-in-progress/${QuizId}`]);
     }).catch((err: HttpErrorResponse) => {
       alert(err.message);

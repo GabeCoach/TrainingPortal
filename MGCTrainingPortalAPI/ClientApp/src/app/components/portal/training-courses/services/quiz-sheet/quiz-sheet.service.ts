@@ -8,13 +8,15 @@ import { BaseService } from '../../../../../services/base-service.service';
 })
 export class QuizSheetService {
 
+  public currentQuizSheetId: number;
+
   constructor(
     private http: HttpClient,
     private baseService: BaseService
   ) { }
 
   public submitQuizSheet(quizSheet: QuizSheet): Promise<any> {
-    return this.http.post(`${this.baseService.BaseUrl}QuizSheets`, quizSheet).toPromise();
+    return this.http.post(`${this.baseService.BaseUrl}/QuizSheets`, quizSheet).toPromise();
   }
 
 }

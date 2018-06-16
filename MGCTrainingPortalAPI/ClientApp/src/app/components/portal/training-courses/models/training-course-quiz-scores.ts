@@ -1,7 +1,7 @@
 export class TrainingCourseQuizScores {
     public Id: number;
     public training_course_quiz_id: number;
-    public user_id: number;
+    public quiz_sheet_id: number;
     public quiz_percentage: number;
     public quiz_correct_answers: number;
     public quiz_incorrect_answers: number;
