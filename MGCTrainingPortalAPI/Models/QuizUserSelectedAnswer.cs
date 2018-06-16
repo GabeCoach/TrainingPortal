@@ -15,7 +15,6 @@ namespace MGCTrainingPortalAPI.Models
     public partial class QuizUserSelectedAnswer
     {
         public int Id { get; set; }
-        public Nullable<int> quiz_question_id { get; set; }
         public Nullable<int> quiz_answer_option_id { get; set; }
         public Nullable<int> quiz_sheet_id { get; set; }
     }

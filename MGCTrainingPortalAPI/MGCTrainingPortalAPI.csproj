@@ -9828,6 +9828,7 @@
     <Compile Include="Repository\QuizQuestionCorrectAnswerRepository.cs" />
     <Compile Include="Repository\QuizQuestionsRepository.cs" />
     <Compile Include="Repository\QuizSheetRepository.cs" />
+    <Compile Include="Repository\QuizUserSelectedAnswerRepository.cs" />
     <Compile Include="Repository\TrainingCourseModuleQuizsRepository.cs" />
     <Compile Include="Repository\TrainingCourseModuleRepository.cs" />
     <Compile Include="Repository\TrainingCourseModuleSectionsRepository.cs" />
@@ -9837,13 +9838,6 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EntityDeploy Include="Models\MGCTrainingPortalDB.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>MGCTrainingPortalDB.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\MGCTrainingPortalDB.edmx.diagram">
-      <DependentUpon>MGCTrainingPortalDB.edmx</DependentUpon>
-    </Content>
     <Content Include="ClientApp\.angular-cli.json" />
     <Content Include="ClientApp\.editorconfig" />
     <Content Include="ClientApp\.vscode\launch.json" />
@@ -11124,6 +11118,13 @@
     <Content Include="ClientApp\dist\weather-icons.9c5040812aa4ad890d93.woff" />
     <Content Include="ClientApp\dist\weather-icons.e508f4759859cde4f761.ttf" />
     <Content Include="ClientApp\dist\Web.config" />
+    <EntityDeploy Include="Models\MGCTrainingPortalDB.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>MGCTrainingPortalDB.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\MGCTrainingPortalDB.edmx.diagram">
+      <DependentUpon>MGCTrainingPortalDB.edmx</DependentUpon>
+    </Content>
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
