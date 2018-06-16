@@ -83,11 +83,11 @@ namespace MGCTrainingPortalAPI.Controllers
 
         [HttpPost]
         [Route("api/TrainingCourseQuizScores/QuizGrade")]
-        public async Task<IHttpActionResult> GradeTrainingCourseQuiz(Quiz oQuiz)
+        public async Task<IHttpActionResult> GradeTrainingCourseQuiz(List<QuizUserSelectedAnswer> lstSelectedAnswers)
         {
             try
             {
-                return Json(await oQuizGrader.GradeQuiz(oQuiz));
+                return Json(await oQuizGrader.GradeQuiz(lstSelectedAnswers));
             }
             catch(Exception ex)
             {

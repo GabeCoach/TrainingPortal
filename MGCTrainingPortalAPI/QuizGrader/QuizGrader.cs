@@ -16,49 +16,62 @@ namespace MGCTrainingPortalAPI.QuizGrader
         private QuizQuestionCorrectAnswerRepository oQuizCorrectAnswerRepo = new QuizQuestionCorrectAnswerRepository();
         private QuizQuestionsRepository oQuizQuestionRepo = new QuizQuestionsRepository();
         private TrainingCourseQuizScoreQuizScoresRepository oTrainingCourseQuizScoreRepo = new TrainingCourseQuizScoreQuizScoresRepository();
+        private QuizUserSelectedAnswerRepository oQuizUserSelectedAnswerRepo = new QuizUserSelectedAnswerRepository();
+        private QuizQuestionAnswerOptionsRepository oAnswerOptionRepo = new QuizQuestionAnswerOptionsRepository();
 
-        public async Task<TrainingCourseQuizScore> GradeQuiz(Quiz oQuiz)
+        public async Task<TrainingCourseQuizScore> GradeQuiz(List<QuizUserSelectedAnswer> lstSelectedAnswers)
         {
             try
             {
-                QuizSheet oQuizSheet = await oQuizSheetRepo.SelectById(oQuiz.quiz_sheet.Id);
                 TrainingCourseQuizScore oTrainingCourseQuizScore = new TrainingCourseQuizScore();
-
-                if (oQuizSheet == null)
-                {
-                    throw new Exception("Quiz Sheet Doesn't Exist");
-                }
 
                 int iCorrectAnswerAmount = 0;
                 int iWrongAnswerAmount = 0;
-                int iTotalPossibleAnswers = oQuizQuestionRepo.SelectByCourseModuleQuiz(oQuiz.quiz_sheet.quiz_id.Value).Result.Count;
+                
                 List<QuizUserSelectedAnswer> lstWrongAnswers = new List<QuizUserSelectedAnswer>();
                 List<QuizUserSelectedAnswer> lstCorrectAnswers = new List<QuizUserSelectedAnswer>();
+                int iTotalPossibleAnswers = 0;
+                QuizSheet oQuizSheet = null;
 
-                List<QuizUserSelectedAnswer> lstQuestionSelectedAnswers = oQuiz.selected_answers;
-
-                foreach (QuizUserSelectedAnswer selectedAnswer in lstQuestionSelectedAnswers)
+                foreach (QuizUserSelectedAnswer answer in lstSelectedAnswers)
                 {
-                    QuizQuestionCorrectAnswer oQuestionCorrectAnswer =
-                        await oQuizCorrectAnswerRepo.SelectByQuizQuestion(selectedAnswer.quiz_question_id.Value);
+                    
+                    oQuizSheet = await oQuizSheetRepo.SelectById(answer.quiz_sheet_id.Value);
 
-                    if (selectedAnswer.quiz_answer_option_id != oQuestionCorrectAnswer.quiz_answer_options_id)
+                    if (oQuizSheet == null)
                     {
-                        lstWrongAnswers.Add(selectedAnswer);
+                        throw new Exception("Quiz Sheet Doesn't Exist");
+                    }
+
+                    var oPossibleAnswers = await oQuizQuestionRepo.SelectByCourseModuleQuiz(oQuizSheet.quiz_id.Value);
+                    iTotalPossibleAnswers = oPossibleAnswers.Count;
+                    List<QuizUserSelectedAnswer> lstQuestionSelectedAnswers = lstSelectedAnswers;
+
+                    QuizQuestionAnswerOption oSelectedAnswerOption =
+                        await oAnswerOptionRepo.SelectById(answer.quiz_answer_option_id.Value);
+
+                    QuizQuestion oCurrentQuizQuestion = await oQuizQuestionRepo.SelectById(oSelectedAnswerOption.quiz_question_id.Value);
+
+                    QuizQuestionCorrectAnswer oQuestionCorrectAnswer = await oQuizCorrectAnswerRepo.SelectByQuizQuestion(oSelectedAnswerOption.quiz_question_id.Value);
+
+                    if (answer.quiz_answer_option_id != oQuestionCorrectAnswer.quiz_answer_options_id)
+                    {
+                        lstWrongAnswers.Add(answer);
                         iWrongAnswerAmount++;
                     }
-                    else if (selectedAnswer.quiz_answer_option_id == oQuestionCorrectAnswer.quiz_answer_options_id)
+                    else if (answer.quiz_answer_option_id == oQuestionCorrectAnswer.quiz_answer_options_id)
                     {
-                        lstCorrectAnswers.Add(selectedAnswer);
+                        lstCorrectAnswers.Add(answer);
                         iCorrectAnswerAmount++;
                     }
                 }
 
                 oTrainingCourseQuizScore.quiz_correct_answers = iCorrectAnswerAmount;
                 oTrainingCourseQuizScore.quiz_incorrect_answers = iWrongAnswerAmount;
-                oTrainingCourseQuizScore.quiz_percentage = iCorrectAnswerAmount / iTotalPossibleAnswers;
+                oTrainingCourseQuizScore.quiz_percentage = (float)iCorrectAnswerAmount / (float)iTotalPossibleAnswers;
                 oTrainingCourseQuizScore.quiz_total_answers_possible = iTotalPossibleAnswers;
-                oTrainingCourseQuizScore.date_added = DateTime.Now;
+                oTrainingCourseQuizScore.date_added = DateTime.Now.Date;
+                oTrainingCourseQuizScore.quiz_sheet_id = oQuizSheet.Id;
 
                 await oTrainingCourseQuizScoreRepo.SaveToDB(oTrainingCourseQuizScore);
 

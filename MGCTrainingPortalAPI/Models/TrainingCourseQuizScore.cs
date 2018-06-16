@@ -16,7 +16,7 @@ namespace MGCTrainingPortalAPI.Models
     {
         public int Id { get; set; }
         public Nullable<int> training_course_quiz_id { get; set; }
-        public Nullable<int> user_id { get; set; }
+        public Nullable<int> quiz_sheet_id { get; set; }
         public Nullable<double> quiz_percentage { get; set; }
         public Nullable<int> quiz_correct_answers { get; set; }
         public Nullable<int> quiz_incorrect_answers { get; set; }

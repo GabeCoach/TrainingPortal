@@ -71,7 +71,6 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="quiz_question_id" Type="int" />
           <Property Name="quiz_answer_option_id" Type="int" />
           <Property Name="quiz_sheet_id" Type="int" />
         </EntityType>
@@ -136,7 +135,7 @@
           </Key>
           <Property Name="Id" Type="int" Nullable="false" />
           <Property Name="training_course_quiz_id" Type="int" />
-          <Property Name="user_id" Type="int" />
+          <Property Name="quiz_sheet_id" Type="int" />
           <Property Name="quiz_percentage" Type="float" />
           <Property Name="quiz_correct_answers" Type="int" />
           <Property Name="quiz_incorrect_answers" Type="int" />
@@ -179,6 +178,26 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="DB_A35BD0_trainingportaldbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Organization">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="organization_name" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="date_added" Type="DateTime" Precision="3" />
+          <Property Name="date_updated" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="OrganizationTrainingCours">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="organization_id" Type="Int32" />
+          <Property Name="training_course_id" Type="Int32" />
+          <Property Name="subscription_active" Type="Boolean" />
+          <Property Name="date_added" Type="DateTime" Precision="3" />
+          <Property Name="date_updated" Type="DateTime" Precision="3" />
+        </EntityType>
         <EntityType Name="QuizQuestionAnswerOption">
           <Key>
             <PropertyRef Name="Id" />
@@ -208,6 +227,25 @@
           <Property Name="question" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="date_added" Type="DateTime" Precision="3" />
           <Property Name="date_updated" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="QuizSheet">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="user_id" Type="Int32" />
+          <Property Name="quiz_id" Type="Int32" />
+          <Property Name="submit_date" Type="DateTime" Precision="0" />
+          <Property Name="submit_time" Type="Time" Precision="7" />
+          <Property Name="start_date" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="QuizUserSelectedAnswer">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="quiz_answer_option_id" Type="Int32" />
+          <Property Name="quiz_sheet_id" Type="Int32" />
         </EntityType>
         <EntityType Name="TrainingCourse">
           <Key>
@@ -264,57 +302,6 @@
           <Property Name="date_added" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="date_updated" Type="DateTime" Precision="3" />
         </EntityType>
-        <EntityType Name="TrainingCourseQuizScore">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
-          <Property Name="training_course_quiz_id" Type="Int32" />
-          <Property Name="user_id" Type="Int32" />
-          <Property Name="quiz_percentage" Type="Double" />
-          <Property Name="quiz_correct_answers" Type="Int32" />
-          <Property Name="quiz_incorrect_answers" Type="Int32" />
-          <Property Name="quiz_total_answers" Type="Int32" />
-          <Property Name="quiz_total_answers_possible" Type="Int32" />
-          <Property Name="date_added" Type="DateTime" Precision="3" />
-          <Property Name="date_updated" Type="DateTime" Precision="3" />
-        </EntityType>
-        <EntityContainer Name="DB_A35BD0_trainingportaldbEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="QuizQuestionAnswerOptions" EntityType="Self.QuizQuestionAnswerOption" />
-          <EntitySet Name="QuizQuestionCorrectAnswers" EntityType="Self.QuizQuestionCorrectAnswer" />
-          <EntitySet Name="QuizQuestions" EntityType="Self.QuizQuestion" />
-          <EntitySet Name="TrainingCourses" EntityType="Self.TrainingCourse" />
-          <EntitySet Name="TrainingCourseModules" EntityType="Self.TrainingCourseModule" />
-          <EntitySet Name="TrainingCourseModuleQuizs" EntityType="Self.TrainingCourseModuleQuiz" />
-          <EntitySet Name="TrainingCourseModuleSections" EntityType="Self.TrainingCourseModuleSection" />
-          <EntitySet Name="TrainingCourseModuleSubSections" EntityType="Self.TrainingCourseModuleSubSection" />
-          <EntitySet Name="TrainingCourseQuizScores" EntityType="Self.TrainingCourseQuizScore" />
-          <EntitySet Name="Organizations" EntityType="DB_A35BD0_trainingportaldbModel.Organization" />
-          <EntitySet Name="OrganizationTrainingCourses" EntityType="DB_A35BD0_trainingportaldbModel.OrganizationTrainingCours" />
-          <EntitySet Name="Users" EntityType="DB_A35BD0_trainingportaldbModel.User" />
-          <EntitySet Name="QuizUserSelectedAnswers" EntityType="DB_A35BD0_trainingportaldbModel.QuizUserSelectedAnswer" />
-          <EntitySet Name="QuizSheets" EntityType="DB_A35BD0_trainingportaldbModel.QuizSheet" />
-        </EntityContainer>
-        <EntityType Name="Organization">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="organization_name" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="date_added" Type="DateTime" Precision="3" />
-          <Property Name="date_updated" Type="DateTime" Precision="3" />
-        </EntityType>
-        <EntityType Name="OrganizationTrainingCours">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="organization_id" Type="Int32" />
-          <Property Name="training_course_id" Type="Int32" />
-          <Property Name="subscription_active" Type="Boolean" />
-          <Property Name="date_added" Type="DateTime" Precision="3" />
-          <Property Name="date_updated" Type="DateTime" Precision="3" />
-        </EntityType>
         <EntityType Name="User">
           <Key>
             <PropertyRef Name="Id" />
@@ -329,25 +316,36 @@
           <Property Name="date_added" Type="DateTime" Precision="3" />
           <Property Name="date_updated" Type="DateTime" Precision="3" />
         </EntityType>
-        <EntityType Name="QuizUserSelectedAnswer">
+        <EntityContainer Name="DB_A35BD0_trainingportaldbEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Organizations" EntityType="Self.Organization" />
+          <EntitySet Name="OrganizationTrainingCourses" EntityType="Self.OrganizationTrainingCours" />
+          <EntitySet Name="QuizQuestionAnswerOptions" EntityType="Self.QuizQuestionAnswerOption" />
+          <EntitySet Name="QuizQuestionCorrectAnswers" EntityType="Self.QuizQuestionCorrectAnswer" />
+          <EntitySet Name="QuizQuestions" EntityType="Self.QuizQuestion" />
+          <EntitySet Name="QuizSheets" EntityType="Self.QuizSheet" />
+          <EntitySet Name="QuizUserSelectedAnswers" EntityType="Self.QuizUserSelectedAnswer" />
+          <EntitySet Name="TrainingCourses" EntityType="Self.TrainingCourse" />
+          <EntitySet Name="TrainingCourseModules" EntityType="Self.TrainingCourseModule" />
+          <EntitySet Name="TrainingCourseModuleQuizs" EntityType="Self.TrainingCourseModuleQuiz" />
+          <EntitySet Name="TrainingCourseModuleSections" EntityType="Self.TrainingCourseModuleSection" />
+          <EntitySet Name="TrainingCourseModuleSubSections" EntityType="Self.TrainingCourseModuleSubSection" />
+          <EntitySet Name="Users" EntityType="Self.User" />
+          <EntitySet Name="TrainingCourseQuizScores" EntityType="DB_A35BD0_trainingportaldbModel.TrainingCourseQuizScore" />
+        </EntityContainer>
+        <EntityType Name="TrainingCourseQuizScore">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="quiz_question_id" Type="Int32" />
-          <Property Name="quiz_answer_option_id" Type="Int32" />
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="training_course_quiz_id" Type="Int32" />
           <Property Name="quiz_sheet_id" Type="Int32" />
-        </EntityType>
-        <EntityType Name="QuizSheet">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="user_id" Type="Int32" />
-          <Property Name="quiz_id" Type="Int32" />
-          <Property Name="submit_date" Type="DateTime" Precision="0" />
-          <Property Name="submit_time" Type="Time" Precision="7" />
-          <Property Name="start_date" Type="DateTime" Precision="0" />
+          <Property Name="quiz_percentage" Type="Double" />
+          <Property Name="quiz_correct_answers" Type="Int32" />
+          <Property Name="quiz_incorrect_answers" Type="Int32" />
+          <Property Name="quiz_total_answers" Type="Int32" />
+          <Property Name="quiz_total_answers_possible" Type="Int32" />
+          <Property Name="date_added" Type="DateTime" Precision="3" />
+          <Property Name="date_updated" Type="DateTime" Precision="3" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -355,6 +353,28 @@
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="DB_A35BD0_trainingportaldbModelStoreContainer" CdmEntityContainer="DB_A35BD0_trainingportaldbEntities">
+          <EntitySetMapping Name="Organizations">
+            <EntityTypeMapping TypeName="DB_A35BD0_trainingportaldbModel.Organization">
+              <MappingFragment StoreEntitySet="Organizations">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="organization_name" ColumnName="organization_name" />
+                <ScalarProperty Name="date_added" ColumnName="date_added" />
+                <ScalarProperty Name="date_updated" ColumnName="date_updated" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OrganizationTrainingCourses">
+            <EntityTypeMapping TypeName="DB_A35BD0_trainingportaldbModel.OrganizationTrainingCours">
+              <MappingFragment StoreEntitySet="OrganizationTrainingCourses">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="organization_id" ColumnName="organization_id" />
+                <ScalarProperty Name="training_course_id" ColumnName="training_course_id" />
+                <ScalarProperty Name="subscription_active" ColumnName="subscription_active" />
+                <ScalarProperty Name="date_added" ColumnName="date_added" />
+                <ScalarProperty Name="date_updated" ColumnName="date_updated" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="QuizQuestionAnswerOptions">
             <EntityTypeMapping TypeName="DB_A35BD0_trainingportaldbModel.QuizQuestionAnswerOption">
               <MappingFragment StoreEntitySet="QuizQuestionAnswerOptions">
@@ -385,6 +405,27 @@
                 <ScalarProperty Name="question" ColumnName="question" />
                 <ScalarProperty Name="date_added" ColumnName="date_added" />
                 <ScalarProperty Name="date_updated" ColumnName="date_updated" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="QuizSheets">
+            <EntityTypeMapping TypeName="DB_A35BD0_trainingportaldbModel.QuizSheet">
+              <MappingFragment StoreEntitySet="QuizSheet">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="quiz_id" ColumnName="quiz_id" />
+                <ScalarProperty Name="submit_date" ColumnName="submit_date" />
+                <ScalarProperty Name="submit_time" ColumnName="submit_time" />
+                <ScalarProperty Name="start_date" ColumnName="start_date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="QuizUserSelectedAnswers">
+            <EntityTypeMapping TypeName="DB_A35BD0_trainingportaldbModel.QuizUserSelectedAnswer">
+              <MappingFragment StoreEntitySet="QuizUserSelectedAnswers">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="quiz_answer_option_id" ColumnName="quiz_answer_option_id" />
+                <ScalarProperty Name="quiz_sheet_id" ColumnName="quiz_sheet_id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -448,77 +489,33 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="TrainingCourseQuizScores">
-            <EntityTypeMapping TypeName="DB_A35BD0_trainingportaldbModel.TrainingCourseQuizScore">
-              <MappingFragment StoreEntitySet="TrainingCourseQuizScores">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="training_course_quiz_id" ColumnName="training_course_quiz_id" />
-                <ScalarProperty Name="user_id" ColumnName="user_id" />
-                <ScalarProperty Name="quiz_percentage" ColumnName="quiz_percentage" />
-                <ScalarProperty Name="quiz_correct_answers" ColumnName="quiz_correct_answers" />
-                <ScalarProperty Name="quiz_incorrect_answers" ColumnName="quiz_incorrect_answers" />
-                <ScalarProperty Name="quiz_total_answers" ColumnName="quiz_total_answers" />
-                <ScalarProperty Name="quiz_total_answers_possible" ColumnName="quiz_total_answers_possible" />
-                <ScalarProperty Name="date_added" ColumnName="date_added" />
-                <ScalarProperty Name="date_updated" ColumnName="date_updated" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Organizations">
-            <EntityTypeMapping TypeName="DB_A35BD0_trainingportaldbModel.Organization">
-              <MappingFragment StoreEntitySet="Organizations">
-                <ScalarProperty Name="date_updated" ColumnName="date_updated" />
-                <ScalarProperty Name="date_added" ColumnName="date_added" />
-                <ScalarProperty Name="organization_name" ColumnName="organization_name" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="OrganizationTrainingCourses">
-            <EntityTypeMapping TypeName="DB_A35BD0_trainingportaldbModel.OrganizationTrainingCours">
-              <MappingFragment StoreEntitySet="OrganizationTrainingCourses">
-                <ScalarProperty Name="date_updated" ColumnName="date_updated" />
-                <ScalarProperty Name="date_added" ColumnName="date_added" />
-                <ScalarProperty Name="subscription_active" ColumnName="subscription_active" />
-                <ScalarProperty Name="training_course_id" ColumnName="training_course_id" />
-                <ScalarProperty Name="organization_id" ColumnName="organization_id" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Users">
             <EntityTypeMapping TypeName="DB_A35BD0_trainingportaldbModel.User">
               <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="organization_id" ColumnName="organization_id" />
+                <ScalarProperty Name="first_name" ColumnName="first_name" />
+                <ScalarProperty Name="last_name" ColumnName="last_name" />
+                <ScalarProperty Name="email_address" ColumnName="email_address" />
+                <ScalarProperty Name="mobile_phone" ColumnName="mobile_phone" />
+                <ScalarProperty Name="home_phone" ColumnName="home_phone" />
+                <ScalarProperty Name="date_added" ColumnName="date_added" />
+                <ScalarProperty Name="date_updated" ColumnName="date_updated" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TrainingCourseQuizScores">
+            <EntityTypeMapping TypeName="DB_A35BD0_trainingportaldbModel.TrainingCourseQuizScore">
+              <MappingFragment StoreEntitySet="TrainingCourseQuizScores">
                 <ScalarProperty Name="date_updated" ColumnName="date_updated" />
                 <ScalarProperty Name="date_added" ColumnName="date_added" />
-                <ScalarProperty Name="home_phone" ColumnName="home_phone" />
-                <ScalarProperty Name="mobile_phone" ColumnName="mobile_phone" />
-                <ScalarProperty Name="email_address" ColumnName="email_address" />
-                <ScalarProperty Name="last_name" ColumnName="last_name" />
-                <ScalarProperty Name="first_name" ColumnName="first_name" />
-                <ScalarProperty Name="organization_id" ColumnName="organization_id" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="QuizUserSelectedAnswers">
-            <EntityTypeMapping TypeName="DB_A35BD0_trainingportaldbModel.QuizUserSelectedAnswer">
-              <MappingFragment StoreEntitySet="QuizUserSelectedAnswers">
+                <ScalarProperty Name="quiz_total_answers_possible" ColumnName="quiz_total_answers_possible" />
+                <ScalarProperty Name="quiz_total_answers" ColumnName="quiz_total_answers" />
+                <ScalarProperty Name="quiz_incorrect_answers" ColumnName="quiz_incorrect_answers" />
+                <ScalarProperty Name="quiz_correct_answers" ColumnName="quiz_correct_answers" />
+                <ScalarProperty Name="quiz_percentage" ColumnName="quiz_percentage" />
                 <ScalarProperty Name="quiz_sheet_id" ColumnName="quiz_sheet_id" />
-                <ScalarProperty Name="quiz_answer_option_id" ColumnName="quiz_answer_option_id" />
-                <ScalarProperty Name="quiz_question_id" ColumnName="quiz_question_id" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="QuizSheets">
-            <EntityTypeMapping TypeName="DB_A35BD0_trainingportaldbModel.QuizSheet">
-              <MappingFragment StoreEntitySet="QuizSheet">
-                <ScalarProperty Name="start_date" ColumnName="start_date" />
-                <ScalarProperty Name="submit_time" ColumnName="submit_time" />
-                <ScalarProperty Name="submit_date" ColumnName="submit_date" />
-                <ScalarProperty Name="quiz_id" ColumnName="quiz_id" />
-                <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="training_course_quiz_id" ColumnName="training_course_quiz_id" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
