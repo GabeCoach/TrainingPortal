@@ -12,6 +12,7 @@ using System.Web.Http.Cors;
 using System.Web.Http.Description;
 using MGCTrainingPortalAPI.Models;
 using MGCTrainingPortalAPI.Repository;
+using MGCTrainingPortalAPI.Logger;
 
 namespace MGCTrainingPortalAPI.Controllers
 {
@@ -21,17 +22,31 @@ namespace MGCTrainingPortalAPI.Controllers
     {
         private DB_A35BD0_trainingportaldbEntities db = new DB_A35BD0_trainingportaldbEntities();
         private QuizQuestionsRepository oQuizQuestionRepo = new QuizQuestionsRepository();
+        private Logger.Logger oLogger = new Logger.Logger();
 
         // GET: api/QuizQuestions
         public IHttpActionResult GetQuizQuestions()
         {
-            return Json(oQuizQuestionRepo.SelectAllFromDB());
+            string sIPAddress = Request.GetOwinContext().Request.RemoteIpAddress;
+
+            try
+            {
+                oLogger.LogData("ROUTE: api/QuizQuestions; METHOD: GET; IP_ADDRESS: " + sIPAddress);
+                return Json(oQuizQuestionRepo.SelectAllFromDB());
+            }
+            catch(Exception ex)
+            {
+                oLogger.LogData("ROUTE: api/QuizQuestions; METHOD: GET; IP_ADDRESS: " + sIPAddress + "; EXCEPTION: " + ex.Message + "; INNER EXCEPTION: " + ex.InnerException);
+                return InternalServerError();
+            }
         }
 
         // GET: api/QuizQuestions/5
         [ResponseType(typeof(QuizQuestion))]
         public async Task<IHttpActionResult> GetQuizQuestion(int id)
         {
+            string sIPAddress = Request.GetOwinContext().Request.RemoteIpAddress;
+
             try
             {
                 QuizQuestion quizQuestion = await oQuizQuestionRepo.SelectById(id);
@@ -40,10 +55,13 @@ namespace MGCTrainingPortalAPI.Controllers
                     return NotFound();
                 }
 
+                oLogger.LogData("ROUTE: api/QuizQuestions/{id}; METHOD: GET; IP_ADDRESS: " + sIPAddress);
+
                 return Ok(quizQuestion);
             }
             catch(Exception ex)
             {
+                oLogger.LogData("ROUTE: api/QuizQuestions/{id}; METHOD: GET; IP_ADDRESS: " + sIPAddress + "; EXCEPTION: " + ex.Message + "; INNER EXCEPTION: " + ex.InnerException);
                 return InternalServerError();
             }
            
@@ -53,12 +71,16 @@ namespace MGCTrainingPortalAPI.Controllers
         [Route("api/QuizQuestions/{iModuleQuizId}/TrainingCourseModuleQuiz")]
         public async Task<IHttpActionResult> GetQuizQuestionsByQuizId(int iModuleQuizId)
         {
+            string sIPAddress = Request.GetOwinContext().Request.RemoteIpAddress;
+
             try
             {
+                oLogger.LogData("ROUTE: api/QuizQuestions/{iModuleQuizId}/TrainingCourseModuleQuiz; METHOD: GET; IP_ADDRESS: " + sIPAddress);
                 return Json(await oQuizQuestionRepo.SelectByCourseModuleQuiz(iModuleQuizId));
             }
             catch(Exception ex)
             {
+                oLogger.LogData("ROUTE: api/QuizQuestions/{iModuleQuizId}/TrainingCourseModuleQuiz; METHOD: GET; IP_ADDRESS: " + sIPAddress + "; EXCEPTION: " + ex.Message + "; INNER EXCEPTION: " + ex.InnerException);
                 return InternalServerError();
             }
         }
@@ -67,48 +89,87 @@ namespace MGCTrainingPortalAPI.Controllers
         [ResponseType(typeof(void))]
         public async Task<IHttpActionResult> PutQuizQuestion(int id, QuizQuestion quizQuestion)
         {
-            if (!ModelState.IsValid)
+            string sIPAddress = Request.GetOwinContext().Request.RemoteIpAddress;
+
+            try
             {
-                return BadRequest(ModelState);
-            }
+                if (!ModelState.IsValid)
+                {
+                    return BadRequest(ModelState);
+                }
 
-            if (id != quizQuestion.Id)
+                if (id != quizQuestion.Id)
+                {
+                    return BadRequest();
+                }
+
+                await oQuizQuestionRepo.UpdateToDB(quizQuestion, id);
+
+                oLogger.LogData("ROUTE: api/QuizQuestions/{id}; METHOD: PUT; IP_ADDRESS: " + sIPAddress);
+
+                return StatusCode(HttpStatusCode.NoContent);
+            }
+            catch(Exception ex)
             {
-                return BadRequest();
+                oLogger.LogData("ROUTE: api/QuizQuestions/{id}; METHOD: PUT; IP_ADDRESS: " + sIPAddress + "; EXCEPTION: " + ex.Message + "; INNER EXCEPTION: " + ex.InnerException);
+                return InternalServerError();
             }
-
-            await oQuizQuestionRepo.UpdateToDB(quizQuestion, id);
-
-            return StatusCode(HttpStatusCode.NoContent);
+            
         }
 
         // POST: api/QuizQuestions
         [ResponseType(typeof(QuizQuestion))]
         public async Task<IHttpActionResult> PostQuizQuestion(QuizQuestion quizQuestion)
         {
-            if (!ModelState.IsValid)
+            string sIPAddress = Request.GetOwinContext().Request.RemoteIpAddress;
+
+            try
             {
-                return BadRequest(ModelState);
+                if (!ModelState.IsValid)
+                {
+                    return BadRequest(ModelState);
+                }
+
+                await oQuizQuestionRepo.SaveToDB(quizQuestion);
+
+                oLogger.LogData("ROUTE: api/QuizQuestions/{id}; METHOD: PUT; IP_ADDRESS: " + sIPAddress);
+
+                return CreatedAtRoute("DefaultApi", new { id = quizQuestion.Id }, quizQuestion);
             }
-
-            await oQuizQuestionRepo.SaveToDB(quizQuestion);
-
-            return CreatedAtRoute("DefaultApi", new { id = quizQuestion.Id }, quizQuestion);
+            catch(Exception ex)
+            {
+                oLogger.LogData("ROUTE: api/QuizQuestions/; METHOD: POST; IP_ADDRESS: " + sIPAddress + "; EXCEPTION: " + ex.Message + "; INNER EXCEPTION: " + ex.InnerException);
+                return InternalServerError();
+            }
+            
         }
 
         // DELETE: api/QuizQuestions/5
         [ResponseType(typeof(QuizQuestion))]
         public async Task<IHttpActionResult> DeleteQuizQuestion(int id)
         {
-            QuizQuestion quizQuestion = await db.QuizQuestions.FindAsync(id);
-            if (quizQuestion == null)
+            string sIPAddress = Request.GetOwinContext().Request.RemoteIpAddress;
+
+            try
             {
-                return NotFound();
+                QuizQuestion quizQuestion = await db.QuizQuestions.FindAsync(id);
+                if (quizQuestion == null)
+                {
+                    return NotFound();
+                }
+
+                await oQuizQuestionRepo.DeleteFromDB(id);
+
+                oLogger.LogData("ROUTE: api/QuizQuestions/{id}; METHOD: DELETE; IP_ADDRESS: " + sIPAddress);
+
+                return Ok(quizQuestion);
             }
-
-            await oQuizQuestionRepo.DeleteFromDB(id);
-
-            return Ok(quizQuestion);
+            catch(Exception ex)
+            {
+                oLogger.LogData("ROUTE: api/QuizQuestions/{id}; METHOD: DELETE; IP_ADDRESS: " + sIPAddress + "; EXCEPTION: " + ex.Message + "; INNER EXCEPTION: " + ex.InnerException);
+                return InternalServerError();
+            }
+            
         }
 
         protected override void Dispose(bool disposing)

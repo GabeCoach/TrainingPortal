@@ -21,36 +21,66 @@ namespace MGCTrainingPortalAPI.Controllers
     {
         private DB_A35BD0_trainingportaldbEntities db = new DB_A35BD0_trainingportaldbEntities();
         private TrainingCourseModuleRepository oTrainingCourseModuleRepo = new TrainingCourseModuleRepository();
+        private Logger.Logger oLogger = new Logger.Logger();
 
         // GET: api/TrainingCourseModules
         public IHttpActionResult GetTrainingCourseModules()
         {
-            return Json(oTrainingCourseModuleRepo.SelectAllFromDB());
+            string sIPAddress = Request.GetOwinContext().Request.RemoteIpAddress;
+
+            try
+            {
+                oLogger.LogData("ROUTE: api/TrainingCourseModules; METHOD: GET; IP_ADDRESS: " + sIPAddress);
+                return Json(oTrainingCourseModuleRepo.SelectAllFromDB());
+            }
+            catch(Exception ex)
+            {
+                oLogger.LogData("ROUTE: api/TrainingCourseModules; METHOD: GET; IP_ADDRESS: " + sIPAddress + "; EXCEPTION: " + ex.Message + "; INNER EXCEPTION: " + ex.InnerException);
+                return InternalServerError();
+            }
+            
         }
 
         // GET: api/TrainingCourseModules/5
         [ResponseType(typeof(TrainingCourseModule))]
         public async Task<IHttpActionResult> GetTrainingCourseModule(int id)
         {
-            TrainingCourseModule trainingCourseModule = await oTrainingCourseModuleRepo.SelectById(id);
-            if (trainingCourseModule == null)
+            string sIPAddress = Request.GetOwinContext().Request.RemoteIpAddress;
+
+            try
             {
-                return NotFound();
+                TrainingCourseModule trainingCourseModule = await oTrainingCourseModuleRepo.SelectById(id);
+                if (trainingCourseModule == null)
+                {
+                    return NotFound();
+                }
+
+                oLogger.LogData("ROUTE: api/TrainingCourseModules/{id}; METHOD: GET; IP_ADDRESS: " + sIPAddress);
+
+                return Ok(trainingCourseModule);
+            }
+            catch(Exception ex)
+            {
+                oLogger.LogData("ROUTE: api/TrainingCourseModules/{id}; METHOD: GET; IP_ADDRESS: " + sIPAddress + "; EXCEPTION: " + ex.Message + "; INNER EXCEPTION: " + ex.InnerException);
+                return InternalServerError();
             }
 
-            return Ok(trainingCourseModule);
         }
 
         [HttpGet]
         [Route("api/TrainingCourseModules/{iTrainingCourseId}/Modules")]
         public async Task<IHttpActionResult> GetModulesByTrainingCourse(int iTrainingCourseId)
         {
+            string sIPAddress = Request.GetOwinContext().Request.RemoteIpAddress;
+
             try
             {
+                oLogger.LogData("ROUTE: api/TrainingCourseModules/{iTrainingCourseId}/Modules; METHOD: GET; IP_ADDRESS: " + sIPAddress);
                 return Json(await oTrainingCourseModuleRepo.SelectByTrainingCourse(iTrainingCourseId));
             }
             catch(Exception ex)
             {
+                oLogger.LogData("ROUTE: api/TrainingCourseModules/{iTrainingCourseId}/Modules; METHOD: GET; IP_ADDRESS: " + sIPAddress + "; EXCEPTION: " + ex.Message + "; INNER EXCEPTION: " + ex.InnerException);
                 return InternalServerError();
             }
         }
@@ -59,48 +89,85 @@ namespace MGCTrainingPortalAPI.Controllers
         [ResponseType(typeof(void))]
         public async Task<IHttpActionResult> PutTrainingCourseModule(int id, TrainingCourseModule trainingCourseModule)
         {
-            if (!ModelState.IsValid)
+            string sIPAddress = Request.GetOwinContext().Request.RemoteIpAddress; 
+
+            try
             {
-                return BadRequest(ModelState);
-            }
+                if (!ModelState.IsValid)
+                {
+                    return BadRequest(ModelState);
+                }
 
-            if (id != trainingCourseModule.Id)
+                if (id != trainingCourseModule.Id)
+                {
+                    return BadRequest();
+                }
+
+                await oTrainingCourseModuleRepo.UpdateToDB(trainingCourseModule, id);
+
+                oLogger.LogData("ROUTE: api/TrainingCourseModules/{id}; METHOD: PUT; IP_ADDRESS: " + sIPAddress);
+
+                return StatusCode(HttpStatusCode.NoContent);
+            }
+            catch(Exception ex)
             {
-                return BadRequest();
+                oLogger.LogData("ROUTE: api/TrainingCourseModules/{id}; METHOD: PUT; IP_ADDRESS: " + sIPAddress + "; EXCEPTION: " + ex.Message + "; INNER EXCEPTION: " + ex.InnerException);
+                return InternalServerError();
             }
-
-            await oTrainingCourseModuleRepo.UpdateToDB(trainingCourseModule, id);
-
-            return StatusCode(HttpStatusCode.NoContent);
         }
 
         // POST: api/TrainingCourseModules
         [ResponseType(typeof(TrainingCourseModule))]
         public async Task<IHttpActionResult> PostTrainingCourseModule(TrainingCourseModule trainingCourseModule)
         {
-            if (!ModelState.IsValid)
+            string sIPAddress = Request.GetOwinContext().Request.RemoteIpAddress;
+
+            try
             {
-                return BadRequest(ModelState);
+                if (!ModelState.IsValid)
+                {
+                    return BadRequest(ModelState);
+                }
+
+                await oTrainingCourseModuleRepo.SaveToDB(trainingCourseModule);
+
+                oLogger.LogData("ROUTE: api/TrainingCourseModules; METHOD: POST; IP_ADDRESS: " + sIPAddress);
+
+                return CreatedAtRoute("DefaultApi", new { id = trainingCourseModule.Id }, trainingCourseModule);
             }
-
-            await oTrainingCourseModuleRepo.SaveToDB(trainingCourseModule);
-
-            return CreatedAtRoute("DefaultApi", new { id = trainingCourseModule.Id }, trainingCourseModule);
+            catch(Exception ex)
+            {
+                oLogger.LogData("ROUTE: api/TrainingCourseModules; METHOD: POST; IP_ADDRESS: " + sIPAddress + "; EXCEPTION: " + ex.Message + "; INNER EXCEPTION: " + ex.InnerException);
+                return InternalServerError();
+            }
         }
 
         // DELETE: api/TrainingCourseModules/5
         [ResponseType(typeof(TrainingCourseModule))]
         public async Task<IHttpActionResult> DeleteTrainingCourseModule(int id)
         {
-            TrainingCourseModule trainingCourseModule = await oTrainingCourseModuleRepo.DeleteFromDB(id);
-            if (trainingCourseModule == null)
+            string sIPAddress = Request.GetOwinContext().Request.RemoteIpAddress;
+
+            try
             {
-                return NotFound();
+                TrainingCourseModule trainingCourseModule = await oTrainingCourseModuleRepo.DeleteFromDB(id);
+                if (trainingCourseModule == null)
+                {
+                    return NotFound();
+                }
+
+                await oTrainingCourseModuleRepo.DeleteFromDB(id);
+
+                oLogger.LogData("ROUTE: api/TrainingCourseModules/{id}; METHOD: POST; IP_ADDRESS: " + sIPAddress);
+
+                return Ok(trainingCourseModule);
             }
-
-            await oTrainingCourseModuleRepo.DeleteFromDB(id);
-
-            return Ok(trainingCourseModule);
+            catch(Exception ex)
+            {
+                oLogger.LogData("ROUTE: api/TrainingCourseModules/{id}; METHOD: POST; IP_ADDRESS: " + sIPAddress + "; EXCEPTION: " + ex.Message + "; INNER EXCEPTION: " + ex.InnerException);
+                return InternalServerError();
+            }
+            
         }
 
         protected override void Dispose(bool disposing)

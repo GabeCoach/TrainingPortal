@@ -21,16 +21,21 @@ namespace MGCTrainingPortalAPI.Controllers
     {
         private DB_A35BD0_trainingportaldbEntities db = new DB_A35BD0_trainingportaldbEntities();
         private TrainingCourseModuleSubSectionRepository oTrainingCourseModuleSubSectionRepo = new TrainingCourseModuleSubSectionRepository();
+        private Logger.Logger oLogger = new Logger.Logger();
 
         // GET: api/TrainingCourseModuleSubSections
         public IHttpActionResult GetTrainingCourseModuleSubSections()
         {
+            string sIPAddress = Request.GetOwinContext().Request.RemoteIpAddress;
+
             try
             {
+                oLogger.LogData("ROUTE: api/TrainingCourseModuleSubSections; METHOD: GET; IP_ADDRESS: " + sIPAddress);
                 return Json(oTrainingCourseModuleSubSectionRepo.SelectAllFromDB());
             }
             catch(Exception ex)
             {
+                oLogger.LogData("ROUTE: api/TrainingCourseModuleSubSections; METHOD: GET; IP_ADDRESS: " + sIPAddress + "; EXCEPTION: " + ex.Message + "; INNER EXCEPTION: " + ex.InnerException);
                 return InternalServerError();
             }
             
@@ -40,12 +45,16 @@ namespace MGCTrainingPortalAPI.Controllers
         [ResponseType(typeof(TrainingCourseModuleSubSection))]
         public async Task<IHttpActionResult> GetTrainingCourseModuleSubSection(int id)
         {
+            string sIPAddress = Request.GetOwinContext().Request.RemoteIpAddress;
+
             try
             {
+                oLogger.LogData("ROUTE: api/TrainingCourseModuleSubSections/{id}; METHOD: GET; IP_ADDRESS: " + sIPAddress);
                 return Json(await oTrainingCourseModuleSubSectionRepo.SelectById(id));
             }
             catch(Exception ex)
             {
+                oLogger.LogData("ROUTE: api/TrainingCourseModuleSubSections/{id}; METHOD: GET; IP_ADDRESS: " + sIPAddress + "; EXCEPTION: " + ex.Message + "; INNER EXCEPTION: " + ex.InnerException);
                 return InternalServerError();
             }
             
@@ -55,12 +64,16 @@ namespace MGCTrainingPortalAPI.Controllers
         [Route("api/TrainingCourseModuleSubSections/{iModuleSectionId}/TrainingCourseModuleSection")]
         public async Task<IHttpActionResult> getModuleSubSectionByModuleSection(int iModuleSectionId)
         {
+            string sIPAddress = Request.GetOwinContext().Request.RemoteIpAddress;
+
             try
             {
+                oLogger.LogData("ROUTE: api/TrainingCourseModuleSubSections/{iModuleSectionId}/TrainingCourseModuleSection; METHOD: GET; IP_ADDRESS: " + sIPAddress);
                 return Json(await oTrainingCourseModuleSubSectionRepo.SelectByTrainingCourseModuleSection(iModuleSectionId));
             }
             catch(Exception ex)
             {
+                oLogger.LogData("ROUTE: api/TrainingCourseModuleSubSections/{iModuleSectionId}/TrainingCourseModuleSection; METHOD: GET; IP_ADDRESS: " + sIPAddress + "; EXCEPTION: " + ex.Message + "; INNER EXCEPTION: " + ex.InnerException);
                 return InternalServerError();
             }
         }
@@ -69,6 +82,8 @@ namespace MGCTrainingPortalAPI.Controllers
         [ResponseType(typeof(void))]
         public async Task<IHttpActionResult> PutTrainingCourseModuleSubSection(int id, TrainingCourseModuleSubSection trainingCourseModuleSubSection)
         {
+            string sIPAddress = Request.GetOwinContext().Request.RemoteIpAddress;
+
             try
             {
                 if (!ModelState.IsValid)
@@ -82,10 +97,12 @@ namespace MGCTrainingPortalAPI.Controllers
                 }
 
                 await oTrainingCourseModuleSubSectionRepo.UpdateToDB(trainingCourseModuleSubSection, id);
+                oLogger.LogData("ROUTE: api/TrainingCourseModuleSubSections/{id}; METHOD: PUT; IP_ADDRESS: " + sIPAddress);
                 return StatusCode(HttpStatusCode.NoContent);
             }
             catch(Exception ex)
             {
+                oLogger.LogData("ROUTE: api/TrainingCourseModuleSubSections/{id}; METHOD: PUT; IP_ADDRESS: " + sIPAddress + "; EXCEPTION: " + ex.Message + "; INNER EXCEPTION: " + ex.InnerException);
                 return InternalServerError();
             }
 
@@ -96,6 +113,8 @@ namespace MGCTrainingPortalAPI.Controllers
         [ResponseType(typeof(TrainingCourseModuleSubSection))]
         public async Task<IHttpActionResult> PostTrainingCourseModuleSubSection(TrainingCourseModuleSubSection trainingCourseModuleSubSection)
         {
+            string sIPAddress = Request.GetOwinContext().Request.RemoteIpAddress;
+
             try
             {
                 if (!ModelState.IsValid)
@@ -105,10 +124,13 @@ namespace MGCTrainingPortalAPI.Controllers
 
                 await oTrainingCourseModuleSubSectionRepo.SaveToDB(trainingCourseModuleSubSection);
 
+                oLogger.LogData("ROUTE: api/TrainingCourseModuleSubSections; METHOD: POST; IP_ADDRESS: " + sIPAddress);
+
                 return CreatedAtRoute("DefaultApi", new { id = trainingCourseModuleSubSection.Id }, trainingCourseModuleSubSection);
             }
             catch(Exception ex)
             {
+                oLogger.LogData("ROUTE: api/TrainingCourseModuleSubSections; METHOD: POST; IP_ADDRESS: " + sIPAddress + "; EXCEPTION: " + ex.Message + "; INNER EXCEPTION: " + ex.InnerException);
                 return InternalServerError();
             }
 
@@ -119,12 +141,16 @@ namespace MGCTrainingPortalAPI.Controllers
         [ResponseType(typeof(TrainingCourseModuleSubSection))]
         public async Task<IHttpActionResult> DeleteTrainingCourseModuleSubSection(int id)
         {
+            string sIPAddress = Request.GetOwinContext().Request.RemoteIpAddress;
+
             try
             {
+                oLogger.LogData("ROUTE: api/TrainingCourseModuleSubSections; METHOD: DELETE; IP_ADDRESS: " + sIPAddress);
                 return Ok(await oTrainingCourseModuleSubSectionRepo.DeleteFromDB(id));
             }
             catch (Exception)
             {
+                oLogger.LogData("ROUTE: api/TrainingCourseModuleSubSections; METHOD: DELETE; IP_ADDRESS: " + sIPAddress + "; EXCEPTION: " + ex.Message + "; INNER EXCEPTION: " + ex.InnerException);
                 return InternalServerError();
             }
         }

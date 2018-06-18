@@ -12,6 +12,7 @@ using System.Web.Http.Cors;
 using System.Web.Http.Description;
 using MGCTrainingPortalAPI.Models;
 using MGCTrainingPortalAPI.Repository;
+using MGCTrainingPortalAPI.Logger;
 
 namespace MGCTrainingPortalAPI.Controllers
 {
@@ -21,16 +22,21 @@ namespace MGCTrainingPortalAPI.Controllers
     {
         private DB_A35BD0_trainingportaldbEntities db = new DB_A35BD0_trainingportaldbEntities();
         private QuizQuestionCorrectAnswerRepository oQuizQuestionCorrectAnswerRepo = new QuizQuestionCorrectAnswerRepository();
+        private Logger.Logger oLogger = new Logger.Logger();
 
         // GET: api/QuizQuestionCorrectAnswers
         public IHttpActionResult GetQuizQuestionCorrectAnswers()
         {
+            string sIPAddress = Request.GetOwinContext().Request.RemoteIpAddress;
+
             try
             {
+                oLogger.LogData("ROUTE: api/QuizQuestionCorrectAnswers; METHOD: GET; IP_ADDRESS: " + sIPAddress);
                 return Json(oQuizQuestionCorrectAnswerRepo.SelectAllFromDB());
             }
             catch(Exception ex)
             {
+                oLogger.LogData("ROUTE: api/QuizQuestionCorrectAnswers; METHOD: GET; IP_ADDRESS: " + sIPAddress + "; EXCEPTION: " + ex.Message + "; INNER EXCEPTION: " + ex.InnerException);
                 return InternalServerError();
             }
         }
@@ -39,6 +45,7 @@ namespace MGCTrainingPortalAPI.Controllers
         [ResponseType(typeof(QuizQuestionCorrectAnswer))]
         public async Task<IHttpActionResult> GetQuizQuestionCorrectAnswer(int id)
         {
+            string sIPAddress = Request.GetOwinContext().Request.RemoteIpAddress;
 
             try
             {
@@ -48,10 +55,13 @@ namespace MGCTrainingPortalAPI.Controllers
                     return NotFound();
                 }
 
+                oLogger.LogData("ROUTE: api/QuizQuestionCorrectAnswers; METHOD: GET; IP_ADDRESS: " + sIPAddress);
+
                 return Ok(quizQuestionCorrectAnswer);
             }
             catch(Exception ex)
             {
+                oLogger.LogData("ROUTE: api/QuizQuestionCorrectAnswers; METHOD: GET; IP_ADDRESS: " + sIPAddress + "; EXCEPTION: " + ex.Message + "; INNER EXCEPTION: " + ex.InnerException);
                 return InternalServerError();
             }
             
@@ -61,6 +71,8 @@ namespace MGCTrainingPortalAPI.Controllers
         [ResponseType(typeof(void))]
         public async Task<IHttpActionResult> PutQuizQuestionCorrectAnswer(int id, QuizQuestionCorrectAnswer quizQuestionCorrectAnswer)
         {
+            string sIPAddress = Request.GetOwinContext().Request.RemoteIpAddress;
+
             try
             {
                 if (!ModelState.IsValid)
@@ -75,10 +87,13 @@ namespace MGCTrainingPortalAPI.Controllers
 
                 await oQuizQuestionCorrectAnswerRepo.UpdateToDB(quizQuestionCorrectAnswer, id);
 
+                oLogger.LogData("ROUTE: api/QuizQuestionCorrectAnswers/{id}; METHOD: GET; IP_ADDRESS: " + sIPAddress);
+
                 return StatusCode(HttpStatusCode.NoContent);
             }
             catch(Exception ex)
             {
+                oLogger.LogData("ROUTE: api/QuizQuestionCorrectAnswers/{id}; METHOD: GET; IP_ADDRESS: " + sIPAddress + "; EXCEPTION: " + ex.Message + "; INNER EXCEPTION: " + ex.InnerException);
                 return InternalServerError();
             }
 
@@ -89,6 +104,8 @@ namespace MGCTrainingPortalAPI.Controllers
         [ResponseType(typeof(QuizQuestionCorrectAnswer))]
         public async Task<IHttpActionResult> PostQuizQuestionCorrectAnswer(QuizQuestionCorrectAnswer quizQuestionCorrectAnswer)
         {
+            string sIPAddress = Request.GetOwinContext().Request.RemoteIpAddress;
+
             try
             {
                 if (!ModelState.IsValid)
@@ -98,10 +115,13 @@ namespace MGCTrainingPortalAPI.Controllers
 
                 await oQuizQuestionCorrectAnswerRepo.SaveToDB(quizQuestionCorrectAnswer);
 
+                oLogger.LogData("ROUTE: api/QuizQuestionCorrectAnswers/; METHOD: POST; IP_ADDRESS: " + sIPAddress);
+
                 return CreatedAtRoute("DefaultApi", new { id = quizQuestionCorrectAnswer.Id }, quizQuestionCorrectAnswer);
             }
             catch(Exception ex)
             {
+                oLogger.LogData("ROUTE: api/QuizQuestionCorrectAnswers/; METHOD: POST; IP_ADDRESS: " + sIPAddress + "; EXCEPTION: " + ex.Message + "; INNER EXCEPTION: " + ex.InnerException);
                 return InternalServerError();
             }
 
@@ -112,13 +132,17 @@ namespace MGCTrainingPortalAPI.Controllers
         [ResponseType(typeof(QuizQuestionCorrectAnswer))]
         public async Task<IHttpActionResult> DeleteQuizQuestionCorrectAnswer(int id)
         {
+            string sIPAddress = Request.GetOwinContext().Request.RemoteIpAddress;
+
             try
             {
                 await oQuizQuestionCorrectAnswerRepo.DeleteFromDB(id);
+                oLogger.LogData("ROUTE: api/QuizQuestionCorrectAnswers/{id}; METHOD: DELETE; IP_ADDRESS: " + sIPAddress);
                 return Ok();
             }
             catch(Exception ex)
             {
+                oLogger.LogData("ROUTE: api/QuizQuestionCorrectAnswers/{id}; METHOD: DELETE; IP_ADDRESS: " + sIPAddress + "; EXCEPTION: " + ex.Message + "; INNER EXCEPTION: " + ex.InnerException);
                 return InternalServerError();
             }
             
