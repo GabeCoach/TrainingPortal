@@ -1,0 +1,31 @@
+<div class="card">
+    <div class="card-header bgm-bluegray">
+        <h2>Your Quiz Scores</h2>
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-12">
+                <table class="table table-bordered table-responsive">
+                   <thead>
+                    <tr>
+                        <th>Score</th>
+                        <th># of Correct Answers</th>
+                        <th># of Incorrect Answers</th>
+                        <th>Amt of Answers Completed</th>
+                        <th>Total Answers Possible</th>
+                    </tr>
+                   </thead>
+                   <tbody>
+                       <tr>
+                           <td>{{currentQuizScore.quiz_percentage | percent}}</td>
+                           <td>{{currentQuizScore.quiz_correct_answers}}</td>
+                           <td>{{currentQuizScore.quiz_incorrect_answers}}</td>
+                           <td>{{currentQuizScore.quiz_total_answers}}</td>
+                           <td>{{currentQuizScore.quiz_total_answers_possible}}</td>                        
+                       </tr>
+                   </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

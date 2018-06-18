@@ -7,6 +7,7 @@ import { ModulesComponent } from './modules/modules.component';
 import { QuizStartComponent } from './quiz-start/quiz-start.component';
 import { QuizInProgrssComponent } from './quiz-in-progrss/quiz-in-progrss.component';
 import { SubmitQuizComponent } from './submit-quiz/submit-quiz.component';
+import { QuizScoreSheetComponent } from './quiz-score-sheet/quiz-score-sheet.component';
 
 
 const routes: Routes = [
@@ -18,6 +19,7 @@ const routes: Routes = [
       // tslint:disable-next-line:max-line-length
       { path: 'quiz-in-progress/:id', component: QuizInProgrssComponent, canActivate: [ OktaAuthGuard ], data: { preload: true, onAuthRequired } },
       { path: 'submit-quiz/:id', component: SubmitQuizComponent, canActivate: [ OktaAuthGuard ], data: { preload: true, onAuthRequired } },
+      { path: 'score-sheet', component: QuizScoreSheetComponent, canActivate: [ OktaAuthGuard ], data: { preload: true, onAuthRequired } },
       { path: '', redirectTo: '/training-courses/courses', pathMatch: 'full' }
     ]
   }

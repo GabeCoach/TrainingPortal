@@ -52,7 +52,7 @@ namespace MGCTrainingPortalAPI.QuizGrader
 
                     QuizQuestion oCurrentQuizQuestion = await oQuizQuestionRepo.SelectById(oSelectedAnswerOption.quiz_question_id.Value);
 
-                    QuizQuestionCorrectAnswer oQuestionCorrectAnswer = await oQuizCorrectAnswerRepo.SelectByQuizQuestion(oSelectedAnswerOption.quiz_question_id.Value);
+                    QuizQuestionCorrectAnswer oQuestionCorrectAnswer = await oQuizCorrectAnswerRepo.SelectByQuizQuestion(oCurrentQuizQuestion.Id);
 
                     if (answer.quiz_answer_option_id != oQuestionCorrectAnswer.quiz_answer_options_id)
                     {
@@ -68,6 +68,7 @@ namespace MGCTrainingPortalAPI.QuizGrader
 
                 oTrainingCourseQuizScore.quiz_correct_answers = iCorrectAnswerAmount;
                 oTrainingCourseQuizScore.quiz_incorrect_answers = iWrongAnswerAmount;
+                oTrainingCourseQuizScore.quiz_total_answers = iCorrectAnswerAmount + iWrongAnswerAmount;
                 oTrainingCourseQuizScore.quiz_percentage = (float)iCorrectAnswerAmount / (float)iTotalPossibleAnswers;
                 oTrainingCourseQuizScore.quiz_total_answers_possible = iTotalPossibleAnswers;
                 oTrainingCourseQuizScore.date_added = DateTime.Now.Date;

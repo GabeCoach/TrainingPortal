@@ -7,12 +7,14 @@ using MGCTrainingPortalAPI.Models;
 using System.Data.Entity;
 using System.Threading.Tasks;
 using System.Data.Entity.Infrastructure;
+using MGCTrainingPortalAPI.Logger;
 
 namespace MGCTrainingPortalAPI.Repository
 {
     public class TrainingCourseModuleQuizsRepository : IRepository<TrainingCourseModuleQuiz>
     {
         private DB_A35BD0_trainingportaldbEntities db = new DB_A35BD0_trainingportaldbEntities();
+        private Logger.Logger oLogger = new Logger.Logger();
 
         public IQueryable<TrainingCourseModuleQuiz> SelectAllFromDB()
         {
@@ -25,6 +27,7 @@ namespace MGCTrainingPortalAPI.Repository
             }
             catch (Exception ex)
             {
+                oLogger.LogData("METHOD: SelectAllFromDB; REPO: TrainingCourseModuleQuiz; EXCEPTION: " + ex.Message + "; INNER EXCEPTION: " + ex.InnerException + "; STACKTRACE: " + ex.StackTrace);
                 throw new Exception(ex.Message);
             }
         }
@@ -55,6 +58,7 @@ namespace MGCTrainingPortalAPI.Repository
             }
             catch(Exception ex)
             {
+                oLogger.LogData("METHOD: SelectByTrainingCourseModule; REPO: TrainingCourseModuleQuiz; EXCEPTION: " + ex.Message + "; INNER EXCEPTION: " + ex.InnerException + "; STACKTRACE: " + ex.StackTrace);
                 throw new Exception(ex.Message);
             }
         }
@@ -74,6 +78,7 @@ namespace MGCTrainingPortalAPI.Repository
             }
             catch (Exception ex)
             {
+                oLogger.LogData("METHOD: SaveToDB; REPO: TrainingCourseModuleQuiz; EXCEPTION: " + ex.Message + "; INNER EXCEPTION: " + ex.InnerException + "; STACKTRACE: " + ex.StackTrace);
                 throw new Exception(ex.Message);
             }
         }
@@ -109,6 +114,7 @@ namespace MGCTrainingPortalAPI.Repository
             }
             catch (Exception ex)
             {
+                oLogger.LogData("METHOD: UpdateToDB; REPO: TrainingCourseModuleQuiz; EXCEPTION: " + ex.Message + "; INNER EXCEPTION: " + ex.InnerException + "; STACKTRACE: " + ex.StackTrace);
                 throw new Exception(ex.Message);
             }
         }
@@ -130,6 +136,7 @@ namespace MGCTrainingPortalAPI.Repository
             }
             catch (Exception ex)
             {
+                oLogger.LogData("METHOD: DeleteFromDB; REPO: TrainingCourseModuleQuiz; EXCEPTION: " + ex.Message + "; INNER EXCEPTION: " + ex.InnerException + "; STACKTRACE: " + ex.StackTrace);
                 throw new Exception(ex.Message);
             }
 
@@ -147,6 +154,7 @@ namespace MGCTrainingPortalAPI.Repository
             }
             catch(Exception ex)
             {
+                oLogger.LogData("METHOD: SelectByCourseModule; REPO: TrainingCourseModuleQuiz; EXCEPTION: " + ex.Message + "; INNER EXCEPTION: " + ex.InnerException + "; STACKTRACE: " + ex.StackTrace);
                 throw new Exception(ex.Message);
             }
 

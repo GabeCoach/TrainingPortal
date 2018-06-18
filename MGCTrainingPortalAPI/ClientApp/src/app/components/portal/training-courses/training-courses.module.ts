@@ -13,6 +13,7 @@ import { QuizQuestionAnswerOptionsService } from './services/quiz-question-answe
 import { QuizQuestionsService } from './services/quiz-questions/quiz-questions.service';
 import { QuizInProgressService } from './services/quiz-in-progress/quiz-in-progress.service';
 import { SubmitQuizService } from './services/submit-quiz/submit-quiz.service';
+import { TrainingCourseQuizScoresService } from './services/training-course-quiz-scores/training-course-quiz-scores.service';
 
 // Components
 import { QuizStartComponent } from './quiz-start/quiz-start.component';
@@ -22,6 +23,7 @@ import { CoursesComponent } from './courses/courses.component';
 import { TrainingCoursesComponent } from './training-courses.component';
 import { ModulesComponent } from './modules/modules.component';
 import { SubmitQuizComponent } from './submit-quiz/submit-quiz.component';
+import { QuizScoreSheetComponent } from './quiz-score-sheet/quiz-score-sheet.component';
 
 @NgModule({
   imports: [
@@ -36,6 +38,7 @@ import { SubmitQuizComponent } from './submit-quiz/submit-quiz.component';
     QuizStartComponent,
     QuizInProgrssComponent,
     SubmitQuizComponent,
+    QuizScoreSheetComponent,
   ],
   providers: [
     TrainingCourseService,
@@ -43,7 +46,8 @@ import { SubmitQuizComponent } from './submit-quiz/submit-quiz.component';
     QuizQuestionAnswerOptionsService,
     QuizQuestionsService,
     QuizInProgressService,
-    SubmitQuizService
+    SubmitQuizService,
+    TrainingCourseQuizScoresService
   ]
 })
 export class TrainingCoursesModule { }

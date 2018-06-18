@@ -66,7 +66,13 @@ export class QuizInProgrssComponent implements OnInit {
       this.toasterService.popAsync('warning', '', 'Please select an answer.');
     } else {
 
-      if (this.quizQuestions.length === this.questionCount) {
+      if (this.quizQuestions.length <= this.questionCount) {
+        let answer: QuizUserSelectedAnswers = new QuizUserSelectedAnswers;
+
+        answer.quiz_answer_option_id = this.form.value.selectedAnswer;
+        answer.quiz_sheet_id = this.quizSheetService.currentQuizSheetId;
+        this.selectedAnswers.push(answer);
+
         this.submitQuizService.addSelectedAnswers(this.selectedAnswers);
         this.router.navigate([`/training-courses/submit-quiz/${this.trainingCourseModuleQuizId}`]);
       } else if (this.quizQuestions.length > this.questionCount) {

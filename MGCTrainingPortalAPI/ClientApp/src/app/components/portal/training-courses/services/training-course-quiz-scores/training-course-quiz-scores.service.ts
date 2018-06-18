@@ -7,6 +7,8 @@ import { TrainingCourseQuizScores } from '../../models/training-course-quiz-scor
 @Injectable()
 export class TrainingCourseQuizScoresService {
 
+  public currentQuizScore: TrainingCourseQuizScores = new TrainingCourseQuizScores;
+
   constructor(private http: HttpClient, private baseService: BaseService) { }
 
   public getTrainingCourseQuizScores(): Promise<any> {

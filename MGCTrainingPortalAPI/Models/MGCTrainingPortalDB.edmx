@@ -133,7 +133,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="training_course_quiz_id" Type="int" />
           <Property Name="quiz_sheet_id" Type="int" />
           <Property Name="quiz_percentage" Type="float" />
@@ -336,7 +336,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="training_course_quiz_id" Type="Int32" />
           <Property Name="quiz_sheet_id" Type="Int32" />
           <Property Name="quiz_percentage" Type="Double" />

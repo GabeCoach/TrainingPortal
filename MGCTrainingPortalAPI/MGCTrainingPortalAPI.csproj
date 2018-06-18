@@ -9749,6 +9749,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Constants\Constants.cs" />
     <Compile Include="Controllers\CourseBuilderController.cs" />
     <Compile Include="Controllers\OrganizationsController.cs" />
     <Compile Include="Controllers\QuizQuestionAnswerOptionsController.cs" />
@@ -9764,6 +9765,7 @@
     <Compile Include="CourseBuilder\CourseMaterialBuilder.cs" />
     <Compile Include="CourseBuilder\FullTrainingCourseModel.cs" />
     <Compile Include="Interfaces\IRepository.cs" />
+    <Compile Include="Logger\Logger.cs" />
     <Compile Include="Models\MGCTrainingPortalDB.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
