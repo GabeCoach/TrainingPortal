@@ -9762,6 +9762,7 @@
     <Compile Include="Controllers\TrainingCourseModuleSubSectionsController.cs" />
     <Compile Include="Controllers\TrainingCourseQuizScoresController.cs" />
     <Compile Include="Controllers\TrainingCoursesController.cs" />
+    <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="CourseBuilder\CourseMaterialBuilder.cs" />
     <Compile Include="CourseBuilder\FullTrainingCourseModel.cs" />
     <Compile Include="Interfaces\IRepository.cs" />

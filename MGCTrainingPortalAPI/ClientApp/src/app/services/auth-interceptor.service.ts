@@ -12,6 +12,7 @@ export class AuthInterceptor implements HttpInterceptor {
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     // tslint:disable-next-line:prefer-const
     let sToken = this.oktaAuth.getIdToken().idToken;
+    const sID = this.oktaAuth.getIdToken().claims.sub;
 
     request = request.clone({
       setHeaders: {

@@ -5264,3 +5264,5 @@ MGCTrainingPortalAPI/ClientApp/dist/assets/vendors/bower_components/summernote/d
 /MGCTrainingPortalAPI/ClientApp/dist
 >>>>>>> b8978bd1a39ee24af5d323b4ea1529ae835f3432
 /MGCTrainingPortalAPI/ClientApp/src/app/components/portal/training-courses/modals.zip
+MGCTrainingPortalAPI/App_Data/appsettings.config
+MGCTrainingPortalAPI/Web.config
