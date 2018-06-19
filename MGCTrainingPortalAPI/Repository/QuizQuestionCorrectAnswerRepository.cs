@@ -52,7 +52,7 @@ namespace MGCTrainingPortalAPI.Repository
             {
                 QuizQuestionCorrectAnswer oQuizQuestionCorrectAnswer = await (from qqca in db.QuizQuestionCorrectAnswers
                                                                        where qqca.quiz_question_id == iQuizQuestionId
-                                                                       select qqca).FirstAsync();
+                                                                       select qqca).FirstOrDefaultAsync();
 
                 return oQuizQuestionCorrectAnswer;
             }

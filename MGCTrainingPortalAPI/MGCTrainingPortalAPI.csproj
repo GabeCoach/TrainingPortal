@@ -9824,6 +9824,8 @@
     <Compile Include="Models\User.cs">
       <DependentUpon>MGCTrainingPortalDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="OktaConnector\Constants\OktaEndPointConstants.cs" />
+    <Compile Include="OktaConnector\OktaUsers.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QuizGrader\Models\Quiz.cs" />
     <Compile Include="QuizGrader\QuizGrader.cs" />
@@ -9838,6 +9840,7 @@
     <Compile Include="Repository\TrainingCourseModuleSubSectionRepository.cs" />
     <Compile Include="Repository\TrainingCourseQuizScoresRepository.cs" />
     <Compile Include="Repository\TrainingCoursesRepository.cs" />
+    <Compile Include="Repository\UsersRepository.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -11128,6 +11131,7 @@
     <Content Include="Models\MGCTrainingPortalDB.edmx.diagram">
       <DependentUpon>MGCTrainingPortalDB.edmx</DependentUpon>
     </Content>
+    <Content Include="App_Data\appsettings.config" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -11137,7 +11141,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
     <Folder Include="ClientApp\src\assets\vendors\bower_components\bower\Packager\" />
     <Folder Include="ClientApp\src\assets\vendors\bower_components\jquery-mask-plugin\test\" />
     <Folder Include="ClientApp\src\assets\vendors\bower_components\jqvmap\create\output\" />

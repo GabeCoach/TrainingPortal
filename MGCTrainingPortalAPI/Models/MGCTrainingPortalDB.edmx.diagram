@@ -17,8 +17,8 @@
         <EntityTypeShape EntityType="DB_A35BD0_trainingportaldbModel.TrainingCourseModuleQuiz" Width="1.5" PointX="6.75" PointY="3.75" IsExpanded="true" />
         <EntityTypeShape EntityType="DB_A35BD0_trainingportaldbModel.TrainingCourseModuleSection" Width="1.5" PointX="4.75" PointY="6.75" IsExpanded="true" />
         <EntityTypeShape EntityType="DB_A35BD0_trainingportaldbModel.TrainingCourseModuleSubSection" Width="1.5" PointX="6.75" PointY="6.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="DB_A35BD0_trainingportaldbModel.User" Width="1.5" PointX="8.75" PointY="4.75" IsExpanded="true" />
         <EntityTypeShape EntityType="DB_A35BD0_trainingportaldbModel.TrainingCourseQuizScore" Width="1.5" PointX="9.375" PointY="0.75" />
+        <EntityTypeShape EntityType="DB_A35BD0_trainingportaldbModel.User" Width="1.5" PointX="0.75" PointY="9.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

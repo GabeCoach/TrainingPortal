@@ -148,7 +148,7 @@ namespace MGCTrainingPortalAPI.Controllers
                 oLogger.LogData("ROUTE: api/TrainingCourseModuleSubSections; METHOD: DELETE; IP_ADDRESS: " + sIPAddress);
                 return Ok(await oTrainingCourseModuleSubSectionRepo.DeleteFromDB(id));
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 oLogger.LogData("ROUTE: api/TrainingCourseModuleSubSections; METHOD: DELETE; IP_ADDRESS: " + sIPAddress + "; EXCEPTION: " + ex.Message + "; INNER EXCEPTION: " + ex.InnerException);
                 return InternalServerError();

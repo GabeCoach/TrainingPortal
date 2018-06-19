@@ -10,96 +10,194 @@ using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
 using MGCTrainingPortalAPI.Models;
+using MGCTrainingPortalAPI.Repository;
 
 namespace MGCTrainingPortalAPI.Controllers
 {
     public class UsersController : ApiController
     {
         private DB_A35BD0_trainingportaldbEntities db = new DB_A35BD0_trainingportaldbEntities();
+        private UsersRepository oUserRepo = new UsersRepository();
+        private Logger.Logger oLogger = new Logger.Logger();
 
         // GET: api/Users
-        public IQueryable<User> GetUsers()
+        public IHttpActionResult GetUsers()
         {
-            return db.Users;
+            string sIPAddress = Request.GetOwinContext().Request.RemoteIpAddress;
+
+            try
+            {
+                oLogger.LogData("ROUTE: api/Users; METHOD: GET; IP_ADDRESS: " + sIPAddress);
+                return Json(oUserRepo.SelectAllFromDB());
+            }
+            catch(Exception ex)
+            {
+                oLogger.LogData("ROUTE: api/Users; METHOD: GET; IP_ADDRESS: " + sIPAddress + "; EXCEPTION: " + ex.Message + "; INNER EXCEPTION: " + ex.InnerException);
+                return InternalServerError();
+            }
+            
         }
 
         // GET: api/Users/5
         [ResponseType(typeof(User))]
         public async Task<IHttpActionResult> GetUser(int id)
         {
-            User user = await db.Users.FindAsync(id);
-            if (user == null)
+            string sIPAddress = Request.GetOwinContext().Request.RemoteIpAddress;
+
+            try
             {
-                return NotFound();
+                User user = await oUserRepo.SelectById(id);
+                if (user == null)
+                {
+                    return NotFound();
+                }
+
+                oLogger.LogData("ROUTE: api/Users/{id}; METHOD: GET; IP_ADDRESS: " + sIPAddress);
+
+                return Ok(user);
+            }
+            catch(Exception ex)
+            {
+                oLogger.LogData("ROUTE: api/Users/{id}; METHOD: GET; IP_ADDRESS: " + sIPAddress + "; EXCEPTION: " + ex.Message + "; INNER EXCEPTION: " + ex.InnerException);
+                return InternalServerError();
             }
 
-            return Ok(user);
+
         }
 
         // PUT: api/Users/5
         [ResponseType(typeof(void))]
         public async Task<IHttpActionResult> PutUser(int id, User user)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-
-            if (id != user.Id)
-            {
-                return BadRequest();
-            }
-
-            db.Entry(user).State = EntityState.Modified;
+            string sIPAddress = Request.GetOwinContext().Request.RemoteIpAddress;
 
             try
             {
-                await db.SaveChangesAsync();
+                if (!ModelState.IsValid)
+                {
+                    return BadRequest(ModelState);
+                }
+
+                if (id != user.Id)
+                {
+                    return BadRequest();
+                }
+
+                await oUserRepo.UpdateToDB(user, id);
+
+                oLogger.LogData("ROUTE: api/Users/{id}; METHOD: PUT; IP_ADDRESS: " + sIPAddress);
+                return StatusCode(HttpStatusCode.NoContent);
             }
-            catch (DbUpdateConcurrencyException)
+            catch(Exception ex)
             {
-                if (!UserExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
+                oLogger.LogData("ROUTE: api/Users/{id}; METHOD: PUT; IP_ADDRESS: " + sIPAddress + "; EXCEPTION: " + ex.Message + "; INNER EXCEPTION: " + ex.InnerException);
+                return InternalServerError();
             }
 
-            return StatusCode(HttpStatusCode.NoContent);
+            
+        }
+
+        [HttpGet]
+        [Route("api/Users/{sOktaId}/Check")]
+        public async Task<IHttpActionResult> CheckIfUserExists(string sOktaId)
+        {
+            string sIPAddress = Request.GetOwinContext().Request.RemoteIpAddress;
+
+            try
+            {
+                Boolean blnUserExists = false;
+                blnUserExists = await oUserRepo.CheckIfUserExistsInDB(sOktaId);
+                oLogger.LogData("ROUTE: api/Users/{sOktaId}/Check; METHOD: PUT; IP_ADDRESS: " + sIPAddress);
+                return Json(blnUserExists);
+            }
+            catch(Exception ex)
+            {
+                oLogger.LogData("ROUTE: api/Users/{sOktaId}/Okta; METHOD: PUT; IP_ADDRESS: " + sIPAddress + "; EXCEPTION: " + ex.Message + "; INNER EXCEPTION: " + ex.InnerException);
+                return InternalServerError();
+            }
+        }
+
+        [HttpGet]
+        [Route("api/Users/{sOktaId}/OktaUser")]
+        public async Task<IHttpActionResult> GetUserByOktaId(string sOktaId)
+        {
+            string sIPAddress = Request.GetOwinContext().Request.RemoteIpAddress;
+
+            try
+            {
+                oLogger.LogData("ROUTE: api/Users/{sOktaId}/Okta; METHOD: GET; IP_ADDRESS: " + sIPAddress);
+                return Json(await oUserRepo.SelectByOktaId(sOktaId));
+            }
+            catch(Exception ex)
+            {
+                oLogger.LogData("ROUTE: api/Users/{sOktaId}/Okta; METHOD: GET; IP_ADDRESS: " + sIPAddress + "; EXCEPTION: " + ex.Message + "; INNER EXCEPTION: " + ex.InnerException);
+                return InternalServerError();
+            }
+        }
+
+        [HttpGet]
+        [Route("api/Users/{sOktaId}/Okta")]
+        public async Task<IHttpActionResult> CreateUserFromOkta(string sOktaId)
+        {
+            string sIPAddress = Request.GetOwinContext().Request.RemoteIpAddress;
+
+            try
+            {
+                oLogger.LogData("ROUTE: api/Users/{sOktaId}/Okta; METHOD: POST; IP_ADDRESS: " + sIPAddress);
+                return Json(await oUserRepo.CreateUserFromOkta(sOktaId));
+            }
+            catch(Exception ex)
+            {
+                oLogger.LogData("ROUTE: api/Users/{sOktaId}/Okta; METHOD: POST; IP_ADDRESS: " + sIPAddress + "; EXCEPTION: " + ex.Message + "; INNER EXCEPTION: " + ex.InnerException);
+                return InternalServerError();
+            }
         }
 
         // POST: api/Users
         [ResponseType(typeof(User))]
         public async Task<IHttpActionResult> PostUser(User user)
         {
-            if (!ModelState.IsValid)
+            string sIPAddress = Request.GetOwinContext().Request.RemoteIpAddress;
+
+            try
             {
-                return BadRequest(ModelState);
+                if (!ModelState.IsValid)
+                {
+                    return BadRequest(ModelState);
+                }
+
+                await oUserRepo.SaveToDB(user);
+
+                oLogger.LogData("ROUTE: api/Users; METHOD: POST; IP_ADDRESS: " + sIPAddress);
+
+                return CreatedAtRoute("DefaultApi", new { id = user.Id }, user);
             }
-
-            db.Users.Add(user);
-            await db.SaveChangesAsync();
-
-            return CreatedAtRoute("DefaultApi", new { id = user.Id }, user);
+            catch(Exception ex)
+            {
+                oLogger.LogData("ROUTE: api/Users; METHOD: POST; IP_ADDRESS: " + sIPAddress + "; EXCEPTION: " + ex.Message + "; INNER EXCEPTION: " + ex.InnerException);
+                return InternalServerError();
+            }
+            
         }
 
         // DELETE: api/Users/5
         [ResponseType(typeof(User))]
         public async Task<IHttpActionResult> DeleteUser(int id)
         {
-            User user = await db.Users.FindAsync(id);
-            if (user == null)
+            string sIPAddress = Request.GetOwinContext().Request.RemoteIpAddress;
+
+            try
             {
-                return NotFound();
+                await oUserRepo.DeleteFromDB(id);
+
+                return Ok();
             }
-
-            db.Users.Remove(user);
-            await db.SaveChangesAsync();
-
-            return Ok(user);
+            catch(Exception ex)
+            {
+                oLogger.LogData("ROUTE: api/Users/{sOktaId}/Okta; METHOD: POST; IP_ADDRESS: " + sIPAddress + "; EXCEPTION: " + ex.Message + "; INNER EXCEPTION: " + ex.InnerException);
+                return InternalServerError();
+            }
+            
         }
 
         protected override void Dispose(bool disposing)

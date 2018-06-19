@@ -16,6 +16,7 @@ namespace MGCTrainingPortalAPI.Models
     {
         public int Id { get; set; }
         public int organization_id { get; set; }
+        public string okta_id { get; set; }
         public string first_name { get; set; }
         public string last_name { get; set; }
         public string email_address { get; set; }

@@ -9,6 +9,7 @@ import { HeaderComponent } from './shared/header/header.component';
 import { NavigationComponent } from './shared/navigation/navigation.component';
 import { ChatSidebarComponent } from './shared/chat-sidebar/chat-sidebar.component';
 import {ToasterModule, ToasterService} from 'angular2-toaster';
+import { UsersService } from './services/user/users.service';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import {ToasterModule, ToasterService} from 'angular2-toaster';
     ChatSidebarComponent,
   ],
   providers: [
-    ToasterService
+    ToasterService,
+    UsersService
   ]
 })
 export class PortalModule { }

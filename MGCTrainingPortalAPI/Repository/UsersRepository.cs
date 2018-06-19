@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 using System.Web;
 using MGCTrainingPortalAPI.Interfaces;
 using MGCTrainingPortalAPI.Models;
+using MGCTrainingPortalAPI.OktaConnector;
+using Newtonsoft.Json.Linq;
 
 namespace MGCTrainingPortalAPI.Repository
 {
@@ -14,6 +16,8 @@ namespace MGCTrainingPortalAPI.Repository
     {
         private DB_A35BD0_trainingportaldbEntities db = new DB_A35BD0_trainingportaldbEntities();
         private Logger.Logger oLogger = new Logger.Logger();
+        private OktaUsers oOktaUsers = new OktaUsers();
+
 
         public IQueryable<User> SelectAllFromDB()
         {
@@ -27,6 +31,45 @@ namespace MGCTrainingPortalAPI.Repository
             catch (Exception ex)
             {
                 oLogger.LogData("METHOD: SelectAllFromDB; REPO: User; EXCEPTION: " + ex.Message + "; INNER EXCEPTION: " + ex.InnerException + "; STACKTRACE: " + ex.StackTrace);
+                throw new Exception(ex.Message);
+            }
+        }
+
+        public async Task<Boolean> CheckIfUserExistsInDB(string sOktaId)
+        {
+            try
+            {
+                bool blnUserExists = false;
+
+                var query = await (from ou in db.Users
+                                   where ou.okta_id.Equals(sOktaId)
+                                   select ou).AnyAsync();
+
+                if (query)
+                    blnUserExists = true;
+
+                return blnUserExists;
+            }
+            catch(Exception ex)
+            {
+                oLogger.LogData("METHOD: CheckIfUserExistsInDB; REPO: User; EXCEPTION: " + ex.Message + "; INNER EXCEPTION: " + ex.InnerException + "; STACKTRACE: " + ex.StackTrace);
+                throw new Exception(ex.Message);
+            }
+        }
+
+        public async Task<User> SelectByOktaId(string sOktaId)
+        {
+            try
+            {
+                User oUser = await (from u in db.Users
+                                    where u.okta_id.Equals(sOktaId)
+                                    select u).FirstOrDefaultAsync();
+
+                return oUser;
+            }
+            catch(Exception ex)
+            {
+                oLogger.LogData("METHOD: SelectByOktaId; REPO: User; EXCEPTION: " + ex.Message + "; INNER EXCEPTION: " + ex.InnerException + "; STACKTRACE: " + ex.StackTrace);
                 throw new Exception(ex.Message);
             }
         }
@@ -98,6 +141,28 @@ namespace MGCTrainingPortalAPI.Repository
             {
                 oLogger.LogData("METHOD: UpdateToDB; REPO: User; EXCEPTION: " + ex.Message + "; INNER EXCEPTION: " + ex.InnerException + "; STACKTRACE: " + ex.StackTrace);
                 throw new Exception(ex.Message);
+            }
+        }
+
+        public async Task<User> CreateUserFromOkta(string sOktaId)
+        {
+            try
+            {
+                User oUser = new User();
+                dynamic dynOktaUser = await oOktaUsers.GetUserFromOkta(sOktaId);
+                oUser.first_name = dynOktaUser.profile.firstName;
+                oUser.last_name = dynOktaUser.profile.lastName;
+                oUser.mobile_phone = dynOktaUser.profile.mobilePhone;
+                oUser.email_address = dynOktaUser.profile.email;
+                oUser.okta_id = sOktaId;
+
+                await SaveToDB(oUser);
+
+                return oUser;
+            }
+            catch(Exception ex)
+            {
+                throw new Exception();
             }
         }
 
