@@ -1,7 +1,8 @@
 // Base Imports
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { CourseBuilderService } from '../services/course-builder/course-builder.service';
-import { ParamMap, Router, ActivatedRoute } from '@angular/router';
+import { ParamMap, Router, ActivatedRoute, Route } from '@angular/router';
+
 
 // Services
 import { TrainingCourseService } from '../services/training-course/training-course.service';
@@ -9,7 +10,6 @@ import { TrainingCourseModuleService } from '../services/training-course-module/
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
 import { TrainingCourseModuleSectionService } from '../services/training-course-module-section/training-course-module-section.service';
-// tslint:disable-next-line:max-line-length
 import { TrainingCourseModuleSubSectionService } from '../services/training-course-module-sub-section/training-course-module-sub-section.service';
 
 // Models
@@ -19,7 +19,7 @@ import { TrainingCourseModuleSection } from '../models/training-course-module-se
 
 // Components
 import { PageLoaderComponent } from '../../shared/page-loader/page-loader.component';
-import { SectionsDisplayModalComponent } from '../modals/sections-display-modal/sections-display-modal.component';
+
 
 
 @Component({
@@ -46,7 +46,8 @@ export class ModulesComponent implements OnInit {
     private moduleService: TrainingCourseModuleService,
     private trainingCourseService: TrainingCourseService,
     private trainingCourseModuleSectionService: TrainingCourseModuleSectionService,
-    private bsModalService: BsModalService
+    private bsModalService: BsModalService,
+    private router: Router
     ) {
     this.trainingCourseId = this.route.snapshot.paramMap.get('id');
   }
@@ -68,9 +69,8 @@ export class ModulesComponent implements OnInit {
 
   }
 
-  openModal(id: number): void {
-    this.trainingCourseModuleSectionService.trainingCourseModuleId = id;
-    this.bsModalRef = this.bsModalService.show(SectionsDisplayModalComponent, {});
+  public goToSectionsDisplay(id: number): void {
+
   }
 
 }

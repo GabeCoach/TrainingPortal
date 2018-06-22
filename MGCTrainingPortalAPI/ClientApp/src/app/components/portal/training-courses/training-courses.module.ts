@@ -24,12 +24,16 @@ import { TrainingCoursesComponent } from './training-courses.component';
 import { ModulesComponent } from './modules/modules.component';
 import { SubmitQuizComponent } from './submit-quiz/submit-quiz.component';
 import { QuizScoreSheetComponent } from './quiz-score-sheet/quiz-score-sheet.component';
+import { SectionsDisplayComponent } from './sections-display/sections-display.component';
+import { SubSectionsDisplayComponent } from './sub-sections-display/sub-sections-display.component';
+import { AccordionModule } from 'ngx-bootstrap/accordion';
 
 @NgModule({
   imports: [
     CommonModule,
     TrainingCoursesRoutingModule,
     FormsModule,
+    AccordionModule.forRoot()
   ],
   declarations: [
     TrainingCoursesComponent,
@@ -39,6 +43,8 @@ import { QuizScoreSheetComponent } from './quiz-score-sheet/quiz-score-sheet.com
     QuizInProgrssComponent,
     SubmitQuizComponent,
     QuizScoreSheetComponent,
+    SectionsDisplayComponent,
+    SubSectionsDisplayComponent,
   ],
   providers: [
     TrainingCourseService,

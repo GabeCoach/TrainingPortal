@@ -36,7 +36,7 @@
   <div class="col-sm-4" *ngFor="let module of trainingCourseModule">
     <div class="card">
       <div class="card-header bgm-bluegray">
-        <a href="javascript:void(0)" (click)="openModal(module.Id)">
+        <a routerLink="/training-courses/sections/{{module.Id}}">
           <h2>{{module.training_course_module_name}}</h2>
         </a>
 

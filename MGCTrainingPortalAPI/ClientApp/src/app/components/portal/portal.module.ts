@@ -11,7 +11,6 @@ import { ChatSidebarComponent } from './shared/chat-sidebar/chat-sidebar.compone
 import {ToasterModule, ToasterService} from 'angular2-toaster';
 import { UsersService } from './services/user/users.service';
 
-
 @NgModule({
   imports: [
     CommonModule,

@@ -6,7 +6,7 @@ import { TrainingCourseModuleSubSection } from '../../models/training-course-mod
 @Injectable()
 export class TrainingCourseModuleSubSectionService {
 
-  public iSubSectionId: number;
+  public iSectionId: number;
 
   constructor(private http: HttpClient, private baseService: BaseService) { }
 
