@@ -19,18 +19,21 @@ export class AuthInterceptor implements HttpInterceptor {
       }
     });
 
+    /*
     if (request.responseType === 'json') {
       request = request.clone({ responseType: 'text' });
 
       return next.handle(request).map(response => {
         if (response instanceof HttpResponse) {
-          response = response.clone<any>({ body: JSON.parse(response.body) });
+          response = response.clone<any>({ body: JSON.stringify(response.body) });
           console.log(JSON.stringify(response));
         }
 
         return response;
       });
     }
+    */
 
+    return next.handle(request);
   }
 }
