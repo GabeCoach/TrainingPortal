@@ -29,7 +29,8 @@ export class NavigationComponent implements OnInit {
       if (resp === false) {
         this.usersService.createUserFromOkta(sOktaId)
         .then(resp => {
-          this.currentUser = resp;
+          this.usersService.currentUser = resp;
+          this.currentUser = this.usersService.currentUser;
         }).catch((err: HttpErrorResponse) => {
           alert(err.message);
         })
