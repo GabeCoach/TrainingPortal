@@ -36,6 +36,9 @@ export class QuizInProgrssComponent implements OnInit {
     private quizSheetService: QuizSheetService
   ) {
     this.trainingCourseModuleQuizId = this.route.snapshot.paramMap.get('id');
+    this.quizQuestions = [];
+    this.quizQuestionAnswerOptions = [];
+    this.activeQuizQuestion = new QuizQuestions; 
   }
 
   ngOnInit() {

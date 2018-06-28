@@ -18,7 +18,7 @@ namespace MGCTrainingPortalAPI
             HttpConfiguration config = new HttpConfiguration();
             // Web API routes
             config.MapHttpAttributeRoutes();
-            config.EnableCors(new EnableCorsAttribute("*", "*", "*"));
+            config.EnableCors(new EnableCorsAttribute("https://www.mgctrainingportal.com,http://localhost:4200,https://www.mgctrainingportal.com,https://dev.coresystems.io:8855", "*", "*"));
             //config.MessageHandlers.Add(new PreflightRequestHandler());
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",

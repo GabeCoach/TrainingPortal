@@ -24,6 +24,7 @@ export class SectionsDisplayComponent implements OnInit {
     private courseModuleService: TrainingCourseModuleService
   ) { 
     this.courseModuleId = this.route.snapshot.paramMap.get('id');
+    this.currentCourseModule = new TrainingCourseModule;
   }
 
   ngOnInit() {

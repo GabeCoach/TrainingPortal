@@ -1,68 +1,78 @@
-<div class="block-header">
-  <h2>{{trainingCourseInformation.training_course_name}}</h2>
-
-  <ul class="actions">
-      <li>
-          <a href="">
-              <i class="zmdi zmdi-trending-up"></i>
-          </a>
-      </li>
-      <li>
-          <a href="">
-              <i class="zmdi zmdi-check-all"></i>
-          </a>
-      </li>
-      <li class="dropdown">
-          <a href="" data-toggle="dropdown">
-              <i class="zmdi zmdi-more-vert"></i>
-          </a>
-
-          <ul class="dropdown-menu dropdown-menu-right">
-              <li>
-                  <a href="">Refresh</a>
-              </li>
-              <li>
-                  <a href="">Manage Widgets</a>
-              </li>
-              <li>
-                  <a href="">Widgets Settings</a>
-              </li>
-          </ul>
-      </li>
-  </ul>
-</div>
-
-<div class="row">
-  <div class="col-sm-4" *ngFor="let module of trainingCourseModule">
-    <div class="card">
-      <div class="card-header bgm-bluegray">
-        <a routerLink="/training-courses/sections/{{module.Id}}">
-          <h2>{{module.training_course_module_name}}</h2>
+<div>
+  <div class="block-header">
+    <header class="mdl-layout__header module-headers">
+      <div class="mdl-layout__drawer-button">
+        <a routerLink="/training-courses/courses">
+          <i class="material-icons">arrow_back</i>
         </a>
-
-        <ul class="actions actions-alt">
-          <li class="dropdown">
-            <a href="" data-toggle="dropdown" aria-expanded="false">
-              <i class="zmdi zmdi-more-vert"></i>
-            </a>
-
-            <ul class="dropdown-menu dropdown-menu-right">
-              <li>
-                <a routerLink="/training-courses/quiz-start/{{module.Id}}">Take Quiz</a>
-              </li>
-            </ul>
-          </li>
+      </div>
+      <div class="mdl-layout__header-row">
+        <span class="mdl-layout-title">{{trainingCourseInformation.training_course_name}}</span>
+        <ul class="actions">
+            <li>
+                <a href="">
+                    <i class="zmdi zmdi-trending-up"></i>
+                </a>
+            </li>
+            <li>
+                <a href="">
+                    <i class="zmdi zmdi-check-all"></i>
+                </a>
+            </li>
+            <li class="dropdown">
+                <a href="" data-toggle="dropdown">
+                    <i class="zmdi zmdi-more-vert"></i>
+                </a>
+      
+                <ul class="dropdown-menu dropdown-menu-right">
+                    <li>
+                        <a href="">Refresh</a>
+                    </li>
+                    <li>
+                        <a href="">Manage Widgets</a>
+                    </li>
+                    <li>
+                        <a href="">Widgets Settings</a>
+                    </li>
+                </ul>
+            </li>
         </ul>
       </div>
-
-      <div class="card-body card-padding">
-        {{module.training_course_module_description}}
+    </header>
+  </div>
+  <main class="mdl-layout__content modules">
+    <div class="page-content container">
+      <div class="row">
+        <div class="col-sm-4" *ngFor="let module of trainingCourseModule">
+          <div class="card modules">
+            <div class="card-header bgm-bluegray">
+              <a routerLink="/training-courses/sections/{{module.Id}}">
+                <h2>{{module.training_course_module_name}}</h2>
+              </a>
+      
+              <ul class="actions actions-alt">
+                <li class="dropdown">
+                  <a href="" data-toggle="dropdown" aria-expanded="false">
+                    <i class="zmdi zmdi-more-vert"></i>
+                  </a>
+      
+                  <ul class="dropdown-menu dropdown-menu-right">
+                    <li>
+                      <a routerLink="/training-courses/quiz-start/{{module.Id}}">Take Quiz</a>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+      
+            <div class="card-body card-padding">
+              {{module.training_course_module_description}}
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-</div>
-
-<!--<div class="row">
+    <!--<div class="row">
     <div class="col-md-12">
       <pagination
         [directionLinks]="false"
@@ -71,3 +81,5 @@
       </pagination>
     </div>
   </div>-->
+  </main>
+</div>

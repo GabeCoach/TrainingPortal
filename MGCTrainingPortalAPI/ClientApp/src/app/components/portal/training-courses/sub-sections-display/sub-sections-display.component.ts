@@ -13,7 +13,7 @@ import { TrainingCourseModuleSection } from '../models/training-course-module-se
 })
 export class SubSectionsDisplayComponent implements OnInit {
 
-  public subSections: TrainingCourseModuleSubSection;
+  public subSections: TrainingCourseModuleSubSection [];
   private moduleSectionId: any;
   public currentModuleSection: TrainingCourseModuleSection;
 
@@ -24,6 +24,8 @@ export class SubSectionsDisplayComponent implements OnInit {
     private router: Router
   ) { 
     this.moduleSectionId = this.route.snapshot.paramMap.get('id');
+    this.currentModuleSection = new TrainingCourseModuleSection;
+    this.subSections = [];
   }
 
   ngOnInit() {

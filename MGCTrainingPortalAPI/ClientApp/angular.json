@@ -34,6 +34,8 @@
             "scripts": [
               "src/assets/vendors/bower_components/jquery/dist/jquery.min.js",
               "src/assets/vendors/bower_components/bootstrap/dist/js/bootstrap.min.js",
+              "src/assets/vendors/bower_components/Waves/dist/waves.min.js",
+              "src/assets/vendors/bootstrap-growl/bootstrap-growl.min.js",
               "src/assets/vendors/bower_components/moment/min/moment.min.js",
               "src/assets/vendors/bower_components/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js",
               "src/assets/js/app.min.js",
@@ -87,6 +89,7 @@
             "scripts": [
               "src/assets/vendors/bower_components/jquery/dist/jquery.min.js",
               "src/assets/vendors/bower_components/bootstrap/dist/js/bootstrap.min.js",
+              "src/assets/vendors/bower_components/material-design-lite/material.min.js",
               "src/assets/vendors/bower_components/moment/min/moment.min.js",
               "src/assets/vendors/bower_components/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js",
               "src/assets/js/app.min.js",
@@ -95,6 +98,7 @@
             "styles": [
               "src/styles.css",
               "src/assets/vendors/bower_components/animate.css/animate.min.css",
+              "src/assets/vendors/bower_components/material-design-lite/material.min.css",
               "src/assets/vendors/bower_components/material-design-iconic-font/dist/css/material-design-iconic-font.min.css",
               "src/assets/vendors/bower_components/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.min.css",
               "src/assets/css/app_1.min.css",

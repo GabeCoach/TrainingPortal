@@ -1,26 +1,27 @@
 <aside id="sidebar" class="sidebar c-overflow">
-  <ul class="main-menu">
-      <li class="mm-profile sub-menu">
-          <a href="" data-ma-action="submenu-toggle" class="media">
-              <img class="pull-left" src="./assets/img/profile-pics/1.jpg" alt="">
-              <div class="media-body">
-                  <h5>{{currentUser.first_name + " " + currentUser.last_name}}</h5>
-              </div>
-          </a>
-
-          <ul>  
-              <li>
-                  <a href="javascript:void(0)" (click)="authService.logout()">Logout</a>
-              </li>
-          </ul>
-      </li>
-
-      <li>
-          <a routerLink="/portal/home"><i class="zmdi zmdi-home"></i> Home</a>
-      </li>
-      <li>
-          <a routerLink="/portal/training-courses" data-ma-action="submenu-toggle"><i class="zmdi zmdi-view-compact"></i> My Trainings</a>
-      </li>
-      <!--<li><a href=""><i class="zmdi zmdi-format-underlined"></i> Test Results &amp; Scores</a></li>-->
-  </ul>
-</aside>
+    <ul class="main-menu">
+        <li class="mm-profile sub-menu">
+            <a href="" data-ma-action="submenu-toggle">
+                <img class="avatar pull-left" src="assets/img/demo/profile-pics/1.jpg" alt="">
+                <div class="media-body">
+                    <h5 *ngIf="currentUser.first_name">{{currentUser.first_name + " " + currentUser.last_name}}</h5>
+                    <h5 *ngIf="!currentUser.first_name">Username</h5>
+                </div>
+            </a>
+  
+            <ul>  
+                <li>
+                    <a href="javascript:void(0)" (click)="authService.logout()">Logout</a>
+                </li>
+            </ul>
+        </li>
+  
+        <li>
+            <a routerLink="/portal/home"><i class="zmdi zmdi-home"></i> Home</a>
+        </li>
+        <li>
+            <a routerLink="/portal/training-courses" data-ma-action="submenu-toggle"><i class="zmdi zmdi-view-compact"></i> My Trainings</a>
+        </li>
+        <!--<li><a href=""><i class="zmdi zmdi-format-underlined"></i> Test Results &amp; Scores</a></li>-->
+    </ul>
+  </aside>

@@ -6,8 +6,6 @@ import { BaseService } from '../../../../services/base-service.service';
 @Injectable()
 export class UsersService {
 
-  public currentUser: User = new User;
-
   constructor(private http: HttpClient, private baseService: BaseService) { }
 
   public getUsers(): Promise<any> {

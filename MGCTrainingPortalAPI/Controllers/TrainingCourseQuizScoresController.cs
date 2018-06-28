@@ -17,7 +17,7 @@ using MGCTrainingPortalAPI.QuizGrader;
 
 namespace MGCTrainingPortalAPI.Controllers
 {
-    [EnableCors(origins: "https://www.mgctrainingportal.com,http://localhost:4200,https://www.mgctrainingportal.com", headers: "*", methods: "*")]
+    //[EnableCors(origins: "https://www.mgctrainingportal.com,http://localhost:4200,https://www.mgctrainingportal.com", headers: "*", methods: "*")]
     [Authorize]
     public class TrainingCourseQuizScoresController : ApiController
     {

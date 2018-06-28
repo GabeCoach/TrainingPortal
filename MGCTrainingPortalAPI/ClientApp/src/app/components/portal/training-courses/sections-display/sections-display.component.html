@@ -1,22 +1,38 @@
-<div class="row">
-  <div class="col-md-2"></div>
-  <div class="col-md-8">
-    <div class="card">
-      <div class="card-header bgm-bluegray">
-        <h3>{{currentCourseModule.training_course_module_name}}</h3>
-      </div>
-    </div>
-    <div class="card-body">
-      <div class="row">
+<div>
+  <div class="block-header courses">
+      <header class="mdl-layout__header module-headers">
+        <div class="mdl-layout__drawer-button">
+          <a routerLink="/training-courses/modules/{{currentCourseModule.training_course_id}}">
+            <i class="material-icons">arrow_back</i>
+          </a>
+        </div>
+        <div class="mdl-layout__header-row">
+          <span class="mdl-layout-title"  *ngIf="currentCourseModule.training_course_module_name">
+            {{currentCourseModule.training_course_module_name}}
+          </span>
+        </div>
+    </header>
+  </div>
+  <main class="mdl-layout__content">
+    <div class="page-content">
+      <div class="row">      
         <div class="col-md-12">
-          <ul>
-              <li *ngFor="let sections of moduleSections">
-                  <a routerLink="/training-courses/sub-sections/{{sections.Id}}" class="btn btn-lg bgm-bluegray">{{sections.training_course_module_section_number + " " + sections.training_course_module_name}}</a>
-              </li>
-          </ul>
+
+          <div class="sections-list mdl-list">
+            <div class="mdl-list__item" *ngFor="let sections of moduleSections">              
+              <span class="mdl-list__item-primary-content">
+                <a class="mdl-list__item-secondary-action" routerLink="/training-courses/sub-sections/{{sections.Id}}">                
+                  <span>{{sections.training_course_module_section_number + " " + sections.training_course_module_name}}</span>                
+                </a>
+              </span>
+              <a class="mdl-list__item-secondary-action" routerLink="/training-courses/sub-sections/{{sections.Id}}">
+                <i class="material-icons">keyboard_arrow_right</i>
+              </a>
+            </div>
+          </div>
+
         </div>
       </div>
     </div>
-  </div>
-  <div class="col-md-2"></div>
+  </main>
 </div>

@@ -1,4 +1,39 @@
-<div class="card">
+<div>
+    <div class="block-header courses">
+        <header class="mdl-layout__header module-headers">
+            <div class="mdl-layout__drawer-button">
+              <a href="javascript:history.back()">
+                  <i class="material-icons">arrow_back</i>
+              </a>
+            </div>
+            <div class="mdl-layout__header-row">
+            <div class="title-courses">
+                <h5 class="mdl-layout-title">
+                    <span class="mdl-card__title-text">Quiz Ready</span>
+                </h5>
+            </div>
+            </div>
+        </header>
+    </div>
+    <main class="mdl-layout__content quiz">
+      <div class="page-content container">
+        <div class="row">
+          <div class="col-md-12">
+              Your Quiz is now ready to be submitted
+          </div>
+          <div class="card-footer">
+              <div class="pull-right">
+              <div class="btn-group">
+                  <button type="button" (click)="submitQuiz()" class="btn btn-lg bgm-bluegray">Submit Quiz</button>
+              </div>
+              </div>
+          </div>          
+        </div>
+        </div>
+    </main>
+</div>
+
+<!-- <div class="card">
   <div class="card-header">
     <h2>Your Quiz is now ready to be submitted</h2>
   </div>
@@ -9,4 +44,4 @@
       </div>
     </div>
   </div>
-</div>
+</div> -->

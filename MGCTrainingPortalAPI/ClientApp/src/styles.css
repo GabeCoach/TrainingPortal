@@ -1,1 +1,156 @@
 /* You can add global styles to this file, and also import other style files */
+#main {
+    padding-top: 70px !important;
+}
+
+.mm-profile{
+    margin-top: 30px;
+}
+
+.mm-profile .avatar{
+    border-radius: 50%;
+    margin-right: 10px;
+    margin-left: -40px;
+    width: 35px;
+}
+
+.title-courses{
+    margin-left: 10px;
+}
+
+.title-courses h5 span{
+    color: white;
+}
+
+.mdl-card{
+    margin: 10px;
+    width: 90%;
+}
+
+.mdl-card__supporting-text{
+    width: 100%;
+}
+
+.mdl-card__supporting-text h3{
+    margin-top: 0px;
+}
+
+a .mdl-card__title-text, a h3, a h6{
+    color: #333;
+}
+
+a h3{
+    font-weight: 400;
+}
+
+a h6{
+    font-weight: 100;
+}
+
+.block-header{
+    color: white !important;
+    margin-bottom: 10px !important;
+}
+
+.block-header i{
+    color: white !important;
+}
+
+.block-header .actions{
+    top: 15px !important;
+}
+
+.mdl-layout__content{
+    background-color: #f3f3f3;
+    width: 100%;
+    margin-top: -10px;
+}
+
+@media screen and (max-width: 768px) {
+    #main {
+        padding-top: 50px !important;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .block-header {
+        padding: 0 !important;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .courses .mdl-layout__header {
+        display: flex;
+    }
+}
+
+/*Modules*/
+.modules .page-content{
+    padding-top: 10px;    
+}
+
+.card.modules .card-body{    
+    min-height: 200px;
+    max-height: 200px;
+    overflow: auto;
+}
+
+/*Sections*/
+.sections-list{
+    background-color: white;
+}
+.sections-list .mdl-list__item{
+    margin: 5px;
+}
+.sections-list .mdl-list__item:hover{
+    background-color: #f3f3f3;
+}
+.sections-list .mdl-list__item span{
+    color: #333;
+}
+
+/*Subsections*/
+.subsection{
+    background-color: white;
+}
+
+.subsection .page-content{
+    padding-top: 10px;    
+}
+
+/*quiz*/
+.quiz{
+    background-color: white;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-right: 10px;
+}
+
+.quiz .btn-group{
+    width: 100%;
+}
+
+/*quiz in progress*/
+.quiz-list span{
+    margin-left: 5px;
+    color: #333;
+    cursor: pointer;
+    font-weight: 300;
+}
+.quiz-list{
+    margin: 5px;
+}
+.quiz-list div{
+    padding: 5px;
+}
+.quiz-list div:hover{
+    background-color: #f3f3f3;
+}
+
+.quiz-list ul{
+    list-style: none;
+}
+
+.mdl-layout__header{
+    background-color: #607d8b;
+}

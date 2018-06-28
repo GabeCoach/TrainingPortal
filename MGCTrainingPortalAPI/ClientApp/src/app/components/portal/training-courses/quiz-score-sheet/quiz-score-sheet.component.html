@@ -1,31 +1,52 @@
-<div class="card">
-    <div class="card-header bgm-bluegray">
-        <h2>Your Quiz Scores</h2>
-    </div>
-    <div class="card-body">
-        <div class="row">
-            <div class="col-md-12">
-                <table class="table table-bordered table-responsive">
-                   <thead>
-                    <tr>
-                        <th>Score</th>
-                        <th># of Correct Answers</th>
-                        <th># of Incorrect Answers</th>
-                        <th>Amt of Answers Completed</th>
-                        <th>Total Answers Possible</th>
-                    </tr>
-                   </thead>
-                   <tbody>
-                       <tr>
-                           <td>{{currentQuizScore.quiz_percentage | percent}}</td>
-                           <td>{{currentQuizScore.quiz_correct_answers}}</td>
-                           <td>{{currentQuizScore.quiz_incorrect_answers}}</td>
-                           <td>{{currentQuizScore.quiz_total_answers}}</td>
-                           <td>{{currentQuizScore.quiz_total_answers_possible}}</td>                        
-                       </tr>
-                   </tbody>
-                </table>
+<div>
+    <div class="block-header courses">
+        <header class="mdl-layout__header module-headers">
+            <div class="mdl-layout__drawer-button">
+            <a href="javascript:history.back()">
+                <i class="material-icons">arrow_back</i>
+            </a>
             </div>
-        </div>
+            <div class="mdl-layout__header-row">
+            <div class="title-courses">
+                <h5 class="mdl-layout-title">
+                    <span class="mdl-card__title-text">Your Quiz Scores</span>
+                </h5>
+            </div>
+            </div>
+        </header>
     </div>
+    <main class="mdl-layout__content quiz">
+        <div class="page-content container">
+        <div class="row">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-responsive">
+                                <thead>
+                                <tr>
+                                    <th>Score</th>
+                                    <th># of Correct Answers</th>
+                                    <th># of Incorrect Answers</th>
+                                    <th>Amt of Answers Completed</th>
+                                    <th>Total Answers Possible</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>{{currentQuizScore.quiz_percentage | percent}}</td>
+                                        <td>{{currentQuizScore.quiz_correct_answers}}</td>
+                                        <td>{{currentQuizScore.quiz_incorrect_answers}}</td>
+                                        <td>{{currentQuizScore.quiz_total_answers}}</td>
+                                        <td>{{currentQuizScore.quiz_total_answers_possible}}</td>                        
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>        
+        </div>
+        </div>
+    </main>
 </div>

@@ -50,6 +50,7 @@ export class ModulesComponent implements OnInit {
     private router: Router
     ) {
     this.trainingCourseId = this.route.snapshot.paramMap.get('id');
+    this.trainingCourseInformation = new TrainingCourse;
   }
 
   ngOnInit() {

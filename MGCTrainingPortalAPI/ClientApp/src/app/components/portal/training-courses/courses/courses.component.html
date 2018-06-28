@@ -1,33 +1,42 @@
-<div class="row">
-  <div class="col-md-12">
-    <div class="card">
-      <div class="card-header bgm-bluegray">
-        <h2>Available Training Courses
-          <small>Choose a training course from the list below</small>
-        </h2>
+<div>
+  <div class="block-header courses">
+    <header class="mdl-layout__header mdl-layout--fixed-header">
+      <div class="title-courses">
+        <h5 class="mdl-layout-title">
+          <span class="mdl-card__title-text">Available Training Courses</span>
+          <span class="mdl-card__subtitle-text">Choose a training course from the list below</span>
+        </h5>
       </div>
-      <div class="card-body">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-4" *ngFor="let course of trainingCourses">
-              <div class="card blog-post">
-                <div class="card-header bgm-indigo">
-                  <h2>St. Louis City Parks &amp; Rec</h2>
-                </div>
-                <div class="card-body">
-                  <img src="./assets/img/MGCTRAININGCOURSE.png" class="img-responsive" alt="">
-                </div>
-                <a routerLink="/training-courses/modules/{{course.Id}}" class="card-footer bgm-indigo">
-                  <h2>MGC Training Course
-                  <br>
-                    <small>{{course.training_course_name}}</small>
-                  </h2>
-                </a>
-              </div>
+    </header>
+  </div>
+  <main class="mdl-layout__content">
+    <div class="page-content">
+      <div class="row">
+        
+        <div class="col-sm-6 col-md-4" *ngFor="let course of trainingCourses">
+          <div class="mdl-card mdl-shadow--2dp">
+            <div class="mdl-card__media">
+              <a routerLink="/training-courses/modules/{{course.Id}}" >
+                <img src="./assets/img/MGCTRAININGCOURSE.png" width="100%;" border="0" alt="">
+              </a>                      
             </div>
-          </div>
+            <div class="mdl-card__title">
+              <a routerLink="/training-courses/modules/{{course.Id}}" >
+                <h5>
+                  <div class="mdl-card__title-text">St. Louis City Parks &amp; Rec </div>
+                  <div class="mdl-card__subtitle-text">MGC Training Course</div>
+                </h5>
+              </a>
+            </div>
+            <div class="mdl-card__supporting-text">
+              <a routerLink="/training-courses/modules/{{course.Id}}">
+                <h5>{{course.training_course_name}}</h5>
+              </a>
+            </div>
+          </div>  
         </div>
+
       </div>
     </div>
-  </div>
+  </main>
 </div>

@@ -1,28 +1,32 @@
-<div class="row">
-  <div class="col-md-2"></div>
-  <div class="col-md-8">
-    <div class="card">
-      <div class="card-header bgm-bluegray">
-        <h2>
-          {{trainingCourseModuleQuiz.training_course_module_quiz_name}}
-          <small>Click the start button to begin the quiz</small>
-        </h2>
-      </div>
-      <div class="card-body">
-        <div class="row">
+<div>
+  <div class="block-header courses">
+      <header class="mdl-layout__header module-headers">
+        <div class="mdl-layout__drawer-button">
+          <a href="javascript:history.back()">
+            <i class="material-icons">arrow_back</i>
+          </a>
+        </div>
+        <div class="mdl-layout__header-row">
+          <span class="mdl-layout-title"  *ngIf="trainingCourseModuleQuiz.training_course_module_quiz_name">
+            {{trainingCourseModuleQuiz.training_course_module_quiz_name}}
+          </span>
+        </div>
+    </header>
+  </div>
+  <main class="mdl-layout__content quiz">
+    <div class="page-content container">
+      <div class="row">
           <div class="col-md-12">
-            <p>{{trainingCourseModuleQuiz.training_course_module_quiz_description}}</p>
+              <p>{{trainingCourseModuleQuiz.training_course_module_quiz_description}}</p>    
           </div>
-        </div>
-      </div>
-      <div class="card-footer">
-        <div class="pull-right">
-          <div class="btn-group">
-            <button type="button" (click)="startQuiz(trainingCourseModuleQuiz.Id)" class="btn btn-lg bgm-bluegray">Start</button>
-          </div>
-        </div>
+          <div class="col-md-12">                
+            <div class="pull-right">
+              <div class="btn-group">
+                <button type="button" (click)="startQuiz(trainingCourseModuleQuiz.Id)" class="btn btn-lg bgm-bluegray">Start</button>
+              </div>
+            </div>
+          </div>          
       </div>
     </div>
-  </div>
-  <div class="col-md-2"></div>
+  </main>
 </div>

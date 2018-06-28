@@ -7,7 +7,6 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { QuizSheetService } from '../services/quiz-sheet/quiz-sheet.service';
 import { QuizSheet } from '../models/quiz-sheet';
 import { SubmitQuizService } from '../services/submit-quiz/submit-quiz.service';
-import { UsersService } from '../../services/user/users.service';
 
 @Component({
   selector: 'app-quiz-start',
@@ -26,10 +25,10 @@ export class QuizStartComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private quizSheetService: QuizSheetService,
-    private submitQuizService: SubmitQuizService,
-    private usersService: UsersService
+    private submitQuizService: SubmitQuizService
     ) {
       this.trainingCourseModuleId = this.route.snapshot.paramMap.get('id');
+      this.trainingCourseModuleQuiz = new TrainingCourseModuleQuiz;
     }
 
   ngOnInit() {
@@ -44,7 +43,6 @@ export class QuizStartComponent implements OnInit {
   public startQuiz(QuizId: number): void {
     this.quizSheet = new QuizSheet;
     this.quizSheet.quiz_id = QuizId;
-    this.quizSheet.user_id = this.usersService.currentUser.Id;
     this.submitQuizService.addQuizSheet(this.quizSheet);
 
     this.quizSheetService.submitQuizSheet(this.quizSheet)

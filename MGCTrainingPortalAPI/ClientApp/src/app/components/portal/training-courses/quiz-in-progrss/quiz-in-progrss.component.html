@@ -1,5 +1,72 @@
+<div>
+  <div class="block-header courses">
+      <header class="mdl-layout__header module-headers">
+        <div class="mdl-layout__drawer-button">
+          <a href="javascript:history.back()">
+            <i class="material-icons">arrow_back</i>
+          </a>
+        </div>
+        <div class="mdl-layout__header-row">
+          <div class="title-courses">
+            <h5 class="mdl-layout-title">
+              <span class="mdl-card__title-text">Choose the correct answer</span>
+              <span class="mdl-card__subtitle-text" *ngIf="activeQuizQuestion.question">{{activeQuizQuestion.question}}</span>
+            </h5>
+          </div>
+        </div>
+    </header>
+  </div>
+  <main class="mdl-layout__content quiz">
+    <div class="page-content container">
+      <div class="row">
+        <form role="form" (ngSubmit)="nextQuestion()" #answerOptionsForm="ngForm" novalidate>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-md-12">
+                
+                <!-- <div class="quiz-list quiz mdl-list">
+                  <div class="mdl-list__item" *ngFor="let option of quizQuestionAnswerOptions">              
+                    <div data-toggle="radio">
+                      <label>
+                        <input type="radio" name="answerOptions" value="{{option.Id}}" name="selectedAnswer" #selectedAnswer="ngModel" required (ngModel)="answerOptionsForm.selectedAnswer" id="{{'answerOption' + option.Id}}'"
+                          autocomplete="off">
+                          <span>{{option.answer_option}}</span>
+                      </label>
+                    </div>
+                  </div>
+                </div> -->
 
-<div class="row">
+                <div class="quiz-list quiz mdl-list">
+                  <ul>
+                    <li *ngFor="let option of quizQuestionAnswerOptions">
+                      <div class="btn-group btn-group-toggle" data-toggle="radio">
+                        <label class="btn btn-secondary">
+                          <input type="radio" name="answerOptions" value="{{option.Id}}" name="selectedAnswer" #selectedAnswer="ngModel" required (ngModel)="answerOptionsForm.selectedAnswer" id="{{'answerOption' + option.Id}}'"
+                            autocomplete="off">{{option.answer_option}}
+                        </label>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card-footer">
+            <div class="pull-right">
+              <div class="btn-group">
+                <button type="submit" class="btn btn-lg bgm-bluegray">Next</button>
+              </div>
+            </div>
+          </div>
+        </form>
+          
+      </div>
+    </div>
+  </main>
+</div>
+  
+  
+  <!-- <div class="row">
   <div class="col-md-2"></div>
   <div class="col-md-8">
     <div class="card">
@@ -37,4 +104,4 @@
     </div>
   </div>
   <div class="col-md-2"></div>
-</div>
+</div> -->
