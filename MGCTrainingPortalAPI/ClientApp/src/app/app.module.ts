@@ -37,7 +37,7 @@ import { AuthInterceptor } from './services/auth-interceptor.service';
 // Auth Configuration for Okta Sign-in Widget
 const config = {
   issuer: AuthConfig.ISSUER,
-  redirectUri: AuthConfig.PROD_REDIRECT_URI_HTTPS,
+  redirectUri: AuthConfig.DEV_REDIRECT_URI,
   clientId: AuthConfig.CLIENT_ID
 };
 

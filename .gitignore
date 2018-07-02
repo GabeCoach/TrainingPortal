@@ -89,7 +89,8 @@ ipch/
 *.vsp
 *.vspx
 *.sap
-
+CADAbility
+EmailyApp
 # TFS 2012 Local Workspace
 $tf/
 
@@ -5268,3 +5269,5 @@ MGCTrainingPortalAPI/App_Data/appsettings.config
 MGCTrainingPortalAPI/Web.config
 MGCTrainingPortalAPI/ClientApp - Old/
 MGCTrainingPortalAPI/ClientApp/src/assets/
+EmailyApp
+CADAbility
