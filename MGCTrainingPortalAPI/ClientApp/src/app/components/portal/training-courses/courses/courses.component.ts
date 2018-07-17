@@ -3,6 +3,7 @@ import { TrainingCourseService } from '../services/training-course/training-cour
 import { TrainingCourse } from '../models/training-course';
 import { ToasterService } from 'angular2-toaster';
 import { HttpErrorResponse } from '@angular/common/http';
+import { ValidatorService } from '../../../../services/validator.service';
 
 @Component({
   selector: 'app-courses',
@@ -13,9 +14,19 @@ export class CoursesComponent implements OnInit {
 
   public trainingCourses: TrainingCourse[];
 
-  constructor(private trainingCourseService: TrainingCourseService, private toasterService: ToasterService) { }
+  constructor(
+    private trainingCourseService: TrainingCourseService, 
+    private toasterService: ToasterService,
+    private validator: ValidatorService
+  ) { }
 
   ngOnInit() {
+
+    this.validator.ValidateUser()
+      .catch((err:HttpErrorResponse) => {
+        this.validator.HandleValidationResult(err);
+      });
+
     this.trainingCourseService.getTrainingCourses()
     .then(resp => {
       this.trainingCourses = resp;

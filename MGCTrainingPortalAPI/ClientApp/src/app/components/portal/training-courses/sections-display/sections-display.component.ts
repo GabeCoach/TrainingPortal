@@ -5,6 +5,7 @@ import { TrainingCourseModuleService } from '../services/training-course-module/
 import { TrainingCourseModule } from '../models/training-course-module';
 import { Router, ActivatedRoute, } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
+import { ValidatorService } from '../../../../services/validator.service';
 
 @Component({
   selector: 'app-sections-display',
@@ -21,13 +22,19 @@ export class SectionsDisplayComponent implements OnInit {
     private moduleSectionService: TrainingCourseModuleSectionService,
     private route: ActivatedRoute,
     private router: Router,
-    private courseModuleService: TrainingCourseModuleService
+    private courseModuleService: TrainingCourseModuleService,
+    private validator: ValidatorService
   ) { 
     this.courseModuleId = this.route.snapshot.paramMap.get('id');
     this.currentCourseModule = new TrainingCourseModule;
   }
 
   ngOnInit() {
+    this.validator.ValidateUser()
+    .catch((err:HttpErrorResponse) => {
+      this.validator.HandleValidationResult(err);
+    });
+
     this.courseModuleService.getTrainingCourseModuleById(this.courseModuleId)
     .then(resp => {
       this.currentCourseModule = resp;

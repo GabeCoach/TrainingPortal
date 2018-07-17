@@ -19,6 +19,8 @@ import { TrainingCourseModuleSection } from '../models/training-course-module-se
 
 // Components
 import { PageLoaderComponent } from '../../shared/page-loader/page-loader.component';
+import { ValidatorService } from '../../../../services/validator.service';
+import { HttpErrorResponse } from '@angular/common/http';
 
 
 
@@ -47,13 +49,19 @@ export class ModulesComponent implements OnInit {
     private trainingCourseService: TrainingCourseService,
     private trainingCourseModuleSectionService: TrainingCourseModuleSectionService,
     private bsModalService: BsModalService,
-    private router: Router
+    private router: Router,
+    private validator: ValidatorService
     ) {
     this.trainingCourseId = this.route.snapshot.paramMap.get('id');
     this.trainingCourseInformation = new TrainingCourse;
   }
 
   ngOnInit() {
+    this.validator.ValidateUser()
+    .catch((err:HttpErrorResponse) => {
+      this.validator.HandleValidationResult(err);
+    });
+
     this.moduleService.getByTrainingCourseId(this.trainingCourseId)
     .then(resp => {
       this.trainingCourseModule = resp;

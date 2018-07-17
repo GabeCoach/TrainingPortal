@@ -5,6 +5,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
 import { TrainingCourseModuleSectionService } from '../services/training-course-module-section/training-course-module-section.service';
 import { TrainingCourseModuleSection } from '../models/training-course-module-section';
+import { ValidatorService } from '../../../../services/validator.service';
 
 @Component({
   selector: 'app-sub-sections-display',
@@ -21,7 +22,8 @@ export class SubSectionsDisplayComponent implements OnInit {
     private subSectionService: TrainingCourseModuleSubSectionService,
     private moduleSectionService: TrainingCourseModuleSectionService,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private validator: ValidatorService
   ) { 
     this.moduleSectionId = this.route.snapshot.paramMap.get('id');
     this.currentModuleSection = new TrainingCourseModuleSection;
@@ -29,6 +31,11 @@ export class SubSectionsDisplayComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.validator.ValidateUser()
+    .catch((err:HttpErrorResponse) => {
+      this.validator.HandleValidationResult(err);
+    });
+
     this.subSectionService.getModuleSubSectionByModuleSection(this.moduleSectionId)
     .then(resp => {
       this.subSections = resp;

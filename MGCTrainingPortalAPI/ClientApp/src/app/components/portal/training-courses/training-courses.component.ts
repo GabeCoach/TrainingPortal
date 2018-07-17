@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ValidatorService } from '../../../services/validator.service';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-training-courses',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TrainingCoursesComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private validator: ValidatorService
+  ) { }
 
   ngOnInit() {
+    this.validator.ValidateUser()
+      .catch((err:HttpErrorResponse) => {
+        this.validator.HandleValidationResult(err);
+      });
   }
 
 }

@@ -6,6 +6,7 @@ import { TrainingCourseQuizScores } from '../models/training-course-quiz-scores'
 import { HttpErrorResponse } from '@angular/common/http';
 import { QuizUserSelectedAnswers } from '../models/quiz-user-selected-answers';
 import { TrainingCourseQuizScoresService } from '../services/training-course-quiz-scores/training-course-quiz-scores.service';
+import { ValidatorService } from '../../../../services/validator.service';
 
 @Component({
   selector: 'app-submit-quiz',
@@ -20,12 +21,18 @@ export class SubmitQuizComponent implements OnInit {
   constructor(
     private submitQuizService: SubmitQuizService,
     private quizScoreService: TrainingCourseQuizScoresService,
-    private router: Router
+    private router: Router,
+    private validator: ValidatorService
   ) {
 
   }
 
   ngOnInit() {
+    this.validator.ValidateUser()
+    .catch((err:HttpErrorResponse) => {
+      this.validator.HandleValidationResult(err);
+    });
+
     this.postQuizObject = this.submitQuizService.selectedAnswers;
   }
 

@@ -7,6 +7,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { QuizSheetService } from '../services/quiz-sheet/quiz-sheet.service';
 import { QuizSheet } from '../models/quiz-sheet';
 import { SubmitQuizService } from '../services/submit-quiz/submit-quiz.service';
+import { ValidatorService } from '../../../../services/validator.service';
 
 @Component({
   selector: 'app-quiz-start',
@@ -25,13 +26,19 @@ export class QuizStartComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private quizSheetService: QuizSheetService,
-    private submitQuizService: SubmitQuizService
+    private submitQuizService: SubmitQuizService,
+    private validator: ValidatorService
     ) {
       this.trainingCourseModuleId = this.route.snapshot.paramMap.get('id');
       this.trainingCourseModuleQuiz = new TrainingCourseModuleQuiz;
     }
 
   ngOnInit() {
+    this.validator.ValidateUser()
+    .catch((err:HttpErrorResponse) => {
+      this.validator.HandleValidationResult(err);
+    });
+
     this.trainingCourseModuleQuizService.getTrainingCourseModuleQuizByModule(this.trainingCourseModuleId)
     .then(resp => {
       this.trainingCourseModuleQuiz = resp;
