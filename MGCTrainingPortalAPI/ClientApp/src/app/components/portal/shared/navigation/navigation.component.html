@@ -5,7 +5,7 @@
                 <!--<img class="avatar pull-left" src="assets/img/demo/profile-pics/1.jpg" alt="">-->
                 <div class="media-body">
                     <h5 *ngIf="currentUser.first_name">{{currentUser.first_name + " " + currentUser.last_name}}</h5>
-                    <h5 *ngIf="!currentUser.first_name">Username</h5>
+                    <h5 *ngIf="!currentUser.first_name"></h5>
                 </div>
             </a>
   
@@ -20,7 +20,10 @@
             <a routerLink="/portal/home"><i class="zmdi zmdi-home"></i> Home</a>
         </li>
         <li>
-            <a routerLink="/portal/training-courses" data-ma-action="submenu-toggle"><i class="zmdi zmdi-view-compact"></i> My Trainings</a>
+            <a routerLink="/portal/training-courses" data-ma-action="submenu-toggle"><i class="zmdi zmdi-assignment"></i> My Trainings</a>
+        </li>
+        <li>
+            <a routerLink="/portal/quiz-results" data-ma-action="submenu-toggle"><i class="zmdi zmdi-assignment-check"></i> Test Results &amp; Scores</a>
         </li>
         <!--<li><a href=""><i class="zmdi zmdi-format-underlined"></i> Test Results &amp; Scores</a></li>-->
     </ul>

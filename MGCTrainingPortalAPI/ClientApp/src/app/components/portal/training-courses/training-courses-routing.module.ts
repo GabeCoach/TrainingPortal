@@ -22,7 +22,7 @@ const routes: Routes = [
       { path: 'score-sheet', component: QuizScoreSheetComponent, canActivate: [ OktaAuthGuard ], data: { preload: true, onAuthRequired } },
       { path: 'sections/:id', component: SectionsDisplayComponent, canActivate: [ OktaAuthGuard ], data: { preload: true, onAuthRequired } },
       { path: 'sub-sections/:id', component: SubSectionsDisplayComponent, canActivate: [ OktaAuthGuard ], data: { preload: true, onAuthRequired } },
-      { path: '', redirectTo: '/training-courses/courses', pathMatch: 'full' }
+      { path: '', redirectTo: '/portal/training-courses/courses', pathMatch: 'full' }
     ]
   }
 ];

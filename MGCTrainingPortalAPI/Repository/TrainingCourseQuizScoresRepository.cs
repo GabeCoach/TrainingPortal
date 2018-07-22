@@ -46,6 +46,34 @@ namespace MGCTrainingPortalAPI.Repository
             }
         }
 
+        public async Task<List<TrainingCourseQuizScore>> SelectByUserId(int iUserId)
+        {
+            try
+            {
+                var quizSheets = await (from qs in db.QuizSheets
+                                 where qs.user_id == iUserId
+                                 select qs).ToListAsync();
+
+                List<TrainingCourseQuizScore> lstQuizScores = new List<TrainingCourseQuizScore>();
+
+                foreach(QuizSheet quizSheet in quizSheets)
+                {
+                    TrainingCourseQuizScore query = await (from qs in db.TrainingCourseQuizScores
+                                                    where qs.quiz_sheet_id == quizSheet.Id
+                                                    select qs).FirstOrDefaultAsync();
+
+                    lstQuizScores.Add(query);
+                }
+
+                return lstQuizScores;
+            }
+            catch(Exception ex)
+            {
+                oLogger.LogData("METHOD: SelectByUserId; REPO: TrainingCourseQuizScore; EXCEPTION: " + ex.Message + "; INNER EXCEPTION: " + ex.InnerException + "; STACKTRACE: " + ex.StackTrace);
+                throw new Exception(ex.Message);
+            }
+        }
+
         public async Task<List<TrainingCourseQuizScore>> SaveToDB(List<TrainingCourseQuizScore> lstPatientInformation)
         {
             throw new NotImplementedException();

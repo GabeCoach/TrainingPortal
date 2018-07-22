@@ -46,6 +46,23 @@ namespace MGCTrainingPortalAPI.Repository
             }
         }
 
+        public async Task<string> SelectContentOnlyById(int iQuizQuestionAnswerOptionId)
+        {
+            try
+            {
+                var query = await (from q in db.QuizQuestionAnswerOptions
+                                   where q.Id == iQuizQuestionAnswerOptionId
+                                   select q.answer_option).FirstAsync();
+
+                return query.ToString();
+            }
+            catch(Exception ex)
+            {
+                oLogger.LogData("METHOD: SelectContentOnlyById; REPO: QuizQuestionAnswerOption; EXCEPTION: " + ex.Message + "; INNER EXCEPTION: " + ex.InnerException + "; STACKTRACE: " + ex.StackTrace);
+                throw new Exception(ex.Message);
+            }
+        }
+
         public async Task<List<QuizQuestionAnswerOption>> SaveToDB(List<QuizQuestionAnswerOption> lstQuizQuestionAnswerOptions)
         {
             throw new NotImplementedException();

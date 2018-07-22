@@ -10,29 +10,29 @@ export class TrainingCourseModuleSubSectionService {
 
   constructor(private http: HttpClient, private baseService: BaseService) { }
 
-  public getTrainingCourseModuleSubSections(): Promise<any> {
-    return this.http.get(this.baseService.BaseUrl + 'TrainingCourseModuleSubSections').toPromise();
+  public async getTrainingCourseModuleSubSections(): Promise<any> {
+    return await this.http.get(this.baseService.BaseUrl + 'TrainingCourseModuleSubSections').toPromise();
   }
 
-  public getTrainingCourseModuleSubSectionById(Id: number): Promise<any> {
-    return this.http.get(this.baseService.BaseUrl + 'TrainingCourseModuleSubSections/' + Id).toPromise();
+  public async getTrainingCourseModuleSubSectionById(Id: number): Promise<any> {
+    return await this.http.get(this.baseService.BaseUrl + 'TrainingCourseModuleSubSections/' + Id).toPromise();
   }
 
-  public getModuleSubSectionByModuleSection(iModuleSectionId: number): Promise<any> {
+  public async getModuleSubSectionByModuleSection(iModuleSectionId: number): Promise<any> {
     // tslint:disable-next-line:max-line-length
-    return this.http.get(this.baseService.BaseUrl + `TrainingCourseModuleSubSections/${iModuleSectionId}/TrainingCourseModuleSection`).toPromise();
+    return await this.http.get(this.baseService.BaseUrl + `TrainingCourseModuleSubSections/${iModuleSectionId}/TrainingCourseModuleSection`).toPromise();
   }
 
-  public postTrainingCourseModuleSubSection(trainingCourseModuleSubSection: TrainingCourseModuleSubSection): Promise<any> {
-    return this.http.post(this.baseService.BaseUrl + 'TrainingCourseModuleSubSections', trainingCourseModuleSubSection).toPromise();
+  public async postTrainingCourseModuleSubSection(trainingCourseModuleSubSection: TrainingCourseModuleSubSection): Promise<any> {
+    return await this.http.post(this.baseService.BaseUrl + 'TrainingCourseModuleSubSections', trainingCourseModuleSubSection).toPromise();
   }
 
-  public updateTrainingCourseModuleSubSection(trainingCourseModuleSubSection: TrainingCourseModuleSubSection, Id: number): Promise<any> {
-    return this.http.put(this.baseService.BaseUrl + 'TrainingCourseModuleSubSections/' + Id, trainingCourseModuleSubSection).toPromise();
+  public async updateTrainingCourseModuleSubSection(trainingCourseModuleSubSection: TrainingCourseModuleSubSection, Id: number): Promise<any> {
+    return await this.http.put(this.baseService.BaseUrl + 'TrainingCourseModuleSubSections/' + Id, trainingCourseModuleSubSection).toPromise();
   }
 
-  public deleteTrainingCourseModuleSubSection(Id: number): Promise<any> {
-    return this.http.delete(this.baseService.BaseUrl + 'TrainingCourseModuleSubSections/' + Id).toPromise();
+  public async deleteTrainingCourseModuleSubSection(Id: number): Promise<any> {
+    return await this.http.delete(this.baseService.BaseUrl + 'TrainingCourseModuleSubSections/' + Id).toPromise();
   }
 
 }

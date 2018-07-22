@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { OktaAuthService } from '@okta/okta-angular';
+import { UsersService } from './services/user/users.service';
+import { User } from './models/user';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-portal',
@@ -10,21 +13,19 @@ import { OktaAuthService } from '@okta/okta-angular';
 })
 export class PortalComponent implements OnInit {
 
-  signIn;
-  router;
+  public currentUser: User = new User;
 
-  constructor(public oktaAuth: OktaAuthService, router: Router) {
-    this.signIn = oktaAuth;
-    this.router = router;
+  constructor(
+    public oktaAuth: OktaAuthService, 
+    private router: Router,
+    private usersService: UsersService
+  ) {
+
   }
 
   ngOnInit() {
-  }
+    
 
-  async logout() {
-    // Terminates the session with Okta and removes current tokens.
-    await this.signIn.logout();
-    this.router.navigateByUrl('/');
   }
 
 }

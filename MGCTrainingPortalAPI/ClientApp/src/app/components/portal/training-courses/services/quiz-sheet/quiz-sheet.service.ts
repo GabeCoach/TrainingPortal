@@ -15,8 +15,8 @@ export class QuizSheetService {
     private baseService: BaseService
   ) { }
 
-  public submitQuizSheet(quizSheet: QuizSheet): Promise<any> {
-    return this.http.post(`${this.baseService.BaseUrl}/QuizSheets`, quizSheet).toPromise();
+  public async submitQuizSheet(quizSheet: QuizSheet): Promise<any> {
+    return await this.http.post(`${this.baseService.BaseUrl}/QuizSheets`, quizSheet).toPromise();
   }
 
 }

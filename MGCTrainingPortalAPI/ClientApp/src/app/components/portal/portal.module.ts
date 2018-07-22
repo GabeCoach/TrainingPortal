@@ -10,6 +10,11 @@ import { NavigationComponent } from './shared/navigation/navigation.component';
 import { ChatSidebarComponent } from './shared/chat-sidebar/chat-sidebar.component';
 import {ToasterModule, ToasterService} from 'angular2-toaster';
 import { UsersService } from './services/user/users.service';
+import { QuizResultDetailsComponent } from './quiz-result-details/quiz-result-details.component';
+import { QuizResultsComponent } from './quiz-results/quiz-results.component';
+import { TrainingCourseQuizScoresService } from './training-courses/services/training-course-quiz-scores/training-course-quiz-scores.service';
+
+
 
 @NgModule({
   imports: [
@@ -23,10 +28,13 @@ import { UsersService } from './services/user/users.service';
     HeaderComponent,
     NavigationComponent,
     ChatSidebarComponent,
+    QuizResultDetailsComponent,
+    QuizResultsComponent
   ],
   providers: [
     ToasterService,
-    UsersService
+    UsersService,
+    TrainingCourseQuizScoresService
   ]
 })
 export class PortalModule { }

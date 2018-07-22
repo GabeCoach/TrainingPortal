@@ -81,6 +81,7 @@ export class QuizInProgrssComponent implements OnInit {
 
         answer.quiz_answer_option_id = this.form.value.selectedAnswer;
         answer.quiz_sheet_id = this.quizSheetService.currentQuizSheetId;
+        answer.quiz_question_id = this.activeQuizQuestion.Id;
         this.selectedAnswers.push(answer);
 
         this.submitQuizService.addSelectedAnswers(this.selectedAnswers);
@@ -91,6 +92,7 @@ export class QuizInProgrssComponent implements OnInit {
 
         answer.quiz_answer_option_id = this.form.value.selectedAnswer;
         answer.quiz_sheet_id = this.quizSheetService.currentQuizSheetId;
+        answer.quiz_question_id = this.activeQuizQuestion.Id;
 
         this.selectedAnswers.push(answer);
         this.iterateQuizQuestion(this.quizQuestions);

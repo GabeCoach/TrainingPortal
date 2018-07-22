@@ -8,28 +8,28 @@ export class QuizQuestionsService {
 
   constructor(private http: HttpClient, private baseService: BaseService) { }
 
-  public getQuizQuestions(): Promise<any> {
-    return this.http.get(this.baseService.BaseUrl + 'QuizQuestions').toPromise();
+  public async getQuizQuestions(): Promise<any> {
+    return await this.http.get(this.baseService.BaseUrl + 'QuizQuestions').toPromise();
   }
 
-  public getQuizQuestionById(Id: number): Promise<any> {
-    return this.http.get(this.baseService.BaseUrl + 'QuizQuestions/' + Id).toPromise();
+  public async getQuizQuestionById(Id: number): Promise<any> {
+    return await this.http.get(this.baseService.BaseUrl + 'QuizQuestions/' + Id).toPromise();
   }
 
-  public getQuizQuestionsByModuleQuiz(iQuizId: number): Promise<any> {
-    return this.http.get(`${this.baseService.BaseUrl}/QuizQuestions/${iQuizId}/TrainingCourseModuleQuiz`).toPromise();
+  public async getQuizQuestionsByModuleQuiz(iQuizId: number): Promise<any> {
+    return await this.http.get(`${this.baseService.BaseUrl}/QuizQuestions/${iQuizId}/TrainingCourseModuleQuiz`).toPromise();
   }
 
-  public postQuizQuestion(quizQuestion: QuizQuestions): Promise<any> {
-    return this.http.post(this.baseService.BaseUrl + 'QuizQuestions', quizQuestion).toPromise();
+  public async postQuizQuestion(quizQuestion: QuizQuestions): Promise<any> {
+    return await this.http.post(this.baseService.BaseUrl + 'QuizQuestions', quizQuestion).toPromise();
   }
 
-  public updateQuizQuestion(quizQuestion: QuizQuestions, Id: number): Promise<any> {
-    return this.http.put(this.baseService.BaseUrl + 'QuizQuestions/' + Id, quizQuestion).toPromise();
+  public async updateQuizQuestion(quizQuestion: QuizQuestions, Id: number): Promise<any> {
+    return await this.http.put(this.baseService.BaseUrl + 'QuizQuestions/' + Id, quizQuestion).toPromise();
   }
 
-  public deleteQuizQuestion(Id: number): Promise<any> {
-    return this.http.delete(this.baseService.BaseUrl + 'QuizQuestions/' + Id).toPromise();
+  public async deleteQuizQuestion(Id: number): Promise<any> {
+    return await this.http.delete(this.baseService.BaseUrl + 'QuizQuestions/' + Id).toPromise();
   }
 
 }

@@ -31,7 +31,6 @@ namespace MGCTrainingPortalAPI.Models
         public virtual DbSet<QuizQuestionCorrectAnswer> QuizQuestionCorrectAnswers { get; set; }
         public virtual DbSet<QuizQuestion> QuizQuestions { get; set; }
         public virtual DbSet<QuizSheet> QuizSheets { get; set; }
-        public virtual DbSet<QuizUserSelectedAnswer> QuizUserSelectedAnswers { get; set; }
         public virtual DbSet<TrainingCourse> TrainingCourses { get; set; }
         public virtual DbSet<TrainingCourseModule> TrainingCourseModules { get; set; }
         public virtual DbSet<TrainingCourseModuleQuiz> TrainingCourseModuleQuizs { get; set; }
@@ -39,5 +38,6 @@ namespace MGCTrainingPortalAPI.Models
         public virtual DbSet<TrainingCourseModuleSubSection> TrainingCourseModuleSubSections { get; set; }
         public virtual DbSet<TrainingCourseQuizScore> TrainingCourseQuizScores { get; set; }
         public virtual DbSet<User> Users { get; set; }
+        public virtual DbSet<QuizUserSelectedAnswer> QuizUserSelectedAnswers { get; set; }
     }
 }

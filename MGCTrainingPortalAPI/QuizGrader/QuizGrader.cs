@@ -23,6 +23,8 @@ namespace MGCTrainingPortalAPI.QuizGrader
         {
             try
             {
+                await oQuizUserSelectedAnswerRepo.SaveToDB(lstSelectedAnswers);
+
                 TrainingCourseQuizScore oTrainingCourseQuizScore = new TrainingCourseQuizScore();
 
                 int iCorrectAnswerAmount = 0;

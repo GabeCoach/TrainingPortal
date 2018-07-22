@@ -15,7 +15,7 @@ export class ValidatorService {
   ) { }
 
   public async ValidateUser(): Promise<any> {
-    return await this.http.get(`${this.baseService.BaseUrl}/api/Validator`).toPromise();
+    return await this.http.get(`${this.baseService.BaseUrl}Validator`).toPromise();
   }
 
   public async HandleValidationResult(err: HttpErrorResponse): Promise<any> {

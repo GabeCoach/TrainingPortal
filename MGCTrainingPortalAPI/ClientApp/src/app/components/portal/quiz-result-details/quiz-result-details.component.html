@@ -1,0 +1,57 @@
+<div>
+  <div class="block-header courses">
+    <header class="mdl-layout__header module-headers">
+      <div class="mdl-layout__drawer-button">
+        <a href="javascript:history.back()">
+          <i class="material-icons">arrow_back</i>
+        </a>
+      </div>
+      <div class="mdl-layout__header-row">
+        <div class="title-courses">
+          <h5 class="mdl-layout-title">
+            <span class="mdl-card__title-text">Quiz Result Details</span>
+          </h5>
+        </div>
+      </div>
+    </header>
+  </div>
+  <main class="mdl-layout__content quiz">
+    <div class="page-content container">
+      <div class="row">
+        <div class="card-body" style="height: 600px; overflow: auto;">
+          <div class="container">
+            <div class="row" *ngFor="let details of currentQuizDetails">
+              <div class="col-md-12">
+                <div class="card">
+                  <div class="card-title bgm-bluegray title-courses">
+                    <h5 class="mdl-layout-title">
+                      <span class="mdl-card__title-text">{{details.quiz_question_content}}</span>
+                    </h5>
+                  </div>
+                  <div class="card-body card-padding-sm">
+                    <small>
+                      <span class="mdl-card__subtitle-text"><b>Selected Answer: </b>{{details.selected_answer_content}}</span>
+                    </small>
+                    <div class="inline" *ngIf="details.correct_answer_id == details.quiz_user_selected_answer_id">
+                      <i class="zmdi zmdi-check-circle"></i>
+                    </div>
+                    <div class="inline" *ngIf="details.correct_answer_id != details.quiz_user_selected_answer_id">
+                      <i class="zmdi zmdi-block-alt danger"></i>
+                    </div>
+                    <hr>
+                    <small>
+                      <span class="mdl-card__subtitle-text"><b>Correct Answer: </b>{{details.correct_answer_content}}</span>
+                    </small>
+                    <div class="inline">
+                      <i class="zmdi zmdi-check-circle"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>

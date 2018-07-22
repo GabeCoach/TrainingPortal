@@ -9,11 +9,13 @@ using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using MGCTrainingPortalAPI.Logger;
 
+
 namespace MGCTrainingPortalAPI.Repository
 {
     public class QuizQuestionsRepository : IRepository<QuizQuestion>
     {
         private DB_A35BD0_trainingportaldbEntities db = new DB_A35BD0_trainingportaldbEntities();
+        private QuizSheetRepository oQuizSheetRepo = new QuizSheetRepository();
         private Logger.Logger oLogger = new Logger.Logger();
 
         public IQueryable<QuizQuestion> SelectAllFromDB()
@@ -123,6 +125,21 @@ namespace MGCTrainingPortalAPI.Repository
                 throw new Exception(ex.Message);
             }
 
+        }
+
+        public async Task<List<QuizQuestion>> SelectByQuizSheet(int iQuizSheetId)
+        {
+            try
+            {
+                QuizSheet oQuizSheet = await oQuizSheetRepo.SelectById(iQuizSheetId);
+                List<QuizQuestion> lstQuizQuestions = await SelectByCourseModuleQuiz(oQuizSheet.quiz_id.Value);
+                return lstQuizQuestions;
+            }
+            catch(Exception ex)
+            {
+                oLogger.LogData("METHOD: SelectByQuizSheet; REPO: QuizQuestion; EXCEPTION: " + ex.Message + "; INNER EXCEPTION: " + ex.InnerException + "; STACKTRACE: " + ex.StackTrace);
+                throw new Exception(ex.Message);
+            }
         }
 
         public async Task<List<QuizQuestion>> SelectByCourseModuleQuiz(int iCourseModuleQuizId)

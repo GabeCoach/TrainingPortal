@@ -2,7 +2,7 @@
   <div class="block-header">
     <header class="mdl-layout__header module-headers">
       <div class="mdl-layout__drawer-button">
-        <a routerLink="/training-courses/courses">
+        <a routerLink="/portal/training-courses/courses">
           <i class="material-icons">arrow_back</i>
         </a>
       </div>
@@ -17,7 +17,7 @@
         <div class="col-sm-4" *ngFor="let module of trainingCourseModule">
           <div class="card modules">
             <div class="card-header bgm-bluegray">
-              <a routerLink="/training-courses/sections/{{module.Id}}">
+              <a routerLink="/portal/training-courses/sections/{{module.Id}}">
                 <h2>{{module.training_course_module_name}}</h2>
               </a>
       
@@ -29,7 +29,7 @@
       
                   <ul class="dropdown-menu dropdown-menu-right">
                     <li>
-                      <a routerLink="/training-courses/quiz-start/{{module.Id}}">Take Quiz</a>
+                      <a routerLink="/portal/training-courses/quiz-start/{{module.Id}}">Take Quiz</a>
                     </li>
                   </ul>
                 </li>

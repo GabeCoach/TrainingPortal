@@ -29,7 +29,7 @@ export class SubmitQuizService {
     this.selectedAnswers = selectedAnswers;
   }
 
-  public submitQuizToServer(quizObject: QuizUserSelectedAnswers[]): Promise<any> {
-    return this.http.post(`${this.baseService.BaseUrl}TrainingCourseQuizScores/QuizGrade`, quizObject).toPromise();
+  public async submitQuizToServer(quizObject: QuizUserSelectedAnswers[]): Promise<any> {
+    return await this.http.post(`${this.baseService.BaseUrl}TrainingCourseQuizScores/QuizGrade`, quizObject).toPromise();
   }
 }

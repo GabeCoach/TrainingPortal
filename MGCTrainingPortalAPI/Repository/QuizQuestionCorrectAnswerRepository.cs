@@ -8,12 +8,16 @@ using System.Threading.Tasks;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using MGCTrainingPortalAPI.Logger;
+using MGCTrainingPortalAPI.Repository.HelperModels;
 
 namespace MGCTrainingPortalAPI.Repository
 {
     public class QuizQuestionCorrectAnswerRepository : IRepository<QuizQuestionCorrectAnswer>
     {
         private DB_A35BD0_trainingportaldbEntities db = new DB_A35BD0_trainingportaldbEntities();
+        private QuizSheetRepository oQuizSheetRepo = new QuizSheetRepository();
+        private QuizQuestionsRepository oQuizQuestionRepo = new QuizQuestionsRepository();
+        private QuizQuestionAnswerOptionsRepository oQuizAnsweOptionRepo = new QuizQuestionAnswerOptionsRepository();
         private Logger.Logger oLogger = new Logger.Logger();
 
         public IQueryable<QuizQuestionCorrectAnswer> SelectAllFromDB()
@@ -42,6 +46,33 @@ namespace MGCTrainingPortalAPI.Repository
             catch (Exception ex)
             {
                 oLogger.LogData("METHOD: SelectById; REPO: QuizQuestionCorrectAnswer; EXCEPTION: " + ex.Message + "; INNER EXCEPTION: " + ex.InnerException + "; STACKTRACE: " + ex.StackTrace);
+                throw new Exception(ex.Message);
+            }
+        }
+
+        public async Task<List<CorrentAnswerOptionHelper>> SelectCorrectAnswersByQuizSheet(int iQuizSheetId)
+        {
+            try
+            {
+                List<CorrentAnswerOptionHelper> lstCorrectAnswerOptionHelpers = new List<CorrentAnswerOptionHelper>();
+                QuizSheet oQuizSheet = await oQuizSheetRepo.SelectById(iQuizSheetId);
+                List<QuizQuestion> lstQuizQuestions = await oQuizQuestionRepo.SelectByCourseModuleQuiz(oQuizSheet.quiz_id.Value);
+
+                foreach(var question in lstQuizQuestions)
+                {
+                    CorrentAnswerOptionHelper oCorrectAnswerHelper = new CorrentAnswerOptionHelper();
+                    QuizQuestionCorrectAnswer oCorrectAnswer = await SelectByQuizQuestion(question.Id);
+                    oCorrectAnswerHelper.correct_answer_option_id = oCorrectAnswer.quiz_answer_options_id.Value;
+                    oCorrectAnswerHelper.correct_answer_option_content = await oQuizAnsweOptionRepo.SelectContentOnlyById(oCorrectAnswerHelper.correct_answer_option_id);
+                    oCorrectAnswerHelper.quiz_question_id = question.Id;
+                    lstCorrectAnswerOptionHelpers.Add(oCorrectAnswerHelper);
+                }
+
+                return lstCorrectAnswerOptionHelpers;
+            }
+            catch(Exception ex)
+            {
+                oLogger.LogData("METHOD: SelectCorrectAnswersByuizSheet; REPO: QuizQuestionCorrectAnswer; EXCEPTION: " + ex.Message + "; INNER EXCEPTION: " + ex.InnerException + "; STACKTRACE: " + ex.StackTrace);
                 throw new Exception(ex.Message);
             }
         }

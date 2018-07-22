@@ -1,0 +1,54 @@
+<div>
+  <div class="block-header courses">
+      <header class="mdl-layout__header module-headers">
+          <div class="mdl-layout__drawer-button">
+            <a href="javascript:history.back()">
+                <i class="material-icons">arrow_back</i>
+            </a>
+          </div>
+          <div class="mdl-layout__header-row">
+          <div class="title-courses">
+              <h5 class="mdl-layout-title">
+                  <span class="mdl-card__title-text">All of Your Quiz Results</span>
+              </h5>
+          </div>
+          </div>
+      </header>
+  </div>
+  <main class="mdl-layout__content quiz">
+      <div class="page-content container">
+      <div class="row">
+          <div class="card-body">
+              <div class="row">
+                  <div class="col-md-12">
+                      <div class="table-responsive">
+                          <table class="table table-bordered table-responsive">
+                              <thead>
+                              <tr>
+                                  <th>Score</th>
+                                  <th># of Correct Answers</th>
+                                  <th># of Incorrect Answers</th>
+                                  <th>Amt of Answers Completed</th>
+                                  <th>Total Answers Possible</th>
+                                  <th></th>
+                              </tr>
+                              </thead>
+                              <tbody>
+                                  <tr *ngFor="let score of userQuizScores">
+                                      <td>{{score.quiz_percentage | percent}}</td>
+                                      <td>{{score.quiz_correct_answers}}</td>
+                                      <td>{{score.quiz_incorrect_answers}}</td>
+                                      <td>{{score.quiz_total_answers}}</td>
+                                      <td>{{score.quiz_total_answers_possible}}</td>   
+                                      <td><a routerLink="/portal/quiz-result-details/{{score.quiz_sheet_id}}" class="btn btn-md bgm-bluegray">View</a></td>                     
+                                  </tr>
+                              </tbody>
+                          </table>
+                      </div>
+                  </div>
+              </div>
+          </div>        
+      </div>
+      </div>
+  </main>
+</div>

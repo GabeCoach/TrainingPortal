@@ -13,13 +13,13 @@ namespace MGCTrainingPortalAPI.Logger
         {
             try
             {
-                StreamWriter oWrite = new StreamWriter(Constants.Constants.productionLoggerFileLocation, true);
+                StreamWriter oWrite = new StreamWriter(Constants.Constants.developemntLoggerFileLocation, true);
                 await oWrite.WriteLineAsync("DATETIME: " + DateTime.Now.ToString() + "; " + sDataToLog);
                 oWrite.Close();
             }
             catch (Exception ex)
             {
-                StreamWriter oWrite = new StreamWriter(Constants.Constants.productionLoggerFileLocation, true);
+                StreamWriter oWrite = new StreamWriter(Constants.Constants.developemntLoggerFileLocation, true);
                 await oWrite.WriteLineAsync("DATETIME: " + DateTime.Now.ToString() + "; LOGGING EXCEPTION: " + ex.Message + "; LOGGING INNER EXCEPTION: " + ex.InnerException);
                 oWrite.Close();
             }

@@ -17,8 +17,11 @@ export class NavigationComponent implements OnInit {
   constructor(
     public authService: AuthService,
     private usersService: UsersService,
-    private oktaAuth: OktaAuthService
-  ) { }
+    private oktaAuth: OktaAuthService,
+    private userService: UsersService
+  ) { 
+
+  }
 
   ngOnInit() {
     let sOktaId = this.oktaAuth.getIdToken().claims.sub;
@@ -29,14 +32,16 @@ export class NavigationComponent implements OnInit {
       if (resp === false) {
         this.usersService.createUserFromOkta(sOktaId)
         .then(resp => {
-          this.currentUser = resp;
+          this.usersService.currentUser = resp;
+          this.currentUser = this.usersService.currentUser;
         }).catch((err: HttpErrorResponse) => {
           alert(err.message);
         })
       } else {
         this.usersService.getUserByOktaId(sOktaId)
         .then(resp => {
-          this.currentUser = resp;
+          this.usersService.currentUser = resp;
+          this.currentUser = this.usersService.currentUser;
         }).catch((err: HttpErrorResponse) => {
           alert(err.message);
         })

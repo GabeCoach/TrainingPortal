@@ -8,12 +8,15 @@ using System.Web;
 using MGCTrainingPortalAPI.Interfaces;
 using MGCTrainingPortalAPI.Models;
 using MGCTrainingPortalAPI.Logger;
+using MGCTrainingPortalAPI.QuizDetails.Models;
+using MGCTrainingPortalAPI.Repository.HelperModels;
 
 namespace MGCTrainingPortalAPI.Repository
 {
     public class QuizUserSelectedAnswerRepository
     {
         private DB_A35BD0_trainingportaldbEntities db = new DB_A35BD0_trainingportaldbEntities();
+        private QuizQuestionAnswerOptionsRepository oQuizAnswerOptionRepo = new QuizQuestionAnswerOptionsRepository();
         private Logger.Logger oLogger = new Logger.Logger();
 
         public IQueryable<QuizUserSelectedAnswer> SelectAllFromDB()
@@ -46,9 +49,54 @@ namespace MGCTrainingPortalAPI.Repository
             }
         }
 
+        public async Task<List<UserSelectedAnswerOptionHelper>> GetSelectedAnswersByQuizSheet(int iQuizSheetId)
+        {
+            try
+            {
+                List<UserSelectedAnswerOptionHelper> lstSelectedAnswerHelper = new List<UserSelectedAnswerOptionHelper>();
+                
+
+                List<QuizUserSelectedAnswer> lstUserSelectedAnswers = await (from usa in db.QuizUserSelectedAnswers
+                                                                       where usa.quiz_sheet_id == iQuizSheetId
+                                                                       select usa).ToListAsync();
+
+                foreach(var selectedAnwser in lstUserSelectedAnswers)
+                {
+                    UserSelectedAnswerOptionHelper oSeletedOptionsHelper = new UserSelectedAnswerOptionHelper();
+                    oSeletedOptionsHelper.user_selected_option_id = selectedAnwser.Id;
+                    oSeletedOptionsHelper.quiz_question_id = selectedAnwser.quiz_question_id.Value;
+
+                    QuizQuestionAnswerOption oQuizAnswerOption = await oQuizAnswerOptionRepo.SelectById(oSeletedOptionsHelper.user_selected_option_id);
+                    oSeletedOptionsHelper.user_selected_option_content = oQuizAnswerOption.answer_option;
+
+                    lstSelectedAnswerHelper.Add(oSeletedOptionsHelper);
+                }
+
+                return lstSelectedAnswerHelper;
+            }
+            catch(Exception ex)
+            {
+                oLogger.LogData("METHOD: SelectById; REPO: GetSelectedAnswersByQuizSheet; EXCEPTION: " + ex.Message + "; INNER EXCEPTION: " + ex.InnerException + "; STACKTRACE: " + ex.StackTrace);
+                throw new Exception(ex.Message);
+            }
+        }
+
         public async Task<List<QuizUserSelectedAnswer>> SaveToDB(List<QuizUserSelectedAnswer> lstQuizUserSelectedAnswers)
         {
-            throw new NotImplementedException();
+            try
+            {
+                foreach(var answer in lstQuizUserSelectedAnswers)
+                {
+                    await SaveToDB(answer);
+                }
+
+                return lstQuizUserSelectedAnswers;
+            }
+            catch(Exception ex)
+            {
+                oLogger.LogData("METHOD: SaveToDB:ListObj; REPO: QuizUserSelectedAnswer; EXCEPTION: " + ex.Message + "; INNER EXCEPTION: " + ex.InnerException + "; STACKTRACE: " + ex.StackTrace);
+                throw new Exception(ex.Message);
+            }
         }
 
         public async Task<QuizUserSelectedAnswer> SaveToDB(QuizUserSelectedAnswer oQuizUserSelectedAnswer)

@@ -62,6 +62,24 @@ namespace MGCTrainingPortalAPI.Controllers
             }
         }
 
+        [HttpGet]
+        [Route("api/TrainingCourseQuizScores/{iUserId}/User")]
+        public async Task<IHttpActionResult> GetScoresByUser(int iUserId)
+        {
+            string sIPAddress = Request.GetOwinContext().Request.RemoteIpAddress;
+
+            try
+            {
+                oLogger.LogData("ROUTE: api/TrainingCourseQuizScores/{iUserId}/User; METHOD: GET; IP_ADDRESS: " + sIPAddress);
+                return Json(await oTrainingCourseQuizScoresRepo.SelectByUserId(iUserId));
+            }
+            catch(Exception ex)
+            {
+                oLogger.LogData("ROUTE: api/TrainingCourseQuizScores/{iUserId}/User; METHOD: GET; IP_ADDRESS: " + sIPAddress + "; EXCEPTION: " + ex.Message + "; INNER EXCEPTION: " + ex.InnerException);
+                return InternalServerError();
+            }
+        }
+
         // PUT: api/TrainingCourseQuizScores/5
         [ResponseType(typeof(void))]
         public async Task<IHttpActionResult> PutTrainingCourseQuizScore(int id, TrainingCourseQuizScore trainingCourseQuizScore)

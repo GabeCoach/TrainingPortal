@@ -8,6 +8,7 @@ import { QuizSheetService } from '../services/quiz-sheet/quiz-sheet.service';
 import { QuizSheet } from '../models/quiz-sheet';
 import { SubmitQuizService } from '../services/submit-quiz/submit-quiz.service';
 import { ValidatorService } from '../../../../services/validator.service';
+import { UsersService } from '../../services/user/users.service';
 
 @Component({
   selector: 'app-quiz-start',
@@ -27,7 +28,8 @@ export class QuizStartComponent implements OnInit {
     private router: Router,
     private quizSheetService: QuizSheetService,
     private submitQuizService: SubmitQuizService,
-    private validator: ValidatorService
+    private validator: ValidatorService,
+    private userService: UsersService
     ) {
       this.trainingCourseModuleId = this.route.snapshot.paramMap.get('id');
       this.trainingCourseModuleQuiz = new TrainingCourseModuleQuiz;
@@ -50,6 +52,7 @@ export class QuizStartComponent implements OnInit {
   public startQuiz(QuizId: number): void {
     this.quizSheet = new QuizSheet;
     this.quizSheet.quiz_id = QuizId;
+    this.quizSheet.user_id = this.userService.currentUser.Id;
     this.submitQuizService.addQuizSheet(this.quizSheet);
 
     this.quizSheetService.submitQuizSheet(this.quizSheet)

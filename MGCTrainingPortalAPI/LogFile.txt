@@ -785,3 +785,488 @@ DATETIME: 6/21/2018 12:42:01 PM; ROUTE: api/Users/{sOktaId}/Check; METHOD: PUT; 
 DATETIME: 6/21/2018 12:42:01 PM; ROUTE: api/Users/{sOktaId}/Okta; METHOD: GET; IP_ADDRESS: ::1
 DATETIME: 6/21/2018 12:42:46 PM; ROUTE: api/Users/{sOktaId}/Check; METHOD: PUT; IP_ADDRESS: ::1
 DATETIME: 6/21/2018 12:43:16 PM; ROUTE: api/Users/{sOktaId}/Okta; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/17/2018 3:19:26 PM; ROUTE: api/TrainingCourses; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/17/2018 3:19:29 PM; ROUTE: api/Users/{sOktaId}/Check; METHOD: PUT; IP_ADDRESS: ::1
+DATETIME: 7/17/2018 3:19:29 PM; ROUTE: api/Users/{sOktaId}/Okta; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/17/2018 3:19:37 PM; ROUTE: api/Users/{sOktaId}/Check; METHOD: PUT; IP_ADDRESS: ::1
+DATETIME: 7/17/2018 3:19:37 PM; ROUTE: api/TrainingCourseQuizScores/{iUserId}/User; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/17/2018 3:19:38 PM; ROUTE: api/Users/{sOktaId}/Okta; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/17/2018 3:20:11 PM; METHOD: SelectByUserId; REPO: TrainingCourseQuizScore; EXCEPTION: Unable to cast object of type 'System.Data.Entity.Infrastructure.DbQuery`1[MGCTrainingPortalAPI.Models.TrainingCourseQuizScore]' to type 'MGCTrainingPortalAPI.Models.TrainingCourseQuizScore'.; INNER EXCEPTION: ; STACKTRACE:    at MGCTrainingPortalAPI.Repository.TrainingCourseQuizScoreQuizScoresRepository.<SelectByUserId>d__4.MoveNext() in C:\EntellicationSoftware\Projects\MGCTrainingPortalAPI\Repository\TrainingCourseQuizScoresRepository.cs:line 61
+DATETIME: 7/17/2018 3:20:18 PM; ROUTE: api/TrainingCourseQuizScores/{iUserId}/User; METHOD: GET; IP_ADDRESS: ::1; EXCEPTION: Unable to cast object of type 'System.Data.Entity.Infrastructure.DbQuery`1[MGCTrainingPortalAPI.Models.TrainingCourseQuizScore]' to type 'MGCTrainingPortalAPI.Models.TrainingCourseQuizScore'.; INNER EXCEPTION: 
+DATETIME: 7/17/2018 3:21:38 PM; ROUTE: api/TrainingCourseQuizScores/{iUserId}/User; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/17/2018 3:27:02 PM; ROUTE: api/Users/{sOktaId}/Check; METHOD: PUT; IP_ADDRESS: ::1
+DATETIME: 7/17/2018 3:27:04 PM; ROUTE: api/Users/{sOktaId}/Okta; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/17/2018 3:34:12 PM; ROUTE: api/TrainingCourses; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/17/2018 3:34:13 PM; ROUTE: api/Users/{sOktaId}/Check; METHOD: PUT; IP_ADDRESS: ::1
+DATETIME: 7/17/2018 3:34:13 PM; ROUTE: api/Users/{sOktaId}/Okta; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/17/2018 3:34:18 PM; ROUTE: api/TrainingCourseQuizScores/{iUserId}/User; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/17/2018 3:34:18 PM; ROUTE: api/Users/{sOktaId}/Check; METHOD: PUT; IP_ADDRESS: ::1
+DATETIME: 7/17/2018 3:34:18 PM; ROUTE: api/Users/{sOktaId}/Okta; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/17/2018 3:58:43 PM; ROUTE: api/TrainingCourses; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/17/2018 3:58:45 PM; ROUTE: api/Users/{sOktaId}/Check; METHOD: PUT; IP_ADDRESS: ::1
+DATETIME: 7/17/2018 3:58:45 PM; ROUTE: api/Users/{sOktaId}/Okta; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/17/2018 4:00:07 PM; ROUTE: api/Users/{sOktaId}/Check; METHOD: PUT; IP_ADDRESS: ::1
+DATETIME: 7/17/2018 4:00:07 PM; ROUTE: api/Users/{sOktaId}/Okta; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/17/2018 4:00:58 PM; ROUTE: api/Users/{sOktaId}/Check; METHOD: PUT; IP_ADDRESS: ::1
+DATETIME: 7/17/2018 4:00:58 PM; ROUTE: api/Users/{sOktaId}/Okta; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/17/2018 4:01:45 PM; ROUTE: api/Users/{sOktaId}/Check; METHOD: PUT; IP_ADDRESS: ::1
+DATETIME: 7/17/2018 4:01:45 PM; ROUTE: api/Users/{sOktaId}/Okta; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/17/2018 4:01:52 PM; ROUTE: api/TrainingCourseQuizScores/{iUserId}/User; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/17/2018 4:02:47 PM; ROUTE: api/Users/{sOktaId}/Check; METHOD: PUT; IP_ADDRESS: ::1
+DATETIME: 7/17/2018 4:02:47 PM; ROUTE: api/Users/{sOktaId}/Okta; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/17/2018 4:02:50 PM; ROUTE: api/TrainingCourses; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/17/2018 4:02:50 PM; ROUTE: api/Users/{sOktaId}/Check; METHOD: PUT; IP_ADDRESS: ::1
+DATETIME: 7/17/2018 4:02:50 PM; ROUTE: api/Users/{sOktaId}/Okta; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/17/2018 4:02:53 PM; ROUTE: api/TrainingCourseQuizScores/{iUserId}/User; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/17/2018 4:02:53 PM; ROUTE: api/Users/{sOktaId}/Check; METHOD: PUT; IP_ADDRESS: ::1
+DATETIME: 7/17/2018 4:02:53 PM; ROUTE: api/Users/{sOktaId}/Okta; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/17/2018 4:03:05 PM; ROUTE: api/Users/{sOktaId}/Check; METHOD: PUT; IP_ADDRESS: ::1
+DATETIME: 7/17/2018 4:03:05 PM; ROUTE: api/Users/{sOktaId}/Okta; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/17/2018 4:09:56 PM; ROUTE: api/Users/{sOktaId}/Check; METHOD: PUT; IP_ADDRESS: ::1
+DATETIME: 7/17/2018 4:09:56 PM; ROUTE: api/Users/{sOktaId}/Okta; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/17/2018 4:10:10 PM; ROUTE: api/Users/{sOktaId}/Check; METHOD: PUT; IP_ADDRESS: ::1
+DATETIME: 7/17/2018 4:10:10 PM; ROUTE: api/Users/{sOktaId}/Okta; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/17/2018 5:15:25 PM; ROUTE: api/Users/{sOktaId}/Check; METHOD: PUT; IP_ADDRESS: ::1
+DATETIME: 7/17/2018 5:15:25 PM; ROUTE: api/Users/{sOktaId}/Okta; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/17/2018 5:15:35 PM; ROUTE: api/TrainingCourseQuizScores/{iUserId}/User; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/17/2018 5:15:41 PM; ROUTE: api/Users/{sOktaId}/Check; METHOD: PUT; IP_ADDRESS: ::1
+DATETIME: 7/17/2018 5:15:41 PM; ROUTE: api/Users/{sOktaId}/Okta; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/17/2018 5:16:41 PM; ROUTE: api/Users/{sOktaId}/Check; METHOD: PUT; IP_ADDRESS: ::1
+DATETIME: 7/17/2018 5:16:41 PM; ROUTE: api/Users/{sOktaId}/Okta; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/17/2018 5:17:34 PM; ROUTE: api/Users/{sOktaId}/Check; METHOD: PUT; IP_ADDRESS: ::1
+DATETIME: 7/17/2018 5:17:34 PM; ROUTE: api/Users/{sOktaId}/Okta; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/17/2018 5:24:56 PM; ROUTE: api/Users/{sOktaId}/Check; METHOD: PUT; IP_ADDRESS: ::1
+DATETIME: 7/17/2018 5:24:56 PM; ROUTE: api/Users/{sOktaId}/Okta; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/17/2018 5:25:24 PM; ROUTE: api/Users/{sOktaId}/Check; METHOD: PUT; IP_ADDRESS: ::1
+DATETIME: 7/17/2018 5:25:24 PM; ROUTE: api/Users/{sOktaId}/Okta; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/17/2018 5:27:50 PM; METHOD: CheckIfUserExistsInDB; REPO: User; EXCEPTION: The underlying provider failed on Open.; INNER EXCEPTION: System.Data.SqlClient.SqlException (0x80131904): A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server) ---> System.ComponentModel.Win32Exception (0x80004005): The network path was not found
+   at System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, DbConnectionPool pool, String accessToken, Boolean applyTransientFaultHandling, SqlAuthenticationProviderManager sqlAuthProviderManager)
+   at System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.OpenAsync(CancellationToken cancellationToken)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.<>c__DisplayClass4.<<ExecuteAsync>b__3>d__6.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.<ExecuteAsyncImplementation>d__9`1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Data.Entity.Core.EntityClient.EntityConnection.<OpenAsync>d__8.MoveNext()
+ClientConnectionId:00000000-0000-0000-0000-000000000000
+Error Number:53,State:0,Class:20; STACKTRACE:    at System.Data.Entity.Core.EntityClient.EntityConnection.<OpenAsync>d__8.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Data.Entity.Core.Objects.ObjectContext.<EnsureConnectionAsync>d__9.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Data.Entity.Core.Objects.ObjectContext.<ExecuteInTransactionAsync>d__3d`1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.<ExecuteAsyncImplementation>d__9`1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<GetResultsAsync>d__e.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Data.Entity.Internal.LazyAsyncEnumerator`1.<FirstMoveNextAsync>d__0.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Data.Entity.Infrastructure.IDbAsyncEnumerableExtensions.<SingleAsync>d__2d`1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at MGCTrainingPortalAPI.Repository.UsersRepository.<CheckIfUserExistsInDB>d__4.MoveNext() in C:\EntellicationSoftware\Projects\MGCTrainingPortalAPI\Repository\UsersRepository.cs:line 44
+DATETIME: 7/17/2018 5:32:12 PM; ROUTE: api/Users/{sOktaId}/Check; METHOD: PUT; IP_ADDRESS: ::1
+DATETIME: 7/17/2018 5:32:12 PM; ROUTE: api/Users/{sOktaId}/Okta; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/17/2018 5:34:18 PM; ROUTE: api/Users/{sOktaId}/Check; METHOD: PUT; IP_ADDRESS: ::1
+DATETIME: 7/17/2018 5:34:18 PM; ROUTE: api/Users/{sOktaId}/Okta; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/17/2018 5:35:23 PM; ROUTE: api/Users/{sOktaId}/Check; METHOD: PUT; IP_ADDRESS: ::1
+DATETIME: 7/17/2018 5:35:23 PM; ROUTE: api/Users/{sOktaId}/Okta; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/17/2018 5:39:44 PM; ROUTE: api/Users/{sOktaId}/Check; METHOD: PUT; IP_ADDRESS: ::1
+DATETIME: 7/17/2018 5:39:44 PM; ROUTE: api/Users/{sOktaId}/Okta; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/17/2018 5:40:12 PM; ROUTE: api/Users/{sOktaId}/Check; METHOD: PUT; IP_ADDRESS: ::1
+DATETIME: 7/17/2018 5:40:12 PM; ROUTE: api/Users/{sOktaId}/Okta; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/17/2018 5:43:34 PM; ROUTE: api/Users/{sOktaId}/Check; METHOD: PUT; IP_ADDRESS: ::1
+DATETIME: 7/17/2018 5:43:34 PM; ROUTE: api/Users/{sOktaId}/Okta; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/17/2018 5:43:59 PM; ROUTE: api/Users/{sOktaId}/Check; METHOD: PUT; IP_ADDRESS: ::1
+DATETIME: 7/17/2018 5:44:00 PM; ROUTE: api/Users/{sOktaId}/Okta; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/17/2018 5:44:19 PM; ROUTE: api/Users/{sOktaId}/Check; METHOD: PUT; IP_ADDRESS: ::1
+DATETIME: 7/17/2018 5:44:19 PM; ROUTE: api/Users/{sOktaId}/Okta; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/17/2018 5:51:21 PM; ROUTE: api/Users/{sOktaId}/Check; METHOD: PUT; IP_ADDRESS: ::1
+DATETIME: 7/17/2018 5:51:21 PM; ROUTE: api/Users/{sOktaId}/Okta; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/17/2018 5:52:37 PM; ROUTE: api/Users/{sOktaId}/Check; METHOD: PUT; IP_ADDRESS: ::1
+DATETIME: 7/17/2018 5:52:37 PM; ROUTE: api/Users/{sOktaId}/Okta; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/17/2018 5:53:06 PM; ROUTE: api/Users/{sOktaId}/Check; METHOD: PUT; IP_ADDRESS: ::1
+DATETIME: 7/17/2018 5:53:06 PM; ROUTE: api/Users/{sOktaId}/Okta; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/17/2018 5:54:17 PM; ROUTE: api/Users/{sOktaId}/Check; METHOD: PUT; IP_ADDRESS: ::1
+DATETIME: 7/17/2018 5:54:17 PM; ROUTE: api/Users/{sOktaId}/Okta; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/17/2018 8:43:17 PM; ROUTE: api/Users/{sOktaId}/Check; METHOD: PUT; IP_ADDRESS: ::1
+DATETIME: 7/17/2018 8:43:17 PM; ROUTE: api/Users/{sOktaId}/Okta; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/17/2018 8:43:20 PM; ROUTE: api/TrainingCourseQuizScores/{iUserId}/User; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/17/2018 8:43:27 PM; ROUTE: api/TrainingCourses; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/17/2018 8:43:27 PM; ROUTE: api/Users/{sOktaId}/Check; METHOD: PUT; IP_ADDRESS: ::1
+DATETIME: 7/17/2018 8:43:27 PM; ROUTE: api/Users/{sOktaId}/Okta; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/17/2018 8:43:30 PM; ROUTE: api/TrainingCourseQuizScores/{iUserId}/User; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/17/2018 8:43:30 PM; ROUTE: api/Users/{sOktaId}/Check; METHOD: PUT; IP_ADDRESS: ::1
+DATETIME: 7/17/2018 8:43:30 PM; ROUTE: api/Users/{sOktaId}/Okta; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/17/2018 8:43:39 PM; ROUTE: api/TrainingCourses; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/17/2018 8:43:39 PM; ROUTE: api/Users/{sOktaId}/Check; METHOD: PUT; IP_ADDRESS: ::1
+DATETIME: 7/17/2018 8:43:40 PM; ROUTE: api/Users/{sOktaId}/Okta; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/17/2018 8:43:46 PM; ROUTE: api/TrainingCourseModules/{iTrainingCourseId}/Modules; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/17/2018 8:43:46 PM; ROUTE: api/TrainingCourses/{id}; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/17/2018 8:43:53 PM; ROUTE: api/TrainingCourseModuleSections/{iTrainingCourseModuleId}/TrainingCourseModule; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/17/2018 8:43:53 PM; ROUTE: api/TrainingCourseModules/{id}; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/17/2018 8:44:03 PM; ROUTE: api/TrainingCourseModuleSubSections/{iModuleSectionId}/TrainingCourseModuleSection; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/17/2018 8:44:03 PM; ROUTE: api/TrainingCourseModuleSections/{id}; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/17/2018 8:44:08 PM; ROUTE: api/TrainingCourseModuleSections/{iTrainingCourseModuleId}/TrainingCourseModule; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/17/2018 8:44:08 PM; ROUTE: api/TrainingCourseModules/{id}; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/17/2018 8:44:17 PM; ROUTE: api/TrainingCourseModuleSubSections/{iModuleSectionId}/TrainingCourseModuleSection; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/17/2018 8:44:17 PM; ROUTE: api/TrainingCourseModuleSections/{id}; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/17/2018 8:44:20 PM; ROUTE: api/TrainingCourseModuleSections/{iTrainingCourseModuleId}/TrainingCourseModule; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/17/2018 8:44:20 PM; ROUTE: api/TrainingCourseModules/{id}; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/17/2018 8:44:29 PM; ROUTE: api/TrainingCourseModules/{iTrainingCourseId}/Modules; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/17/2018 8:44:29 PM; ROUTE: api/TrainingCourses/{id}; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/18/2018 5:44:54 PM; ROUTE: api/Users/{sOktaId}/Check; METHOD: PUT; IP_ADDRESS: ::1
+DATETIME: 7/18/2018 5:44:54 PM; ROUTE: api/Users/{sOktaId}/Okta; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/18/2018 5:51:31 PM; ROUTE: api/TrainingCourses; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/18/2018 5:51:31 PM; ROUTE: api/Users/{sOktaId}/Check; METHOD: PUT; IP_ADDRESS: ::1
+DATETIME: 7/18/2018 5:51:31 PM; ROUTE: api/Users/{sOktaId}/Okta; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/18/2018 6:13:22 PM; ROUTE: api/Users/{sOktaId}/Check; METHOD: PUT; IP_ADDRESS: ::1
+DATETIME: 7/18/2018 6:13:22 PM; ROUTE: api/Users/{sOktaId}/Okta; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/18/2018 6:13:24 PM; ROUTE: api/TrainingCourses; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/18/2018 6:13:24 PM; ROUTE: api/Users/{sOktaId}/Check; METHOD: PUT; IP_ADDRESS: ::1
+DATETIME: 7/18/2018 6:13:24 PM; ROUTE: api/Users/{sOktaId}/Okta; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/18/2018 6:13:27 PM; ROUTE: api/TrainingCourseModules/{iTrainingCourseId}/Modules; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/18/2018 6:13:28 PM; ROUTE: api/TrainingCourses/{id}; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/18/2018 6:13:30 PM; ROUTE: api/TrainingCourseModuleSections/{iTrainingCourseModuleId}/TrainingCourseModule; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/18/2018 6:13:30 PM; ROUTE: api/TrainingCourseModules/{id}; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/18/2018 6:13:31 PM; ROUTE: api/TrainingCourseModules/{iTrainingCourseId}/Modules; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/18/2018 6:13:32 PM; ROUTE: api/TrainingCourses/{id}; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/18/2018 6:13:33 PM; ROUTE: api/TrainingCourseModuleSections/{iTrainingCourseModuleId}/TrainingCourseModule; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/18/2018 6:13:33 PM; ROUTE: api/TrainingCourseModules/{id}; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/18/2018 6:13:34 PM; ROUTE: api/TrainingCourseModuleSubSections/{iModuleSectionId}/TrainingCourseModuleSection; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/18/2018 6:13:34 PM; ROUTE: api/TrainingCourseModuleSections/{id}; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/18/2018 6:13:39 PM; ROUTE: api/TrainingCourseModuleSections/{iTrainingCourseModuleId}/TrainingCourseModule; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/18/2018 6:13:39 PM; ROUTE: api/TrainingCourseModules/{id}; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/18/2018 6:13:41 PM; ROUTE: api/TrainingCourseModules/{iTrainingCourseId}/Modules; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/18/2018 6:13:41 PM; ROUTE: api/TrainingCourses/{id}; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/18/2018 6:13:44 PM; ROUTE: api/TrainingCourseModuleSections/{iTrainingCourseModuleId}/TrainingCourseModule; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/18/2018 6:13:44 PM; ROUTE: api/TrainingCourseModules/{id}; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/18/2018 6:13:45 PM; ROUTE: api/TrainingCourseModules/{iTrainingCourseId}/Modules; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/18/2018 6:13:45 PM; ROUTE: api/TrainingCourses/{id}; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/18/2018 6:13:46 PM; ROUTE: api/TrainingCourseModuleSections/{iTrainingCourseModuleId}/TrainingCourseModule; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/18/2018 6:13:46 PM; ROUTE: api/TrainingCourseModules/{id}; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/18/2018 6:13:47 PM; ROUTE: api/TrainingCourseModules/{iTrainingCourseId}/Modules; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/18/2018 6:13:47 PM; ROUTE: api/TrainingCourses/{id}; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/18/2018 6:14:27 PM; ROUTE: api/TrainingCourseModuleQuizs/{iTrainingCourseModuleId}/TrainingCourseModule; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/18/2018 6:14:29 PM; ROUTE: api/QuizSheets; METHOD: POST; IP_ADDRESS: ::1
+DATETIME: 7/18/2018 6:14:29 PM; ROUTE: api/QuizQuestions/{iModuleQuizId}/TrainingCourseModuleQuiz; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/18/2018 6:14:29 PM; ROUTE: api/QuizQuestionAnswerOptions/{iQuizQuestionId}/QuizQuestion; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/18/2018 6:14:42 PM; ROUTE: api/QuizQuestionAnswerOptions/{iQuizQuestionId}/QuizQuestion; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/18/2018 6:14:47 PM; ROUTE: api/QuizQuestionAnswerOptions/{iQuizQuestionId}/QuizQuestion; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/18/2018 6:14:50 PM; ROUTE: api/QuizQuestionAnswerOptions/{iQuizQuestionId}/QuizQuestion; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/18/2018 6:14:52 PM; ROUTE: api/QuizQuestionAnswerOptions/{iQuizQuestionId}/QuizQuestion; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/18/2018 6:14:55 PM; ROUTE: api/QuizQuestionAnswerOptions/{iQuizQuestionId}/QuizQuestion; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/18/2018 6:14:57 PM; ROUTE: api/QuizQuestionAnswerOptions/{iQuizQuestionId}/QuizQuestion; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/18/2018 6:14:59 PM; ROUTE: api/QuizQuestionAnswerOptions/{iQuizQuestionId}/QuizQuestion; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/18/2018 6:15:01 PM; ROUTE: api/QuizQuestionAnswerOptions/{iQuizQuestionId}/QuizQuestion; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/18/2018 6:15:05 PM; ROUTE: api/TrainingCourseQuizScores/QuizGrade; METHOD: POST; IP_ADDRESS: ::1
+DATETIME: 7/18/2018 6:15:10 PM; ROUTE: api/TrainingCourseQuizScores/{iUserId}/User; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/18/2018 6:15:10 PM; ROUTE: api/Users/{sOktaId}/Check; METHOD: PUT; IP_ADDRESS: ::1
+DATETIME: 7/18/2018 6:15:10 PM; ROUTE: api/Users/{sOktaId}/Okta; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/18/2018 6:18:13 PM; ROUTE: api/Users/{sOktaId}/Check; METHOD: PUT; IP_ADDRESS: ::1
+DATETIME: 7/18/2018 6:18:23 PM; ROUTE: api/Users/{sOktaId}/Okta; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/18/2018 6:18:25 PM; ROUTE: api/TrainingCourses; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/18/2018 6:18:25 PM; ROUTE: api/Users/{sOktaId}/Check; METHOD: PUT; IP_ADDRESS: ::1
+DATETIME: 7/18/2018 6:18:25 PM; ROUTE: api/Users/{sOktaId}/Okta; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/18/2018 6:18:26 PM; ROUTE: api/TrainingCourseQuizScores/{iUserId}/User; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/18/2018 6:18:26 PM; ROUTE: api/Users/{sOktaId}/Check; METHOD: PUT; IP_ADDRESS: ::1
+DATETIME: 7/18/2018 6:18:26 PM; ROUTE: api/Users/{sOktaId}/Okta; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/18/2018 6:18:39 PM; ROUTE: api/Users/{sOktaId}/Check; METHOD: PUT; IP_ADDRESS: ::1
+DATETIME: 7/18/2018 6:18:41 PM; ROUTE: api/Users/{sOktaId}/Okta; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/18/2018 6:23:13 PM; ROUTE: api/Users/{sOktaId}/Check; METHOD: PUT; IP_ADDRESS: ::1
+DATETIME: 7/18/2018 6:23:15 PM; ROUTE: api/Users/{sOktaId}/Okta; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/18/2018 6:23:18 PM; ROUTE: api/TrainingCourseQuizScores/{iUserId}/User; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/18/2018 6:23:37 PM; ROUTE: api/Users/{sOktaId}/Check; METHOD: PUT; IP_ADDRESS: ::1
+DATETIME: 7/18/2018 6:23:37 PM; ROUTE: api/Users/{sOktaId}/Okta; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/18/2018 6:32:13 PM; ROUTE: api/Users/{sOktaId}/Check; METHOD: PUT; IP_ADDRESS: ::1
+DATETIME: 7/18/2018 6:32:14 PM; ROUTE: api/Users/{sOktaId}/Okta; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/18/2018 6:32:20 PM; ROUTE: api/TrainingCourseQuizScores/{iUserId}/User; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/18/2018 8:56:14 PM; ROUTE: api/Users/{sOktaId}/Check; METHOD: PUT; IP_ADDRESS: ::1
+DATETIME: 7/18/2018 8:56:14 PM; ROUTE: api/Users/{sOktaId}/Okta; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/18/2018 8:56:17 PM; ROUTE: api/TrainingCourseQuizScores/{iUserId}/User; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 12:41:29 PM; ROUTE: api/Users/{sOktaId}/Check; METHOD: PUT; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 12:41:30 PM; ROUTE: api/Users/{sOktaId}/Okta; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 12:41:33 PM; ROUTE: api/TrainingCourseQuizScores/{iUserId}/User; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 12:41:50 PM; ROUTE: api/Users/{sOktaId}/Check; METHOD: PUT; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 12:41:50 PM; ROUTE: api/Users/{sOktaId}/Okta; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 12:41:52 PM; ROUTE: api/TrainingCourseQuizScores/{iUserId}/User; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 12:42:31 PM; ROUTE: api/TrainingCourseQuizScores/{iUserId}/User; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 12:45:28 PM; ROUTE: api/TrainingCourseQuizScores/{iUserId}/User; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 12:49:54 PM; ROUTE: api/TrainingCourses; METHOD: GET; IP_ADDRESS: 127.0.0.1
+DATETIME: 7/21/2018 12:49:58 PM; ROUTE: api/Users/{sOktaId}/Check; METHOD: PUT; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 12:49:59 PM; ROUTE: api/Users/{sOktaId}/Okta; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 12:50:00 PM; ROUTE: api/TrainingCourses; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 12:50:00 PM; ROUTE: api/Users/{sOktaId}/Check; METHOD: PUT; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 12:50:00 PM; ROUTE: api/Users/{sOktaId}/Okta; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 12:50:01 PM; ROUTE: api/TrainingCourseQuizScores/{iUserId}/User; METHOD: GET; IP_ADDRESS: 127.0.0.1
+DATETIME: 7/21/2018 12:50:01 PM; ROUTE: api/Users/{sOktaId}/Check; METHOD: PUT; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 12:50:01 PM; ROUTE: api/Users/{sOktaId}/Okta; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 12:55:11 PM; ROUTE: api/TrainingCourses; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 12:55:11 PM; ROUTE: api/Users/{sOktaId}/Check; METHOD: PUT; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 12:55:11 PM; ROUTE: api/Users/{sOktaId}/Okta; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 12:55:13 PM; ROUTE: api/TrainingCourseQuizScores/{iUserId}/User; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 12:55:13 PM; ROUTE: api/Users/{sOktaId}/Check; METHOD: PUT; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 12:55:13 PM; ROUTE: api/Users/{sOktaId}/Okta; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 1:05:17 PM; ROUTE: api/Users/{sOktaId}/Check; METHOD: PUT; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 1:05:17 PM; ROUTE: api/Users/{sOktaId}/Okta; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 1:05:26 PM; ROUTE: api/TrainingCourseQuizScores/{iUserId}/User; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 1:05:44 PM; ROUTE: api/TrainingCourseQuizScores/{iUserId}/User; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 1:36:29 PM; ROUTE: api/Users/{sOktaId}/Check; METHOD: PUT; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 1:36:29 PM; ROUTE: api/Users/{sOktaId}/Okta; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 1:36:35 PM; ROUTE: api/Users/{sOktaId}/Check; METHOD: PUT; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 1:36:35 PM; ROUTE: api/TrainingCourses; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 1:36:35 PM; ROUTE: api/Users/{sOktaId}/Okta; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 1:36:36 PM; ROUTE: api/Users/{sOktaId}/Check; METHOD: PUT; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 1:36:36 PM; ROUTE: api/TrainingCourseQuizScores/{iUserId}/User; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 1:36:36 PM; ROUTE: api/Users/{sOktaId}/Okta; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 1:48:50 PM; ROUTE: api/QuizQuestionAnswerOptions; METHOD: GET; IP_ADDRESS: ::1; EXCEPTION: Object reference not set to an instance of an object.; INNER EXCEPTION: 
+DATETIME: 7/21/2018 5:21:05 PM; ROUTE: api/Users/{sOktaId}/Check; METHOD: PUT; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 5:21:05 PM; ROUTE: api/Users/{sOktaId}/Okta; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 5:21:07 PM; ROUTE: api/TrainingCourseQuizScores/{iUserId}/User; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 5:21:16 PM; ROUTE: api/QuizQuestionAnswerOptions; METHOD: GET; IP_ADDRESS: ::1; EXCEPTION: Object reference not set to an instance of an object.; INNER EXCEPTION: 
+DATETIME: 7/21/2018 5:29:40 PM; ROUTE: api/Users/{sOktaId}/Check; METHOD: PUT; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 5:29:40 PM; ROUTE: api/Users/{sOktaId}/Okta; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 5:29:47 PM; ROUTE: api/TrainingCourseQuizScores/{iUserId}/User; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 5:36:40 PM; ROUTE: api/TrainingCourses; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 5:36:40 PM; ROUTE: api/Users/{sOktaId}/Check; METHOD: PUT; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 5:36:40 PM; ROUTE: api/Users/{sOktaId}/Okta; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 5:36:41 PM; ROUTE: api/TrainingCourseQuizScores/{iUserId}/User; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 5:36:41 PM; ROUTE: api/Users/{sOktaId}/Check; METHOD: PUT; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 5:36:41 PM; ROUTE: api/Users/{sOktaId}/Okta; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 5:36:49 PM; ROUTE: api/Users/{sOktaId}/Check; METHOD: PUT; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 5:36:51 PM; ROUTE: api/Users/{sOktaId}/Okta; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 5:36:59 PM; ROUTE: api/TrainingCourses; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 5:36:59 PM; ROUTE: api/Users/{sOktaId}/Check; METHOD: PUT; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 5:36:59 PM; ROUTE: api/Users/{sOktaId}/Okta; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 5:37:00 PM; ROUTE: api/TrainingCourseQuizScores/{iUserId}/User; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 5:37:00 PM; ROUTE: api/Users/{sOktaId}/Check; METHOD: PUT; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 5:37:00 PM; ROUTE: api/Users/{sOktaId}/Okta; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 5:37:03 PM; ROUTE: api/TrainingCourses; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 5:37:03 PM; ROUTE: api/Users/{sOktaId}/Check; METHOD: PUT; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 5:37:03 PM; ROUTE: api/Users/{sOktaId}/Okta; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 5:38:05 PM; ROUTE: api/TrainingCourseQuizScores/{iUserId}/User; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 5:38:05 PM; ROUTE: api/Users/{sOktaId}/Check; METHOD: PUT; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 5:38:05 PM; ROUTE: api/Users/{sOktaId}/Okta; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 5:38:06 PM; ROUTE: api/TrainingCourses; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 5:38:06 PM; ROUTE: api/Users/{sOktaId}/Check; METHOD: PUT; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 5:38:06 PM; ROUTE: api/Users/{sOktaId}/Okta; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 5:38:11 PM; ROUTE: api/TrainingCourseQuizScores/{iUserId}/User; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 5:38:11 PM; ROUTE: api/Users/{sOktaId}/Check; METHOD: PUT; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 5:38:12 PM; ROUTE: api/Users/{sOktaId}/Okta; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 5:52:41 PM; ROUTE: api/Users/{sOktaId}/Check; METHOD: PUT; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 5:52:41 PM; ROUTE: api/Users/{sOktaId}/Okta; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 5:52:51 PM; ROUTE: api/TrainingCourses; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 5:53:24 PM; ROUTE: api/TrainingCourseModules/{iTrainingCourseId}/Modules; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 5:53:24 PM; ROUTE: api/Users/{sOktaId}/Check; METHOD: PUT; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 5:53:24 PM; ROUTE: api/Users/{sOktaId}/Okta; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 5:53:24 PM; ROUTE: api/TrainingCourses/{id}; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 5:53:29 PM; ROUTE: api/TrainingCourses; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 5:53:30 PM; ROUTE: api/Users/{sOktaId}/Check; METHOD: PUT; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 5:53:30 PM; ROUTE: api/Users/{sOktaId}/Okta; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 5:54:18 PM; ROUTE: api/TrainingCourses; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 5:54:18 PM; ROUTE: api/Users/{sOktaId}/Check; METHOD: PUT; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 5:54:18 PM; ROUTE: api/Users/{sOktaId}/Okta; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 5:54:24 PM; ROUTE: api/TrainingCourseModules/{iTrainingCourseId}/Modules; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 5:54:24 PM; ROUTE: api/Users/{sOktaId}/Check; METHOD: PUT; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 5:54:24 PM; ROUTE: api/Users/{sOktaId}/Okta; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 5:54:24 PM; ROUTE: api/TrainingCourses/{id}; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 5:54:30 PM; ROUTE: api/TrainingCourses; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 5:54:30 PM; ROUTE: api/Users/{sOktaId}/Check; METHOD: PUT; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 5:54:30 PM; ROUTE: api/Users/{sOktaId}/Okta; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 5:54:52 PM; ROUTE: api/TrainingCourses; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 5:54:53 PM; ROUTE: api/Users/{sOktaId}/Check; METHOD: PUT; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 5:54:53 PM; ROUTE: api/Users/{sOktaId}/Okta; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 5:55:46 PM; ROUTE: api/Users/{sOktaId}/Check; METHOD: PUT; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 5:55:46 PM; ROUTE: api/Users/{sOktaId}/Okta; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 5:55:48 PM; ROUTE: api/TrainingCourseQuizScores/{iUserId}/User; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 5:56:28 PM; ROUTE: api/Users/{sOktaId}/Check; METHOD: PUT; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 5:57:01 PM; ROUTE: api/Users/{sOktaId}/Okta; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 5:57:05 PM; ROUTE: api/TrainingCourseQuizScores/{iUserId}/User; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 5:58:03 PM; ROUTE: api/QuizQuestionAnswerOptions; METHOD: GET; IP_ADDRESS: ::1; EXCEPTION: Object reference not set to an instance of an object.; INNER EXCEPTION: 
+DATETIME: 7/21/2018 6:05:45 PM; ROUTE: api/TrainingCourseQuizScores/{iUserId}/User; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 6:05:47 PM; ROUTE: api/TrainingCourses; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 6:05:48 PM; ROUTE: api/TrainingCourseQuizScores/{iUserId}/User; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 6:06:03 PM; ROUTE: api/TrainingCourses; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 6:06:04 PM; ROUTE: api/TrainingCourseQuizScores/{iUserId}/User; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 6:09:52 PM; ROUTE: api/TrainingCourses; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 6:09:53 PM; ROUTE: api/Users/{sOktaId}/Check; METHOD: PUT; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 6:09:53 PM; ROUTE: api/TrainingCourseModules/{iTrainingCourseId}/Modules; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 6:09:53 PM; ROUTE: api/TrainingCourses/{id}; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 6:09:54 PM; ROUTE: api/Users/{sOktaId}/Okta; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 6:09:56 PM; ROUTE: api/Users/{sOktaId}/Check; METHOD: PUT; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 6:09:56 PM; ROUTE: api/Users/{sOktaId}/Okta; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 6:09:56 PM; ROUTE: api/TrainingCourseModuleQuizs/{iTrainingCourseModuleId}/TrainingCourseModule; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 6:09:58 PM; ROUTE: api/QuizSheets; METHOD: POST; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 6:09:58 PM; ROUTE: api/Users/{sOktaId}/Check; METHOD: PUT; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 6:09:58 PM; ROUTE: api/QuizQuestions/{iModuleQuizId}/TrainingCourseModuleQuiz; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 6:09:58 PM; ROUTE: api/Users/{sOktaId}/Okta; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 6:09:58 PM; ROUTE: api/QuizQuestionAnswerOptions/{iQuizQuestionId}/QuizQuestion; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 6:10:01 PM; ROUTE: api/QuizQuestionAnswerOptions/{iQuizQuestionId}/QuizQuestion; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 6:10:04 PM; ROUTE: api/QuizQuestionAnswerOptions/{iQuizQuestionId}/QuizQuestion; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 6:10:07 PM; ROUTE: api/QuizQuestionAnswerOptions/{iQuizQuestionId}/QuizQuestion; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 6:10:08 PM; ROUTE: api/QuizQuestionAnswerOptions/{iQuizQuestionId}/QuizQuestion; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 6:10:10 PM; ROUTE: api/QuizQuestionAnswerOptions/{iQuizQuestionId}/QuizQuestion; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 6:10:13 PM; ROUTE: api/QuizQuestionAnswerOptions/{iQuizQuestionId}/QuizQuestion; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 6:10:16 PM; ROUTE: api/QuizQuestionAnswerOptions/{iQuizQuestionId}/QuizQuestion; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 6:10:18 PM; ROUTE: api/QuizQuestionAnswerOptions/{iQuizQuestionId}/QuizQuestion; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 6:10:22 PM; ROUTE: api/TrainingCourseQuizScores/QuizGrade; METHOD: POST; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 6:10:29 PM; ROUTE: api/Users/{sOktaId}/Check; METHOD: PUT; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 6:10:29 PM; ROUTE: api/TrainingCourseQuizScores/{iUserId}/User; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 6:10:29 PM; ROUTE: api/Users/{sOktaId}/Okta; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 6:17:15 PM; ROUTE: api/TrainingCourses; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 6:17:19 PM; ROUTE: api/TrainingCourseQuizScores/{iUserId}/User; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 6:18:25 PM; ROUTE: api/QuizQuestionAnswerOptions; METHOD: GET; IP_ADDRESS: ::1; EXCEPTION: Object reference not set to an instance of an object.; INNER EXCEPTION: 
+DATETIME: 7/21/2018 6:19:36 PM; ROUTE: api/TrainingCourses; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 6:19:56 PM; ROUTE: api/TrainingCourseQuizScores/{iUserId}/User; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 6:20:45 PM; ROUTE: api/QuizQuestionAnswerOptions; METHOD: GET; IP_ADDRESS: ::1; EXCEPTION: Object reference not set to an instance of an object.; INNER EXCEPTION: 
+DATETIME: 7/21/2018 6:20:48 PM; ROUTE: api/TrainingCourses; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 6:20:49 PM; ROUTE: api/TrainingCourseQuizScores/{iUserId}/User; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 6:22:18 PM; ROUTE: api/QuizQuestionAnswerOptions; METHOD: GET; IP_ADDRESS: ::1; EXCEPTION: Object reference not set to an instance of an object.; INNER EXCEPTION: 
+DATETIME: 7/21/2018 6:22:20 PM; ROUTE: api/TrainingCourseQuizScores/{iUserId}/User; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 6:22:20 PM; ROUTE: api/TrainingCourses; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 6:22:20 PM; ROUTE: api/TrainingCourseQuizScores/{iUserId}/User; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 6:22:52 PM; ROUTE: api/QuizQuestionAnswerOptions; METHOD: GET; IP_ADDRESS: ::1; EXCEPTION: Object reference not set to an instance of an object.; INNER EXCEPTION: 
+DATETIME: 7/21/2018 6:22:54 PM; ROUTE: api/TrainingCourses; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 6:23:40 PM; ROUTE: api/TrainingCourseQuizScores/{iUserId}/User; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 6:23:58 PM; ROUTE: api/TrainingCourses; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 6:23:59 PM; ROUTE: api/TrainingCourseQuizScores/{iUserId}/User; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 6:28:15 PM; ROUTE: api/QuizQuestionAnswerOptions; METHOD: GET; IP_ADDRESS: ::1; EXCEPTION: Object reference not set to an instance of an object.; INNER EXCEPTION: 
+DATETIME: 7/21/2018 6:28:26 PM; ROUTE: api/QuizQuestionAnswerOptions; METHOD: GET; IP_ADDRESS: ::1; EXCEPTION: Object reference not set to an instance of an object.; INNER EXCEPTION: 
+DATETIME: 7/21/2018 6:28:28 PM; ROUTE: api/TrainingCourses; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 6:28:28 PM; ROUTE: api/TrainingCourseQuizScores/{iUserId}/User; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 6:28:28 PM; ROUTE: api/TrainingCourses; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 6:28:28 PM; ROUTE: api/TrainingCourseQuizScores/{iUserId}/User; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 6:40:25 PM; ROUTE: api/TrainingCourses; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 6:40:29 PM; ROUTE: api/Users/{sOktaId}/Check; METHOD: PUT; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 6:40:29 PM; ROUTE: api/TrainingCourseModules/{iTrainingCourseId}/Modules; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 6:40:29 PM; ROUTE: api/TrainingCourses/{id}; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 6:40:29 PM; ROUTE: api/Users/{sOktaId}/Okta; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 6:40:32 PM; ROUTE: api/Users/{sOktaId}/Check; METHOD: PUT; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 6:40:32 PM; ROUTE: api/Users/{sOktaId}/Okta; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 6:40:32 PM; ROUTE: api/TrainingCourseModuleQuizs/{iTrainingCourseModuleId}/TrainingCourseModule; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 6:40:34 PM; ROUTE: api/QuizSheets; METHOD: POST; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 6:40:34 PM; ROUTE: api/Users/{sOktaId}/Check; METHOD: PUT; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 6:40:34 PM; ROUTE: api/QuizQuestions/{iModuleQuizId}/TrainingCourseModuleQuiz; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 6:40:34 PM; ROUTE: api/Users/{sOktaId}/Okta; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 6:40:34 PM; ROUTE: api/QuizQuestionAnswerOptions/{iQuizQuestionId}/QuizQuestion; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 6:41:11 PM; ROUTE: api/QuizQuestionAnswerOptions/{iQuizQuestionId}/QuizQuestion; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 6:41:15 PM; ROUTE: api/QuizQuestionAnswerOptions/{iQuizQuestionId}/QuizQuestion; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 6:41:18 PM; ROUTE: api/QuizQuestionAnswerOptions/{iQuizQuestionId}/QuizQuestion; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 6:41:20 PM; ROUTE: api/QuizQuestionAnswerOptions/{iQuizQuestionId}/QuizQuestion; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 6:41:22 PM; ROUTE: api/QuizQuestionAnswerOptions/{iQuizQuestionId}/QuizQuestion; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 6:41:24 PM; ROUTE: api/QuizQuestionAnswerOptions/{iQuizQuestionId}/QuizQuestion; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 6:41:26 PM; ROUTE: api/QuizQuestionAnswerOptions/{iQuizQuestionId}/QuizQuestion; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 6:41:28 PM; ROUTE: api/QuizQuestionAnswerOptions/{iQuizQuestionId}/QuizQuestion; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 6:44:05 PM; ROUTE: api/TrainingCourseQuizScores/QuizGrade; METHOD: POST; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 6:49:51 PM; ROUTE: api/Users/{sOktaId}/Check; METHOD: PUT; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 6:49:51 PM; ROUTE: api/TrainingCourses; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 6:49:52 PM; ROUTE: api/Users/{sOktaId}/Okta; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 6:49:59 PM; ROUTE: api/Users/{sOktaId}/Check; METHOD: PUT; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 6:49:59 PM; ROUTE: api/TrainingCourseModules/{iTrainingCourseId}/Modules; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 6:49:59 PM; ROUTE: api/TrainingCourses/{id}; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 6:49:59 PM; ROUTE: api/Users/{sOktaId}/Okta; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 6:50:01 PM; ROUTE: api/Users/{sOktaId}/Check; METHOD: PUT; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 6:50:01 PM; ROUTE: api/Users/{sOktaId}/Okta; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 6:50:15 PM; ROUTE: api/TrainingCourseModuleQuizs/{iTrainingCourseModuleId}/TrainingCourseModule; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 6:50:18 PM; ROUTE: api/QuizSheets; METHOD: POST; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 6:50:18 PM; ROUTE: api/Users/{sOktaId}/Check; METHOD: PUT; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 6:50:18 PM; ROUTE: api/QuizQuestions/{iModuleQuizId}/TrainingCourseModuleQuiz; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 6:50:18 PM; ROUTE: api/Users/{sOktaId}/Okta; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 6:50:18 PM; ROUTE: api/QuizQuestionAnswerOptions/{iQuizQuestionId}/QuizQuestion; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 6:50:20 PM; ROUTE: api/QuizQuestionAnswerOptions/{iQuizQuestionId}/QuizQuestion; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 6:50:22 PM; ROUTE: api/QuizQuestionAnswerOptions/{iQuizQuestionId}/QuizQuestion; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 6:50:24 PM; ROUTE: api/QuizQuestionAnswerOptions/{iQuizQuestionId}/QuizQuestion; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 6:50:27 PM; ROUTE: api/QuizQuestionAnswerOptions/{iQuizQuestionId}/QuizQuestion; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 6:50:29 PM; ROUTE: api/QuizQuestionAnswerOptions/{iQuizQuestionId}/QuizQuestion; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 6:50:31 PM; ROUTE: api/QuizQuestionAnswerOptions/{iQuizQuestionId}/QuizQuestion; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 6:50:35 PM; ROUTE: api/QuizQuestionAnswerOptions/{iQuizQuestionId}/QuizQuestion; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 6:50:38 PM; ROUTE: api/QuizQuestionAnswerOptions/{iQuizQuestionId}/QuizQuestion; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 6:50:45 PM; ROUTE: api/TrainingCourseQuizScores/QuizGrade; METHOD: POST; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 6:51:05 PM; ROUTE: api/Users/{sOktaId}/Check; METHOD: PUT; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 6:51:05 PM; ROUTE: api/TrainingCourseQuizScores/{iUserId}/User; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 6:51:06 PM; ROUTE: api/Users/{sOktaId}/Okta; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 6:54:02 PM; ROUTE: api/QuizQuestionAnswerOptions; METHOD: GET; IP_ADDRESS: ::1; EXCEPTION: Object reference not set to an instance of an object.; INNER EXCEPTION: 
+DATETIME: 7/21/2018 6:56:08 PM; ROUTE: api/Users/{sOktaId}/Check; METHOD: PUT; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 6:56:08 PM; ROUTE: api/Users/{sOktaId}/Okta; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 6:56:09 PM; ROUTE: api/TrainingCourseQuizScores/{iUserId}/User; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 6:57:33 PM; ROUTE: api/QuizQuestionAnswerOptions; METHOD: GET; IP_ADDRESS: ::1; EXCEPTION: Object reference not set to an instance of an object.; INNER EXCEPTION: 
+DATETIME: 7/21/2018 6:57:37 PM; ROUTE: api/TrainingCourseQuizScores/{iUserId}/User; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 6:59:03 PM; ROUTE: api/QuizQuestionAnswerOptions; METHOD: GET; IP_ADDRESS: ::1; EXCEPTION: Object reference not set to an instance of an object.; INNER EXCEPTION: 
+DATETIME: 7/21/2018 7:24:47 PM; ROUTE: api/TrainingCourseQuizScores/{iUserId}/User; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 7:26:04 PM; ROUTE: api/TrainingCourseQuizScores; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 7:29:24 PM; ROUTE: api/TrainingCourses; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 7:29:25 PM; ROUTE: api/TrainingCourseQuizScores/{iUserId}/User; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 7:29:37 PM; ROUTE: api/TrainingCourseQuizScores; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 7:32:19 PM; ROUTE: api/TrainingCourseQuizScores; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 7:32:20 PM; ROUTE: api/Users/{sOktaId}/Check; METHOD: PUT; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 7:32:26 PM; ROUTE: api/Users/{sOktaId}/Okta; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 7:33:20 PM; ROUTE: api/Users/{sOktaId}/Check; METHOD: PUT; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 7:33:24 PM; ROUTE: api/TrainingCourseQuizScores; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/21/2018 7:33:24 PM; ROUTE: api/Users/{sOktaId}/Okta; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/22/2018 10:15:17 AM; ROUTE: api/Users/{sOktaId}/Check; METHOD: PUT; IP_ADDRESS: ::1
+DATETIME: 7/22/2018 10:15:17 AM; ROUTE: api/Users/{sOktaId}/Okta; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/22/2018 10:23:19 AM; ROUTE: api/Users/{sOktaId}/Check; METHOD: PUT; IP_ADDRESS: ::1
+DATETIME: 7/22/2018 10:23:19 AM; ROUTE: api/Users/{sOktaId}/Okta; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/22/2018 10:23:21 AM; ROUTE: api/TrainingCourseQuizScores/{iUserId}/User; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/22/2018 10:23:26 AM; ROUTE: api/TrainingCourseQuizScores; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/22/2018 10:24:42 AM; ROUTE: api/Users/{sOktaId}/Check; METHOD: PUT; IP_ADDRESS: ::1
+DATETIME: 7/22/2018 10:24:42 AM; ROUTE: api/Users/{sOktaId}/Okta; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/22/2018 10:24:46 AM; ROUTE: api/TrainingCourseQuizScores; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/22/2018 10:25:05 AM; ROUTE: api/Users/{sOktaId}/Check; METHOD: PUT; IP_ADDRESS: ::1
+DATETIME: 7/22/2018 10:25:05 AM; ROUTE: api/Users/{sOktaId}/Okta; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/22/2018 10:25:09 AM; ROUTE: api/TrainingCourseQuizScores; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/22/2018 10:25:56 AM; ROUTE: api/Users/{sOktaId}/Check; METHOD: PUT; IP_ADDRESS: ::1
+DATETIME: 7/22/2018 10:25:56 AM; ROUTE: api/Users/{sOktaId}/Okta; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/22/2018 10:26:00 AM; ROUTE: api/TrainingCourseQuizScores; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/22/2018 10:27:02 AM; ROUTE: api/Users/{sOktaId}/Check; METHOD: PUT; IP_ADDRESS: ::1
+DATETIME: 7/22/2018 10:27:02 AM; ROUTE: api/Users/{sOktaId}/Okta; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/22/2018 10:27:05 AM; ROUTE: api/TrainingCourseQuizScores; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/22/2018 10:27:23 AM; ROUTE: api/Users/{sOktaId}/Check; METHOD: PUT; IP_ADDRESS: ::1
+DATETIME: 7/22/2018 10:27:23 AM; ROUTE: api/Users/{sOktaId}/Okta; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/22/2018 10:27:27 AM; ROUTE: api/TrainingCourseQuizScores; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/22/2018 10:27:51 AM; ROUTE: api/Users/{sOktaId}/Check; METHOD: PUT; IP_ADDRESS: ::1
+DATETIME: 7/22/2018 10:27:51 AM; ROUTE: api/Users/{sOktaId}/Okta; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/22/2018 10:27:55 AM; ROUTE: api/TrainingCourseQuizScores; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/22/2018 10:30:07 AM; ROUTE: api/Users/{sOktaId}/Check; METHOD: PUT; IP_ADDRESS: ::1
+DATETIME: 7/22/2018 10:30:07 AM; ROUTE: api/Users/{sOktaId}/Okta; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/22/2018 10:30:11 AM; ROUTE: api/TrainingCourseQuizScores; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/22/2018 10:31:27 AM; ROUTE: api/Users/{sOktaId}/Check; METHOD: PUT; IP_ADDRESS: ::1
+DATETIME: 7/22/2018 10:31:27 AM; ROUTE: api/Users/{sOktaId}/Okta; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/22/2018 10:31:30 AM; ROUTE: api/TrainingCourseQuizScores; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/22/2018 10:36:05 AM; ROUTE: api/Users/{sOktaId}/Check; METHOD: PUT; IP_ADDRESS: ::1
+DATETIME: 7/22/2018 10:36:05 AM; ROUTE: api/Users/{sOktaId}/Okta; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/22/2018 10:36:09 AM; ROUTE: api/TrainingCourseQuizScores; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/22/2018 10:36:17 AM; ROUTE: api/TrainingCourseQuizScores/{iUserId}/User; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/22/2018 10:36:21 AM; ROUTE: api/TrainingCourseQuizScores/{iUserId}/User; METHOD: GET; IP_ADDRESS: ::1
+DATETIME: 7/22/2018 10:36:47 AM; ROUTE: api/Users/{sOktaId}/Check; METHOD: PUT; IP_ADDRESS: ::1
+DATETIME: 7/22/2018 10:36:47 AM; ROUTE: api/Users/{sOktaId}/Okta; METHOD: GET; IP_ADDRESS: ::1
